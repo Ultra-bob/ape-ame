@@ -34,7 +34,7 @@ func _on_request_completed(result, response_code, headers, body):
 		print(scores)
 		var score = stopwatch.time_elapsed
 		print(score)
-		var placement = closest(score, scores) + 1
+		var placement = closest(score, scores)
 		print(placement)
 		
 		if placement < 50:
