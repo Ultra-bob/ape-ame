@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck1db6d8whbac"]
+[gd_scene load_steps=8 format=3 uid="uid://ck1db6d8whbac"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_omrmt"]
 [ext_resource type="Gradient" uid="uid://c41berdx2rqpw" path="res://gradient.tres" id="2_fq3us"]
 [ext_resource type="Script" path="res://InfiniteGradient.gd" id="3_7u2sq"]
 [ext_resource type="FontFile" uid="uid://dsw5w316y4v54" path="res://Preahvihear/Preahvihear-Regular.ttf" id="3_swfwl"]
-[ext_resource type="FontFile" uid="uid://tun7rjjlknsf" path="res://TwitterColorEmoji-SVGinOT-14.0.2/TwitterColorEmoji-SVGinOT.ttf" id="5_bjfro"]
 [ext_resource type="Script" path="res://Settings.gd" id="5_sarwv"]
 [ext_resource type="Script" path="res://EmojiValidator.gd" id="6_ojb71"]
 
@@ -133,6 +132,25 @@ theme_override_font_sizes/font_size = 50
 text = "SAVE"
 flat = true
 
+[node name="TextEdit" type="TextEdit" parent="Settings Panel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -398.0
+offset_top = 432.0
+offset_right = 398.0
+offset_bottom = -159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_font_sizes/font_size = 35
+text = "😀😃😄😁😆🥹😅😂🤣🥲☺️😊😇🙂🙃😉😌😍🥰😘😗😚😙😋😛😝😜🤪🤨🧐🤓😎🥸🤩🥳😏😒😞😔😟😕🙁😣☹️😖😫😩🥺😢😭😤😠😡🤬😥😰😨😱😶‍🌫️🥶🥵😳🤯😓🤗🤔🫣🤭🫢🫡🤫🫠🙄😬🫨😑🫤😐🫥😶🤥😯😦😧😮😲🥱😴🤤😪😷🤧🤮🤢🥴🤐😵‍💫😵😮‍💨🤒🤕🤑🤠😈👿👹👺🤡😺🎃🤖👾👽☠️💀👻💩😸😹😻😼😽🙀😿😾🫶✊👊👎👍🤝👏🙌👐🤲🤛🤜🫷🫸🤞✌️🫰🤟🤘👇👆👉👈🫴🫳🤏🤌👌☝️✋🤚🖖🖐️👋🤙🫲🫱🦿🦵🦶🫵🙏✍️🖕🦾💪💄💋👄🫦🦷👅👂🦻👃👥👤🗣️🧠🫁🫀👀👁️👣🫂👶🧒👧👦🧑👩👨🧑‍🦱"
+wrap_mode = 1
+autowrap_mode = 1
+
 [node name="Menu" type="GridContainer" parent="Settings Panel"]
 layout_mode = 1
 anchors_preset = 13
@@ -154,12 +172,13 @@ theme_override_font_sizes/font_size = 80
 text = "Useremoji"
 
 [node name="Username" type="LineEdit" parent="Settings Panel/Menu"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_fonts/font = ExtResource("5_bjfro")
+theme_override_fonts/font = ExtResource("3_swfwl")
 theme_override_font_sizes/font_size = 54
 alignment = 1
+max_length = 1
 script = ExtResource("6_ojb71")
 pattern = "\\p{Emoji}"
 

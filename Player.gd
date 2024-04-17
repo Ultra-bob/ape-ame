@@ -16,7 +16,7 @@ func _ready():
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
 	var move_input = Input.get_axis("down", "up")
-	var side_input = Input.get_axis("right", "left")
+	var side_input = Input.get_axis("left", "right")
 	if absolute_movement:
 		apply_central_force(Vector2(side_input * speed, move_input * speed) * -1)
 	else:
