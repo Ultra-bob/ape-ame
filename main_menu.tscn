@@ -1,0 +1,178 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck1db6d8whbac"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_omrmt"]
+[ext_resource type="Gradient" uid="uid://c41berdx2rqpw" path="res://gradient.tres" id="2_fq3us"]
+[ext_resource type="Script" path="res://InfiniteGradient.gd" id="3_7u2sq"]
+[ext_resource type="FontFile" uid="uid://dsw5w316y4v54" path="res://Preahvihear/Preahvihear-Regular.ttf" id="3_swfwl"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jya8r"]
+gradient = ExtResource("2_fq3us")
+width = 16384
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_omrmt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_right = 14312.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_jya8r")
+stretch_mode = 1
+script = ExtResource("3_7u2sq")
+speed = 100
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -539.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_font_sizes/font_size = 200
+text = "Quare Game"
+horizontal_alignment = 1
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -934.0
+offset_top = -326.0
+offset_right = -414.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_font_sizes/font_size = 100
+text = "CONFIG"
+flat = true
+
+[node name="Tutorial" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 353.0
+offset_top = -327.0
+offset_right = 873.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_font_sizes/font_size = 100
+text = "TUTORIAL"
+flat = true
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -173.0
+offset_top = -326.0
+offset_right = 173.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_font_sizes/font_size = 100
+text = " PLAY "
+flat = true
+
+[node name="Settings Panel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.619608)
+
+[node name="GridContainer" type="GridContainer" parent="Settings Panel"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -351.0
+offset_top = 170.0
+offset_right = 351.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Settings Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 80
+text = "Balls"
+
+[node name="TextEdit" type="TextEdit" parent="Settings Panel/GridContainer"]
+custom_minimum_size = Vector2(400, 2.08165e-12)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+placeholder_text = "kill you self"
+
+[node name="Tutorial Text" type="Label" parent="."]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_font_sizes/font_size = 64
+text = "You are gaming
+kill you're self"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial Text"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.654902)
+
+[node name="Button" type="Button" parent="Tutorial Text"]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 6.0
+offset_right = 63.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_font_sizes/font_size = 50
+text = "X"
+flat = true
+
+[connection signal="pressed" from="Tutorial" to="Tutorial Text" method="show"]
+[connection signal="pressed" from="Play" to="." method="play"]
+[connection signal="pressed" from="Tutorial Text/Button" to="Tutorial Text" method="hide"]

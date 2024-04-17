@@ -6,6 +6,8 @@ func _ready():
 	velocity = Vector2(speed, speed)
 
 func _physics_process(delta):
+	if get_tree().paused:
+		return
 	if get_last_slide_collision():
 		var collision: KinematicCollision2D = get_last_slide_collision()
 		if collision.get_collider():

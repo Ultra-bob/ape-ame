@@ -2,14 +2,16 @@ extends Label
 
 @export var stopwatch: Stopwatch
 
+const API_BASE = "https://flask-hello-world-nine-psi.vercel.app"
+
 func get_scores():
-	$HTTPRequest.request("https://flask-hello-world-nine-psi.vercel.app/leaderboard")
+	$HTTPRequest.request(API_BASE + "/leaderboard")
 	
 func submit_score():
 	var encrypted_score = "EGH" + Marshalls.utf8_to_base64(str(stopwatch.time_elapsed))
 	print(encrypted_score)
 	$HTTPRequest.request_completed.connect(_on_request_completed)
-	$HTTPRequest.request("https://flask-hello-world-nine-psi.vercel.app/leaderboard?score=%s" % encrypted_score, [], HTTPClient.METHOD_POST)
+	$HTTPRequest.request(API_BASE + "https://flask-hello-world-nine-psi.vercel.app/leaderboard?score=%s" % encrypted_score, [], HTTPClient.METHOD_POST)
 
 func _on_request_completed(result, response_code, headers, body):
 	if body.get_string_from_utf8() == "OK":
