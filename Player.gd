@@ -9,9 +9,12 @@ var num_quares = 0
 var max_quares = 3
 var exagons = 1
 var absolute_movement = false
+var config = ConfigFile.new()
 
 func _ready():
 	update_display()
+	if config.load("user://settings.cfg") == OK:
+		absolute_movement = not config.get_value("config", "relative_controls")
 
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
