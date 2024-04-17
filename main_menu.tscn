@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck1db6d8whbac"]
+[gd_scene load_steps=9 format=3 uid="uid://ck1db6d8whbac"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_omrmt"]
 [ext_resource type="Gradient" uid="uid://c41berdx2rqpw" path="res://gradient.tres" id="2_fq3us"]
 [ext_resource type="Script" path="res://InfiniteGradient.gd" id="3_7u2sq"]
 [ext_resource type="FontFile" uid="uid://dsw5w316y4v54" path="res://Preahvihear/Preahvihear-Regular.ttf" id="3_swfwl"]
+[ext_resource type="FontFile" uid="uid://tun7rjjlknsf" path="res://TwitterColorEmoji-SVGinOT-14.0.2/TwitterColorEmoji-SVGinOT.ttf" id="5_bjfro"]
+[ext_resource type="Script" path="res://Settings.gd" id="5_sarwv"]
+[ext_resource type="Script" path="res://EmojiValidator.gd" id="6_ojb71"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jya8r"]
 gradient = ExtResource("2_fq3us")
@@ -102,6 +105,7 @@ text = " PLAY "
 flat = true
 
 [node name="Settings Panel" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -109,8 +113,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.619608)
+script = ExtResource("5_sarwv")
 
-[node name="GridContainer" type="GridContainer" parent="Settings Panel"]
+[node name="Close" type="Button" parent="Settings Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -159.0
+offset_right = 72.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_font_sizes/font_size = 50
+text = "SAVE"
+flat = true
+
+[node name="Menu" type="GridContainer" parent="Settings Panel"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -124,17 +147,38 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 2
 
-[node name="Label" type="Label" parent="Settings Panel/GridContainer"]
+[node name="Label" type="Label" parent="Settings Panel/Menu"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 80
-text = "Balls"
+text = "Useremoji"
 
-[node name="TextEdit" type="TextEdit" parent="Settings Panel/GridContainer"]
-custom_minimum_size = Vector2(400, 2.08165e-12)
+[node name="Username" type="LineEdit" parent="Settings Panel/Menu"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
-placeholder_text = "kill you self"
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("5_bjfro")
+theme_override_font_sizes/font_size = 54
+alignment = 1
+script = ExtResource("6_ojb71")
+pattern = "\\p{Emoji}"
+
+[node name="Label2" type="Label" parent="Settings Panel/Menu"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 80
+text = "Movement   "
+
+[node name="Controls" type="OptionButton" parent="Settings Panel/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_font_sizes/font_size = 54
+item_count = 2
+selected = 0
+popup/item_0/text = "Relative"
+popup/item_0/id = 0
+popup/item_1/text = "Absolute"
+popup/item_1/id = 1
 
 [node name="Tutorial Text" type="Label" parent="."]
 visible = false
@@ -162,7 +206,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.654902)
 
-[node name="Button" type="Button" parent="Tutorial Text"]
+[node name="Close" type="Button" parent="Tutorial Text"]
 layout_mode = 1
 offset_left = 24.0
 offset_top = 6.0
@@ -173,6 +217,11 @@ theme_override_font_sizes/font_size = 50
 text = "X"
 flat = true
 
+[connection signal="pressed" from="Settings" to="Settings Panel" method="show"]
 [connection signal="pressed" from="Tutorial" to="Tutorial Text" method="show"]
 [connection signal="pressed" from="Play" to="." method="play"]
-[connection signal="pressed" from="Tutorial Text/Button" to="Tutorial Text" method="hide"]
+[connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="save"]
+[connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="hide"]
+[connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel" method="check_valid"]
+[connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel/Menu/Username" method="check"]
+[connection signal="pressed" from="Tutorial Text/Close" to="Tutorial Text" method="hide"]

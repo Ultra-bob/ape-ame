@@ -1,17 +1,24 @@
 extends Label
 
 @export var stopwatch: Stopwatch
+var config = ConfigFile.new()
 
-const API_BASE = "https://flask-hello-world-nine-psi.vercel.app"
+var API_BASE = "https://flask-hello-world-nine-psi.vercel.app" if not OS.is_debug_build() else "http://192.168.2.120:5001"
+
+func make_urlsafe(data: String):
+	return data.replace("+", "-").replace("/", "_")
 
 func get_scores():
 	$HTTPRequest.request(API_BASE + "/leaderboard")
 	
 func submit_score():
-	var encrypted_score = "EGH" + Marshalls.utf8_to_base64(str(stopwatch.time_elapsed))
+	var err = config.load("user://settings.cfg")
+	if not (err == OK and config.has_section_key("config", "username")):
+		text = "Error: No Username!\nSet a username in settings to submit scores"
+	var encrypted_score = "EGH" + make_urlsafe(Marshalls.utf8_to_base64(str(stopwatch.time_elapsed))) + "eHa" + make_urlsafe(Marshalls.utf8_to_base64(config.get_value("config", "username")))
 	print(encrypted_score)
 	$HTTPRequest.request_completed.connect(_on_request_completed)
-	$HTTPRequest.request(API_BASE + "https://flask-hello-world-nine-psi.vercel.app/leaderboard?score=%s" % encrypted_score, [], HTTPClient.METHOD_POST)
+	$HTTPRequest.request(API_BASE + "/leaderboard?score=%s" % encrypted_score, [], HTTPClient.METHOD_POST)
 
 func _on_request_completed(result, response_code, headers, body):
 	if body.get_string_from_utf8() == "OK":
@@ -20,12 +27,15 @@ func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	#print(json)
 	if json and "scores" in json:
-		var scores = json["scores"]
-		#print(scores)
+		var scoredata = json["scores"]
+		var scores = []
+		for score in scoredata:
+			scores.append(float(score[1]))
+		print(scores)
 		var score = stopwatch.time_elapsed
+		print(score)
 		var placement = closest(score, scores)
 		print(placement)
-		print(len(scores))
 		
 		if placement < 50:
 			text = "You placed #%d\n" % [placement]
@@ -33,7 +43,7 @@ func _on_request_completed(result, response_code, headers, body):
 			text = "You placed top %d%%\n" % [(float(placement) / len(scores)) * 100]
 		var n = 1
 		while n <= 5 and n <= len(scores):
-			text += "%d. %s\n" % [ n, seconds2mmss(scores[n-1]) ]
+			text += "%d. %s: %s\n" % [ n, scoredata[n-1][0], seconds2mmss(scores[n-1]) ]
 			n += 1
 
 func closest(my_number:int, my_array:Array)->int:
@@ -44,7 +54,9 @@ func closest(my_number:int, my_array:Array)->int:
 	var temp_delta:int = 0
 	# Loop through entire array
 	for i in range(my_array.size()):
-		if my_array[i] == my_number: return my_array[i] # exact match found!
+		if my_array[i] == my_number:
+			print("Exact Match!")
+			return my_array[i] # exact match found!
 		temp_delta = int(abs(my_array[i]-my_number))
 		if closest_delta == 0 or temp_delta < closest_delta:
 			closest_num = my_array[i]
