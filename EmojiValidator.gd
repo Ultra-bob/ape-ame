@@ -7,11 +7,14 @@ func check(tet):
 	if text == "":
 		return
 	print("Checking!")
-	print(text[0].unicode_at(0))
-	if OS.get_name() == "Web":
-		if text[0].unicode_at(0) < 100_000:
-			text = ""
-	else:
-		print(regex.search(text))
-		if regex.search(text) == null:
-			text = ""
+	if text.to_upper() != text:
+		var cursor = caret_column
+		text = text.to_upper()
+		caret_column = cursor
+	var result = regex.search(text)
+	if result == null:
+		text = ""
+	elif len(text) != result.get_end() and result.get_end() != 3:
+		var cursor = caret_column
+		text = text.substr(0, result.get_end())
+		caret_column = cursor

@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dsw5w316y4v54"
+uid="uid://ve8css0g3ldb"
 path="res://.godot/imported/Preahvihear-Regular.ttf-fe12a5de018003b711dd7856f0e35e17.fontdata"
 
 [deps]
@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Preahvihear-Regular.ttf-fe12a5de018003b711dd7
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
-multichannel_signed_distance_field=false
+multichannel_signed_distance_field=true
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
@@ -24,9 +24,9 @@ hinting=1
 subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
-fallbacks=[Resource("res://TwitterColorEmoji-SVGinOT-14.0.2/TwitterColorEmoji-SVGinOT.ttf")]
+fallbacks=[]
 Compress=null
-compress=true
+compress=false
 preload=[]
 language_support={}
 script_support={}

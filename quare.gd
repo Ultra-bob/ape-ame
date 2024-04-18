@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+func _ready():
+	$AnimatedSprite.play("idle")
 
 func destroy():
 	var timer = Timer.new()

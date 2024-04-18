@@ -14,7 +14,7 @@ func _process(delta):
 	check_valid("")
 
 func check_valid(none):
-	$Close.disabled = $Menu/Username.text == ""
+	$Close.disabled = len($Menu/Username.text) != 3
 
 func save():
 	config.set_value("config", "username", $Menu/Username.text)
@@ -22,3 +22,4 @@ func save():
 	
 	print("Saving!")
 	config.save("user://settings.cfg")
+	$"../Play".disabled = false

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://TextCollision.gd" id="1_hy18x"]
 [ext_resource type="Script" path="res://Spawner.gd" id="1_ifu8g"]
 [ext_resource type="Script" path="res://GameManager.gd" id="1_k8sg3"]
-[ext_resource type="FontFile" uid="uid://dsw5w316y4v54" path="res://Preahvihear/Preahvihear-Regular.ttf" id="2_0a4qt"]
+[ext_resource type="FontFile" uid="uid://ve8css0g3ldb" path="res://Preahvihear/Preahvihear-Regular.ttf" id="2_0a4qt"]
 [ext_resource type="Script" path="res://Countdown.gd" id="2_qroir"]
 [ext_resource type="PackedScene" uid="uid://4lc6bvf7b8a0" path="res://ircle.tscn" id="3_7jxvc"]
 [ext_resource type="PhysicsMaterial" uid="uid://c5tm7od8mwjjb" path="res://elastic.tres" id="4_bx3xr"]
