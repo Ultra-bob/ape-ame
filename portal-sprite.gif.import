@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://cejgerinde63x"
+path="res://.godot/imported/portal-sprite.gif-97fd47c3b8c83e35c7f6fff190180c12.tres"
+
+[deps]
+
+source_file="res://portal-sprite.gif"
+dest_files=["res://.godot/imported/portal-sprite.gif-97fd47c3b8c83e35c7f6fff190180c12.tres"]
+
+[params]
+
+frames_per_second=30

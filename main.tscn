@@ -1,17 +1,16 @@
-[gd_scene load_steps=31 format=3 uid="uid://bmd4m7lqj4v0x"]
+[gd_scene load_steps=27 format=3 uid="uid://bmd4m7lqj4v0x"]
 
-[ext_resource type="Script" path="res://InfiniteGradient.gd" id="1_0hjpt"]
-[ext_resource type="Script" path="res://TextCollision.gd" id="1_hy18x"]
 [ext_resource type="Script" path="res://Spawner.gd" id="1_ifu8g"]
 [ext_resource type="Script" path="res://GameManager.gd" id="1_k8sg3"]
 [ext_resource type="FontFile" uid="uid://ve8css0g3ldb" path="res://Preahvihear/Preahvihear-Regular.ttf" id="2_0a4qt"]
-[ext_resource type="Script" path="res://Countdown.gd" id="2_qroir"]
 [ext_resource type="PackedScene" uid="uid://4lc6bvf7b8a0" path="res://ircle.tscn" id="3_7jxvc"]
 [ext_resource type="PhysicsMaterial" uid="uid://c5tm7od8mwjjb" path="res://elastic.tres" id="4_bx3xr"]
 [ext_resource type="PackedScene" uid="uid://yu50iyftoyaj" path="res://riangle.tscn" id="4_icpv2"]
 [ext_resource type="Gradient" uid="uid://c41berdx2rqpw" path="res://gradient.tres" id="4_yk0bb"]
 [ext_resource type="Script" path="res://Clock.gd" id="5_7po8n"]
+[ext_resource type="Texture2D" uid="uid://cx7ded6cxsxfr" path="res://black.png" id="6_sn16e"]
 [ext_resource type="PackedScene" uid="uid://cgcjicue76wsr" path="res://player.tscn" id="7_ujibo"]
+[ext_resource type="SpriteFrames" uid="uid://8b07jl81sgcb" path="res://countdown.gif" id="9_4eosh"]
 [ext_resource type="Script" path="res://CollisionCheck.gd" id="11_ryeyk"]
 [ext_resource type="Texture2D" uid="uid://cso5ufbf7u7oj" path="res://Circle.png" id="13_318fy"]
 [ext_resource type="Script" path="res://Notification.gd" id="13_lkv81"]
@@ -19,20 +18,8 @@
 [ext_resource type="Script" path="res://Leaderboard.gd" id="14_v1elq"]
 [ext_resource type="PackedScene" uid="uid://c54oi61t8bvtu" path="res://entagon.tscn" id="18_jl3xw"]
 
-[sub_resource type="Gradient" id="Gradient_bi1rk"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.0509804, 0.0509804, 0.0509804, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_f0jwl"]
-gradient = SubResource("Gradient_bi1rk")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7w8g6"]
-size = Vector2(638.5, 225.5)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vrv6v"]
-gradient = ExtResource("4_yk0bb")
-width = 4096
+size = Vector2(328, 185.333)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o86fr"]
 
@@ -95,7 +82,8 @@ offset_left = 2.0
 offset_top = -5.0
 offset_right = 50002.0
 offset_bottom = 49995.0
-texture = SubResource("GradientTexture1D_f0jwl")
+texture = ExtResource("6_sn16e")
+stretch_mode = 1
 
 [node name="Clock" type="CharacterBody2D" parent="."]
 position = Vector2(201, 200)
@@ -105,47 +93,16 @@ motion_mode = 1
 script = ExtResource("5_7po8n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Clock"]
-position = Vector2(194.438, 192)
+position = Vector2(0, 0.5)
 scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_7w8g6")
-script = ExtResource("1_hy18x")
 
-[node name="Label" type="Label" parent="Clock"]
-clip_children = 2
-clip_contents = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 57.0
-offset_top = 55.0
-offset_right = 476.0
-offset_bottom = 418.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.75, 0.75)
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_0a4qt")
-theme_override_font_sizes/font_size = 200
-text = "9:24"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("2_qroir")
-
-[node name="TextureRect" type="TextureRect" parent="Clock/Label"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -6.28319
-texture = SubResource("GradientTexture1D_vrv6v")
-stretch_mode = 1
-script = ExtResource("1_0hjpt")
-
-[node name="HTTPRequest" type="HTTPRequest" parent="Clock/Label"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Clock"]
+texture_filter = 1
+position = Vector2(0, 51)
+sprite_frames = ExtResource("9_4eosh")
+animation = &"gif"
+autoplay = "gif"
 
 [node name="Border" type="StaticBody2D" parent="."]
 physics_material_override = ExtResource("4_bx3xr")

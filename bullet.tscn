@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6ybtahxwpukd"]
+[gd_scene load_steps=7 format=3 uid="uid://c6ybtahxwpukd"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_3q13i"]
-[ext_resource type="Texture2D" uid="uid://cso5ufbf7u7oj" path="res://Circle.png" id="1_if042"]
-[ext_resource type="Gradient" uid="uid://c41berdx2rqpw" path="res://gradient.tres" id="2_cbxu4"]
+[ext_resource type="SpriteFrames" uid="uid://ixubgtxowne7" path="res://bullets.gif" id="2_iifjj"]
 [ext_resource type="Texture2D" uid="uid://djfjdlri5xdkn" path="res://dotted line.png" id="4_h1jno"]
 [ext_resource type="Script" path="res://TrajectoryDisplay.gd" id="5_0jcwc"]
 
@@ -12,10 +11,6 @@ bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5cca"]
 radius = 13.0
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_tltp1"]
-gradient = ExtResource("2_cbxu4")
-width = 1024
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 2
@@ -30,18 +25,15 @@ script = ExtResource("1_3q13i")
 rotation = -1.5708
 shape = SubResource("CircleShape2D_b5cca")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-clip_children = 1
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_if042")
-
-[node name="TextureRect" type="TextureRect" parent="Sprite2D"]
-offset_left = -280.0
-offset_top = -280.0
-offset_right = 744.0
-offset_bottom = -240.0
-scale = Vector2(1, 13.8)
-texture = SubResource("GradientTexture1D_tltp1")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.0234375, -0.00781251)
+rotation = 1.5708
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("2_iifjj")
+animation = &"gif"
+autoplay = "gif"
+offset = Vector2(7.05637, 10.7826)
 
 [node name="TrajectoryDisplay" type="Line2D" parent="."]
 z_index = -1

@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://dt3chppm3qub7"
+path="res://.godot/imported/riangle.gif-caa79ebfc0c2c280f2898463cf930386.tres"
+
+[deps]
+
+source_file="res://riangle.gif"
+dest_files=["res://.godot/imported/riangle.gif-caa79ebfc0c2c280f2898463cf930386.tres"]
+
+[params]
+
+frames_per_second=30

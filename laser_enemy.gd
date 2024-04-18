@@ -1,7 +1,11 @@
 extends StaticBody2D
 
 @onready var player = $"../Player"
+var idle_texture = preload("res://dotted line.png")
+var aiming_texture = preload("res://laser_idle.png")
+var active_texture = preload("res://ircle_laser.gif")
 var aiming = true
+var can_damage = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,35 +16,45 @@ func _ready():
 func _process(delta):
 	if aiming:
 		look_at(player.global_position)
+	if can_damage:
+		var body = $Line2D/RayCast2D.get_collider()
+		if body != null and body.is_in_group("destructible"):
+			if body.has_method("destroy"):
+				body.destroy()
+			else:
+				body.queue_free()
+			can_damage = false
 
 func fire_laser():
 	var tween = get_tree().create_tween()
-	
+	$Sprite2D.play("gif")
 	aiming = false
 	tween.set_parallel(true)
-	tween.tween_property($Sprite2D/TextureRect, "position", Vector2(-2000, -370), 1).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_callback(set_laser_texture.bind(aiming_texture))
 	tween.tween_property($Line2D, "modulate", Color.WHITE, 1).set_ease(Tween.EASE_IN)
 	tween.set_parallel(false)
+	tween.tween_callback(can_shoot.bind(true))
+	tween.tween_callback(set_laser_texture.bind(active_texture))
+	tween.tween_callback($Sprite2D.pause)
 	tween.tween_callback($Line2D.fire)
 	tween.tween_interval(0.2)
-	tween.tween_callback(check_player)
+	tween.tween_callback(can_shoot.bind(false))
+	tween.tween_callback(set_laser_texture.bind(aiming_texture))
 	tween.set_parallel(true)
 	tween.tween_property($Line2D, "modulate", Color(Color.WHITE, 0.2), 0.2).set_ease(Tween.EASE_OUT)
-	tween.tween_property($Sprite2D/TextureRect, "position", Vector2(-1700, -370), 0.5).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_callback($Sprite2D.stop)
 	tween.set_parallel(false)
 	tween.tween_callback(start_aim)
+	tween.tween_callback(set_laser_texture.bind(idle_texture))
 	
+func set_laser_texture(texture):
+	$Line2D.texture = texture
+
 func start_aim():
 	aiming = true
 	
-func check_player():
-	var body = $Line2D/RayCast2D.get_collider()
-	if body != null and body.is_in_group("destructible"):
-		if body.has_method("destroy"):
-			body.destroy()
-		else:
-			body.queue_free()
-
+func can_shoot(yn):
+	can_damage = yn
 
 func hit(body: Node2D):
 	if body.name == "Clock":

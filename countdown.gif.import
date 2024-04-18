@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://8b07jl81sgcb"
+path="res://.godot/imported/countdown.gif-98c459a3bd57109c3a7a1994512b90f9.tres"
+
+[deps]
+
+source_file="res://countdown.gif"
+dest_files=["res://.godot/imported/countdown.gif-98c459a3bd57109c3a7a1994512b90f9.tres"]
+
+[params]
+
+frames_per_second=30

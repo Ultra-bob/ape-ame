@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://6oj6l7lnsjhi"
+path="res://.godot/imported/exagon.gif-656773424f085c6c02f4df86494098c6.tres"
+
+[deps]
+
+source_file="res://exagon.gif"
+dest_files=["res://.godot/imported/exagon.gif-656773424f085c6c02f4df86494098c6.tres"]
+
+[params]
+
+frames_per_second=30

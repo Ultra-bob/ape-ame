@@ -2,6 +2,9 @@ extends RigidBody2D
 
 var bounces = 0
 
+func _process(delta):
+	$Sprite2D.global_rotation = linear_velocity.angle() + deg_to_rad(90)
+
 func hit(body):	
 	if body.is_in_group("destructible"):
 		if body.has_method("destroy"):

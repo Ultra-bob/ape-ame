@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://bhut2leth5pcl"
+path="res://.godot/imported/portal-mask.gif-2b400c284dba35e66ceaf3d4df8621a3.tres"
+
+[deps]
+
+source_file="res://portal-mask.gif"
+dest_files=["res://.godot/imported/portal-mask.gif-2b400c284dba35e66ceaf3d4df8621a3.tres"]
+
+[params]
+
+frames_per_second=30

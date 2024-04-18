@@ -11,15 +11,35 @@ var exagons = 1
 var absolute_movement = false
 var config = ConfigFile.new()
 
+const idle_anim = preload("res://player_idle.gif")
+const moving_anim = preload("res://player_moving.gif")
+var moving = false
+
 func _ready():
 	update_display()
+	update_animation()
 	if config.load("user://settings.cfg") == OK:
 		absolute_movement = not config.get_value("config", "relative_controls")
+
+func update_animation():
+	if moving:
+		$AnimatedSprite2D.sprite_frames = moving_anim
+	else:
+		$AnimatedSprite2D.sprite_frames = idle_anim
+		
+	$AnimatedSprite2D.play("gif")
 
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
 	var move_input = Input.get_axis("down", "up")
 	var side_input = Input.get_axis("right", "left")
+	if move_input > 0 and not moving:
+		moving = true
+		update_animation()
+	elif move_input <= 0 and moving:
+		moving = false
+		update_animation()
+	
 	if absolute_movement:
 		apply_central_force(Vector2(side_input * speed, move_input * speed) * -1)
 	else:
@@ -44,6 +64,8 @@ func _input(event):
 		new_quare.name = "Quare"
 		update_display()
 	if event.is_action_pressed("exagon"):
+		if exagons > 1:
+			exagons = 1
 		if exagons <= 0:
 			notifier.notify("No Exagons!")
 			return

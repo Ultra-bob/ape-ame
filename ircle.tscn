@@ -1,12 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://4lc6bvf7b8a0"]
+[gd_scene load_steps=6 format=3 uid="uid://4lc6bvf7b8a0"]
 
+[ext_resource type="Texture2D" uid="uid://djfjdlri5xdkn" path="res://dotted line.png" id="2_3i0n3"]
 [ext_resource type="Script" path="res://laser_enemy.gd" id="2_lyi2i"]
 [ext_resource type="Script" path="res://Laser.gd" id="3_hosl5"]
-[ext_resource type="Texture2D" uid="uid://cso5ufbf7u7oj" path="res://Circle.png" id="4_kq1iu"]
-[ext_resource type="Gradient" uid="uid://c41berdx2rqpw" path="res://gradient.tres" id="5_4gq2q"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_cis1o"]
-gradient = ExtResource("5_4gq2q")
+[ext_resource type="SpriteFrames" uid="uid://d320lntdiw2kj" path="res://ircle.gif" id="3_ys12y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yns8h"]
 radius = 128.0
@@ -17,10 +14,13 @@ script = ExtResource("2_lyi2i")
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -2
-points = PackedVector2Array(0, 0, 5000, 2.08165e-12)
-width = 100.0
-default_color = Color(0.886275, 0.254902, 0.254902, 1)
-end_cap_mode = 2
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-65, 0)
+points = PackedVector2Array(0, 0, 1075, 0)
+width = 144.33
+texture = ExtResource("2_3i0n3")
+texture_mode = 1
 script = ExtResource("3_hosl5")
 
 [node name="VisibleTimer" type="Timer" parent="Line2D"]
@@ -30,23 +30,15 @@ wait_time = 0.2
 target_position = Vector2(50000, 2.08165e-12)
 collision_mask = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-clip_children = 1
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_kq1iu")
-
-[node name="TextureRect" type="TextureRect" parent="Sprite2D"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1700.0
-offset_top = -370.0
-offset_right = -1700.0
-offset_bottom = -370.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5, 2)
-texture = SubResource("GradientTexture1D_cis1o")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-7.62939e-06, 7.62939e-06)
+scale = Vector2(10.8333, 10.8333)
+sprite_frames = ExtResource("3_ys12y")
+animation = &"gif"
+frame = 1
+frame_progress = 0.670607
+speed_scale = 2.6
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://chn8kuplnjxik"]
+
+[ext_resource type="SpriteFrames" uid="uid://cejgerinde63x" path="res://portal-sprite.gif" id="1_17yb8"]
+[ext_resource type="SpriteFrames" uid="uid://bhut2leth5pcl" path="res://portal-mask.gif" id="2_pxlsc"]
+[ext_resource type="PackedScene" uid="uid://yu50iyftoyaj" path="res://riangle.tscn" id="3_r3mwi"]
+
+[node name="Portal" type="Node2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3, 0)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("1_17yb8")
+animation = &"gif"
+autoplay = "gif"
+
+[node name="Mask" type="AnimatedSprite2D" parent="."]
+clip_children = 1
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("2_pxlsc")
+animation = &"gif"
+autoplay = "gif"
+
+[node name="Riangle" parent="Mask" instance=ExtResource("3_r3mwi")]
+scale = Vector2(0.083, 0.083)
