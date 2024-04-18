@@ -16,9 +16,7 @@ script = ExtResource("2_iatrf")
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.41138, 2.42673)
 sprite_frames = ExtResource("4_js2va")
-animation = &"idle"
-frame = 16
-frame_progress = 0.469968
+animation = &"gif"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e1p40")
