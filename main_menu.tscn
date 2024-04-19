@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_omrmt"]
 [ext_resource type="Gradient" uid="uid://c41berdx2rqpw" path="res://gradient.tres" id="2_fq3us"]
 [ext_resource type="Script" path="res://InfiniteGradient.gd" id="3_7u2sq"]
-[ext_resource type="FontFile" uid="uid://ve8css0g3ldb" path="res://Preahvihear/Preahvihear-Regular.ttf" id="3_swfwl"]
+[ext_resource type="FontFile" uid="uid://bnguin7bsyx6e" path="res://Kenney Future.ttf" id="4_ybv7t"]
 [ext_resource type="Script" path="res://Settings.gd" id="5_sarwv"]
 [ext_resource type="Script" path="res://EmojiValidator.gd" id="6_ojb71"]
 
@@ -44,64 +44,49 @@ offset_top = -539.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 200
 text = "Quare Game"
 horizontal_alignment = 1
 
-[node name="Settings" type="Button" parent="."]
+[node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -934.0
-offset_top = -326.0
-offset_right = -414.0
-offset_bottom = -136.0
+offset_top = -450.0
+offset_bottom = -79.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_swfwl")
+alignment = 1
+
+[node name="Play" type="Button" parent="Layout"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_ybv7t")
+theme_override_font_sizes/font_size = 100
+text = "PLAY"
+flat = true
+
+[node name="Settings" type="Button" parent="Layout"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 100
 text = "CONFIG"
 flat = true
+alignment = 0
 
-[node name="Tutorial" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 353.0
-offset_top = -327.0
-offset_right = 873.0
-offset_bottom = -137.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_swfwl")
+[node name="Tutorial" type="Button" parent="Layout"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 100
 text = "TUTORIAL"
 flat = true
-
-[node name="Play" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -173.0
-offset_top = -326.0
-offset_right = 173.0
-offset_bottom = -136.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_swfwl")
-theme_override_font_sizes/font_size = 100
-text = " PLAY "
-flat = true
+alignment = 2
 
 [node name="Settings Panel" type="ColorRect" parent="."]
 visible = false
@@ -127,7 +112,7 @@ offset_right = 72.0
 offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 50
 text = "SAVE"
 flat = true
@@ -149,6 +134,7 @@ columns = 2
 [node name="Label" type="Label" parent="Settings Panel/Menu"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 80
 text = "Username"
 
@@ -156,7 +142,7 @@ text = "Username"
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 54
 placeholder_text = "USR"
 alignment = 1
@@ -167,12 +153,13 @@ pattern = "^[A-Za-z]+"
 [node name="Label2" type="Label" parent="Settings Panel/Menu"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 80
 text = "Movement   "
 
 [node name="Controls" type="OptionButton" parent="Settings Panel/Menu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 54
 item_count = 2
 selected = 0
@@ -190,10 +177,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 64
-text = "You are gaming
-kill you're self"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -213,14 +198,14 @@ offset_left = 24.0
 offset_top = 6.0
 offset_right = 63.0
 offset_bottom = 106.0
-theme_override_fonts/font = ExtResource("3_swfwl")
+theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 50
 text = "X"
 flat = true
 
-[connection signal="pressed" from="Settings" to="Settings Panel" method="show"]
-[connection signal="pressed" from="Tutorial" to="Tutorial Text" method="show"]
-[connection signal="pressed" from="Play" to="." method="play"]
+[connection signal="pressed" from="Layout/Play" to="." method="play"]
+[connection signal="pressed" from="Layout/Settings" to="Settings Panel" method="show"]
+[connection signal="pressed" from="Layout/Tutorial" to="Tutorial Text" method="show"]
 [connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="save"]
 [connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="hide"]
 [connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel" method="check_valid"]

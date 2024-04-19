@@ -1,7 +1,8 @@
 extends ShapeCast2D
 
-func is_clear(area: Vector2):
+func is_clear(area: Vector2, radius=100):
 	position = area
+	shape.radius = radius
 	force_shapecast_update()
 	return get_collision_count() == 0
 

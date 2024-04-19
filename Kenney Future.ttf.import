@@ -2,20 +2,20 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ve8css0g3ldb"
-path="res://.godot/imported/Preahvihear-Regular.ttf-fe12a5de018003b711dd7856f0e35e17.fontdata"
+uid="uid://bnguin7bsyx6e"
+path="res://.godot/imported/Kenney Future.ttf-fd1f813a9c064cd591bf3582d7978539.fontdata"
 
 [deps]
 
-source_file="res://Preahvihear/Preahvihear-Regular.ttf"
-dest_files=["res://.godot/imported/Preahvihear-Regular.ttf-fe12a5de018003b711dd7856f0e35e17.fontdata"]
+source_file="res://Kenney Future.ttf"
+dest_files=["res://.godot/imported/Kenney Future.ttf-fd1f813a9c064cd591bf3582d7978539.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
-multichannel_signed_distance_field=true
+multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
@@ -26,7 +26,7 @@ oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=false
+compress=true
 preload=[]
 language_support={}
 script_support={}

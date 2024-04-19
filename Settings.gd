@@ -5,7 +5,7 @@ var config = ConfigFile.new()
 func _ready():
 	var has_config = config.load("user://settings.cfg") == OK
 	print(has_config)
-	$"../Play".disabled = not has_config
+	$"../Layout/Play".disabled = not has_config
 	if has_config:
 		$Menu/Username.text = config.get_value("config", "username")
 		$Menu/Controls.selected = 0 if config.get_value("config", "relative_controls") else 1
@@ -22,4 +22,4 @@ func save():
 	
 	print("Saving!")
 	config.save("user://settings.cfg")
-	$"../Play".disabled = false
+	$"../Layout/Play".disabled = false

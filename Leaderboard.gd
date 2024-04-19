@@ -1,9 +1,9 @@
-extends Label
+extends RichTextLabel
 
 @export var stopwatch: Stopwatch
 var config = ConfigFile.new()
 
-var API_BASE = "https://flask-hello-world-nine-psi.vercel.app" if not OS.is_debug_build() else "http://192.168.2.120:5001"
+var API_BASE = "https://flask-hello-world-nine-psi.vercel.app"
 
 func make_urlsafe(data: String):
 	return data.replace("+", "-").replace("/", "_")
@@ -31,19 +31,19 @@ func _on_request_completed(result, response_code, headers, body):
 		var scores = []
 		for score in scoredata:
 			scores.append(float(score[1]))
-		print(scores)
+		#print(scores)
 		var score = stopwatch.time_elapsed
-		print(score)
+		#print(score)
 		var placement = closest(score, scores)
-		print(placement)
+		#print(placement)
 		
 		if placement < 50:
-			text = "You placed #%d\n" % [placement]
+			text = "[center]You placed #%d\n[/center]" % [placement]
 		else:
-			text = "You placed top %d%%\n" % [(float(placement) / len(scores)) * 100]
+			text = "[center]You placed top %d%%\n[/center]" % [(float(placement) / len(scores)) * 100]
 		var n = 1
-		while n <= 5 and n <= len(scores):
-			text += "%d. %s: %s\n" % [ n, scoredata[n-1][0], seconds2mmss(scores[n-1]) ]
+		while n <= 50 and n <= len(scores):
+			text += "%d.\t\t%s:\t\t%s\n" % [ n, scoredata[n-1][0], seconds2mmss(scores[n-1]) ]
 			n += 1
 
 func closest(my_number:int, my_array:Array)->int:

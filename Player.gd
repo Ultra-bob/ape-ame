@@ -53,7 +53,7 @@ func _input(event):
 			notifier.notify("All Quares in Use!")
 			return
 		
-		if not $"../CollisionCheck".is_clear(get_global_mouse_position()):
+		if not $"../CollisionCheck".is_clear(get_global_mouse_position(), 60):
 			$"../CollisionCheck".flash()
 			notifier.notify("Too Close!")
 			return
