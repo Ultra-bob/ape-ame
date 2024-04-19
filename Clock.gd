@@ -10,6 +10,9 @@ func _physics_process(delta):
 		return
 	if get_last_slide_collision():
 		var collision: KinematicCollision2D = get_last_slide_collision()
+		if collision.get_collider() and collision.get_collider().name == "Bullet":
+			print(collision.get_collider().name)
+			collision.get_collider().queue_free()
 		if collision.get_collider():
 			hit(collision.get_collider())
 		velocity = velocity.bounce(clamp_to_1bit(collision.get_normal()))

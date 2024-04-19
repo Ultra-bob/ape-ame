@@ -64,7 +64,7 @@ script = ExtResource("1_ifu8g")
 item = ExtResource("4_icpv2")
 
 [node name="Timer" type="Timer" parent="Spawner2"]
-wait_time = 4.0
+wait_time = 4.2
 autostart = true
 
 [node name="Spawner3" type="Marker2D" parent="."]
