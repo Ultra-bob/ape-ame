@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c54oi61t8bvtu"]
+[gd_scene load_steps=6 format=3 uid="uid://c54oi61t8bvtu"]
 
 [ext_resource type="Script" path="res://Entagon.gd" id="1_726g8"]
 [ext_resource type="PhysicsMaterial" uid="uid://c5tm7od8mwjjb" path="res://elastic.tres" id="1_pvpk5"]
 [ext_resource type="SpriteFrames" uid="uid://cffqo7q1ofatc" path="res://entagon.gif" id="3_116st"]
+[ext_resource type="Texture2D" uid="uid://djfjdlri5xdkn" path="res://dotted line.png" id="4_vixiu"]
+[ext_resource type="Script" path="res://TrajectoryDisplay.gd" id="5_w6b4q"]
 
 [node name="Entagon" type="RigidBody2D"]
 physics_material_override = ExtResource("1_pvpk5")
@@ -24,5 +26,21 @@ autoplay = "gif"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.1, 0.1)
 polygon = PackedVector2Array(-10, -230, 210, -60, 140, 170, -130, 170, -230, -50)
+
+[node name="TrajectoryDisplay" type="Line2D" parent="."]
+z_index = -1
+texture_repeat = 2
+position = Vector2(-2, 0)
+points = PackedVector2Array(0, 0, 100, 0)
+width = 50.0
+default_color = Color(0.909804, 0.717647, 0.337255, 0.529412)
+texture = ExtResource("4_vixiu")
+texture_mode = 1
+script = ExtResource("5_w6b4q")
+target_shield = true
+
+[node name="RayCast2D" type="RayCast2D" parent="TrajectoryDisplay"]
+target_position = Vector2(5000, 2.08165e-12)
+collision_mask = 3
 
 [connection signal="body_entered" from="." to="." method="hit"]

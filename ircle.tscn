@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://4lc6bvf7b8a0"]
+[gd_scene load_steps=7 format=3 uid="uid://4lc6bvf7b8a0"]
 
 [ext_resource type="Texture2D" uid="uid://djfjdlri5xdkn" path="res://dotted line.png" id="2_3i0n3"]
 [ext_resource type="Script" path="res://laser_enemy.gd" id="2_lyi2i"]
 [ext_resource type="Script" path="res://Laser.gd" id="3_hosl5"]
 [ext_resource type="SpriteFrames" uid="uid://d320lntdiw2kj" path="res://ircle.gif" id="3_ys12y"]
+[ext_resource type="AudioStream" uid="uid://fyudre3xo1j2" path="res://laser4.ogg" id="5_1qck7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yns8h"]
 radius = 128.0
@@ -46,6 +47,9 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yns8h")
+
+[node name="LaserFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_1qck7")
 
 [connection signal="timeout" from="Line2D/VisibleTimer" to="Line2D" method="hide_self"]
 [connection signal="timeout" from="Timer" to="." method="fire_laser"]

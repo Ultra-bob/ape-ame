@@ -85,16 +85,19 @@ func _input(event):
 func aquire_quare():
 	await get_tree().create_timer(3).timeout
 	num_quares -= 1
+	$QuareFX.play()
 	update_display()
 	
 func aquire_exagon():
 	await get_tree().create_timer(15).timeout
 	exagons += 1
+	$ExagonFX.play()
 	update_display()
 
 func update_display():
 	$"../UI/Quare Count".text = "%d Quares\n%d Exagons" % [(max_quares - num_quares), exagons]
 
 func destroy():
+	$DeathFX.play()
 	get_tree().paused = true
 	$"../GameOver".visible = true

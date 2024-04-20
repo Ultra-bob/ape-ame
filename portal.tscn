@@ -1,26 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://chn8kuplnjxik"]
+[gd_scene load_steps=7 format=3 uid="uid://chn8kuplnjxik"]
 
-[ext_resource type="SpriteFrames" uid="uid://cejgerinde63x" path="res://portal-sprite.gif" id="1_17yb8"]
-[ext_resource type="SpriteFrames" uid="uid://bhut2leth5pcl" path="res://portal-mask.gif" id="2_pxlsc"]
-[ext_resource type="PackedScene" uid="uid://yu50iyftoyaj" path="res://riangle.tscn" id="3_r3mwi"]
+[ext_resource type="Texture2D" uid="uid://baaak3ooc6rvq" path="res://Hexagon.png" id="1_lhm7s"]
 
-[node name="Portal" type="Node2D"]
+[sub_resource type="Gradient" id="Gradient_ejv0r"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.278689, 0.737705, 1)
+colors = PackedColorArray(1, 0.6, 0, 0, 1, 0.6, 0, 1, 1, 0.6, 0, 1, 1, 0.6, 0, 0)
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-3, 0)
-scale = Vector2(3, 3)
-sprite_frames = ExtResource("1_17yb8")
-animation = &"gif"
-autoplay = "gif"
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mfh8i"]
+gradient = SubResource("Gradient_ejv0r")
 
-[node name="Mask" type="AnimatedSprite2D" parent="."]
-clip_children = 1
-texture_filter = 1
-scale = Vector2(3, 3)
-sprite_frames = ExtResource("2_pxlsc")
-animation = &"gif"
-autoplay = "gif"
+[sub_resource type="Curve" id="Curve_imaul"]
+min_value = -10.0
+max_value = 10.0
+_data = [Vector2(0, -10), 0.0, 0.0, 0, 0, Vector2(1, 2.74725), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[node name="Riangle" parent="Mask" instance=ExtResource("3_r3mwi")]
-scale = Vector2(0.083, 0.083)
+[sub_resource type="CurveTexture" id="CurveTexture_6sfnf"]
+curve = SubResource("Curve_imaul")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e6bpl"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 200.0
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 1.0
+radial_accel_max = 2.0
+radial_accel_curve = SubResource("CurveTexture_6sfnf")
+tangential_accel_min = 1.0
+tangential_accel_max = 5.0
+scale_min = 0.02
+scale_max = 0.02
+color_ramp = SubResource("GradientTexture1D_mfh8i")
+
+[node name="Spawner" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 10
+emitting = false
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_e6bpl")
+texture = ExtResource("1_lhm7s")
+lifetime = 5.0
+one_shot = true

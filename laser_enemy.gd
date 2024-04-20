@@ -32,6 +32,7 @@ func fire_laser():
 	tween.set_parallel(true)
 	tween.tween_callback(set_laser_texture.bind(aiming_texture))
 	tween.tween_property($Line2D, "modulate", Color.WHITE, 1).set_ease(Tween.EASE_IN)
+	tween.tween_callback(play_with_delay)
 	tween.set_parallel(false)
 	tween.tween_callback(can_shoot.bind(true))
 	tween.tween_callback(set_laser_texture.bind(active_texture))
@@ -47,6 +48,10 @@ func fire_laser():
 	tween.tween_callback(start_aim)
 	tween.tween_callback(set_laser_texture.bind(idle_texture))
 	
+func play_with_delay():
+	await get_tree().create_timer(0.75).timeout
+	$LaserFX.play()
+	
 func set_laser_texture(texture):
 	$Line2D.texture = texture
 
@@ -55,10 +60,3 @@ func start_aim():
 	
 func can_shoot(yn):
 	can_damage = yn
-
-func hit(body: Node2D):
-	if body.name == "Clock":
-		queue_free()
-	elif body.name == "Bullet":
-		body.queue_free()
-		queue_free()

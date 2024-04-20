@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgcjicue76wsr"]
+[gd_scene load_steps=7 format=3 uid="uid://cgcjicue76wsr"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_bu0dg"]
 [ext_resource type="SpriteFrames" uid="uid://cmkptgd3k37bl" path="res://player_idle.gif" id="2_c8tq3"]
+[ext_resource type="AudioStream" uid="uid://cuu1qqskoqabg" path="res://Taco_Bell_Bong.ogg" id="3_urvwh"]
+[ext_resource type="AudioStream" uid="uid://cbghiy80qmaa0" path="res://powerUp6.ogg" id="4_i2tip"]
+[ext_resource type="AudioStream" uid="uid://mond5sdmukan" path="res://powerUp7.ogg" id="5_bu8ku"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxtxc"]
+radius = 16.0
 
 [node name="Player" type="RigidBody2D" groups=["destructible"]]
 position = Vector2(-42, 74)
@@ -16,8 +22,14 @@ sprite_frames = ExtResource("2_c8tq3")
 animation = &"gif"
 speed_scale = 0.75
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-rotation = 1.5708
-scale = Vector2(0.1, 0.1)
-polygon = PackedVector2Array(0, -155, 23, -147, 249, 89, 259, 113, 246, 142, 216, 155, 178, 148, 0, 52, -187, 150, -232, 148, -257, 116, -250, 89, -38, -136, -21, -147)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nxtxc")
+
+[node name="DeathFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_urvwh")
+
+[node name="QuareFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_i2tip")
+
+[node name="ExagonFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bu8ku")

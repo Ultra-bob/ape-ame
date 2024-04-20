@@ -1,15 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck1db6d8whbac"]
+[gd_scene load_steps=6 format=3 uid="uid://ck1db6d8whbac"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_omrmt"]
-[ext_resource type="Gradient" uid="uid://c41berdx2rqpw" path="res://gradient.tres" id="2_fq3us"]
-[ext_resource type="Script" path="res://InfiniteGradient.gd" id="3_7u2sq"]
+[ext_resource type="Texture2D" uid="uid://bfuxwsctqat2v" path="res://main_menu.png" id="2_vrg41"]
 [ext_resource type="FontFile" uid="uid://bnguin7bsyx6e" path="res://Kenney Future.ttf" id="4_ybv7t"]
 [ext_resource type="Script" path="res://Settings.gd" id="5_sarwv"]
 [ext_resource type="Script" path="res://EmojiValidator.gd" id="6_ojb71"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jya8r"]
-gradient = ExtResource("2_fq3us")
-width = 16384
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -21,18 +16,14 @@ grow_vertical = 2
 script = ExtResource("1_omrmt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -152.0
-offset_right = 14312.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_jya8r")
-stretch_mode = 1
-script = ExtResource("3_7u2sq")
-speed = 100
+texture = ExtResource("2_vrg41")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
