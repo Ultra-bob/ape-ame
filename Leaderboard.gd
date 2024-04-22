@@ -2,8 +2,9 @@ extends RichTextLabel
 
 @export var stopwatch: Stopwatch
 var config = ConfigFile.new()
+const DEV = true
 
-var API_BASE = "https://flask-hello-world-nine-psi.vercel.app"
+var API_BASE = "https://flask-hello-world-nine-psi.vercel.app" if not DEV else "http://127.0.0.1:5001"
 
 func make_urlsafe(data: String):
 	return data.replace("+", "-").replace("/", "_")
@@ -16,17 +17,13 @@ func submit_score():
 	if not (err == OK and config.has_section_key("config", "username")):
 		text = "Error: No Username!\nSet a username in settings to submit scores"
 	var encrypted_score = "EGH" + make_urlsafe(Marshalls.utf8_to_base64(str(stopwatch.time_elapsed))) + "eHa" + make_urlsafe(Marshalls.utf8_to_base64(config.get_value("config", "username")))
-	print(encrypted_score)
 	$HTTPRequest.request_completed.connect(_on_request_completed)
 	$HTTPRequest.request(API_BASE + "/leaderboard?score=%s" % encrypted_score, [], HTTPClient.METHOD_POST)
 
 func _on_request_completed(result, response_code, headers, body):
-	if body.get_string_from_utf8() == "OK":
-		get_scores()
-		return true
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	#print(json)
-	if json and "scores" in json:
+	if json and "scores" in json and "position" in json:
 		var scoredata = json["scores"]
 		var scores = []
 		for score in scoredata:
@@ -34,16 +31,16 @@ func _on_request_completed(result, response_code, headers, body):
 		#print(scores)
 		var score = stopwatch.time_elapsed
 		#print(score)
-		var placement = closest(score, scores)
+		var placement = float(json["position"])
 		#print(placement)
 		
-		if placement < 50:
+		if placement >= 1:
 			text = "[center]You placed #%d\n[/center]" % [placement]
 		else:
-			text = "[center]You placed top %d%%\n[/center]" % [(float(placement) / len(scores)) * 100]
+			text = "[center]You placed top %d%%\n[/center]" % [placement * 100]
 		var n = 1
 		while n <= 50 and n <= len(scores):
-			text += "%d.\t\t%s:\t\t%s\n" % [ n, scoredata[n-1][0], seconds2mmss(scores[n-1]) ]
+			text += "[fill]%s #%d %s[/fill]" % [ scoredata[n-1][0], n, seconds2mmss(scores[n-1]) ]
 			n += 1
 
 func closest(my_number:int, my_array:Array)->int:

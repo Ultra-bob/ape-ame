@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://mond5sdmukan" path="res://powerUp7.ogg" id="5_bu8ku"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxtxc"]
-radius = 16.0
+radius = 19.0263
 
 [node name="Player" type="RigidBody2D" groups=["destructible"]]
 position = Vector2(-42, 74)
@@ -18,11 +18,13 @@ script = ExtResource("1_bu0dg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-33, 0)
+scale = Vector2(1.2, 1.2)
 sprite_frames = ExtResource("2_c8tq3")
 animation = &"gif"
 speed_scale = 0.75
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
 shape = SubResource("CircleShape2D_nxtxc")
 
 [node name="DeathFX" type="AudioStreamPlayer2D" parent="."]
