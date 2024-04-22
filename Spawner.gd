@@ -1,6 +1,8 @@
 extends Marker2D
 
 @export var item: PackedScene
+var portal = preload("res://portal.tscn")
+@export var portal_texture: SpriteFrames
 @export var random_off_screen = false
 @export var radius = 100
 
@@ -26,8 +28,12 @@ func spawn():
 		break
 		
 
+	var portal_effect = portal.instantiate()
+	portal_effect.global_position = spawn_loc
+	portal_effect.sprite_frames = portal_texture
+	$/root/Node2D.add_child(portal_effect)
+	await get_tree().create_timer(0.6).timeout
 	var node = item.instantiate()
 	node.global_position = spawn_loc
 	node.rotation_degrees = 360 * randf()
-	print(node.global_position)
 	$/root/Node2D.add_child(node)
