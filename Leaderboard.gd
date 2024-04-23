@@ -2,9 +2,8 @@ extends RichTextLabel
 
 @export var stopwatch: Stopwatch
 var config = ConfigFile.new()
-const DEV = true
 
-var API_BASE = "https://flask-hello-world-nine-psi.vercel.app" if not DEV else "http://127.0.0.1:5001"
+var API_BASE = "https://flask-hello-world-nine-psi.vercel.app"
 
 func make_urlsafe(data: String):
 	return data.replace("+", "-").replace("/", "_")

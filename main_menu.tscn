@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck1db6d8whbac"]
+[gd_scene load_steps=7 format=3 uid="uid://ck1db6d8whbac"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_omrmt"]
 [ext_resource type="Texture2D" uid="uid://bfuxwsctqat2v" path="res://main_menu.png" id="2_vrg41"]
 [ext_resource type="FontFile" uid="uid://bnguin7bsyx6e" path="res://Kenney Future.ttf" id="4_ybv7t"]
 [ext_resource type="Script" path="res://Settings.gd" id="5_sarwv"]
+[ext_resource type="Texture2D" uid="uid://bdg4mycyxr8hw" path="res://loading_bg.png" id="6_fwqfu"]
 [ext_resource type="Script" path="res://EmojiValidator.gd" id="6_ojb71"]
 
 [node name="MainMenu" type="Control"]
@@ -37,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 200
-text = "Quare Game"
+text = "APE AME"
 horizontal_alignment = 1
 
 [node name="Layout" type="VBoxContainer" parent="."]
@@ -193,6 +194,50 @@ theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 50
 text = "X"
 flat = true
+
+[node name="LoadingScreen" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_fwqfu")
+
+[node name="Tip" type="Label" parent="LoadingScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -544.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_ybv7t")
+theme_override_font_sizes/font_size = 60
+text = "TIP: THE BULLETS OF A RIANGLE ALWAYS SHOOT FROM THE POINTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Title" type="Label" parent="LoadingScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 255.0
+offset_bottom = 535.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_ybv7t")
+theme_override_font_sizes/font_size = 200
+text = "LOADING..."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Layout/Play" to="." method="play"]
 [connection signal="pressed" from="Layout/Settings" to="Settings Panel" method="show"]
