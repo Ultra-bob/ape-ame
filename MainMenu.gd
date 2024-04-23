@@ -29,6 +29,7 @@ func sort_tips():
 	return tips_by_level
 
 func play():
+	ResourceLoader.load_threaded_request(MAIN_SCENE_PATH)
 	$"LoadingScreen".show()
 	var tip_options = []
 	for i in range(1, tip_level+1):
@@ -37,5 +38,5 @@ func play():
 	var tip = pick(tip_options)
 	$LoadingScreen/Tip.text = "Tip: %s" % tip
 	await get_tree().create_timer(0.2).timeout
-	#var game = ResourceLoader.load_threaded_get(MAIN_SCENE_PATH)
-	get_tree().change_scene_to_file(MAIN_SCENE_PATH)
+	var game = ResourceLoader.load_threaded_get(MAIN_SCENE_PATH)
+	get_tree().change_scene_to_packed(game)
