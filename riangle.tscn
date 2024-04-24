@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://yu50iyftoyaj"]
+[gd_scene load_steps=5 format=3 uid="uid://yu50iyftoyaj"]
 
 [ext_resource type="SpriteFrames" uid="uid://dt3chppm3qub7" path="res://riangle.gif" id="1_5ndal"]
+[ext_resource type="Script" path="res://riangle.gd" id="1_0404b"]
 [ext_resource type="Script" path="res://Gun.gd" id="3_kffl0"]
 [ext_resource type="PackedScene" uid="uid://c6ybtahxwpukd" path="res://bullet.tscn" id="4_tfncc"]
 
 [node name="Riangle" type="StaticBody2D" groups=["destructible"]]
 scale = Vector2(0.25, 0.25)
+script = ExtResource("1_0404b")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -42,7 +44,7 @@ autostart = true
 position = Vector2(-8, 0)
 polygon = PackedVector2Array(-80, -104, 100, 0, -80, 104)
 
-[connection signal="timeout" from="Timer" to="." method="queue_free"]
+[connection signal="timeout" from="Timer" to="." method="destroy"]
 [connection signal="timeout" from="Timer" to="Gun2" method="shoot"]
 [connection signal="timeout" from="Timer" to="Gun3" method="shoot"]
 [connection signal="timeout" from="Timer" to="Gun" method="shoot"]

@@ -4,17 +4,18 @@ const MAIN_SCENE_PATH = "res://main.tscn"
 var tip_level = 1
 var config = ConfigFile.new()
 
-func _ready():
-	if config.load("user://settings.cfg") == OK:
-		if config.get_value("hidden", "tip_level") == null:
-			tip_level = 1
-			config.set_value("hidden", "tip_level", tip_level)
-		else:
-			tip_level = config.get_value("hidden", "tip_level")
+func disabled_ready():
+	if config.load("user://settings.cfg") == OK and "hidden" in config.get_sections() and config.get_value("hidden", "tip_level") != null:
+		tip_level = config.get_value("hidden", "tip_level")
+	else:
+		tip_level = 1
+		config.set_value("hidden", "tip_level", tip_level)
 		
 	if randi_range(0, 20) == 5: # small chance to get more and more insane tips as you keep playing
 		tip_level += 1
 		config.set_value("hidden", "tip_level", tip_level)
+		
+	config.save("user://settings.cfg")
 
 func pick(l):
 	return l[randi_range(0, len(l)-1)]
@@ -37,6 +38,6 @@ func play():
 	
 	var tip = pick(tip_options)
 	$LoadingScreen/Tip.text = "Tip: %s" % tip
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.4).timeout
 	var game = ResourceLoader.load_threaded_get(MAIN_SCENE_PATH)
 	get_tree().change_scene_to_packed(game)

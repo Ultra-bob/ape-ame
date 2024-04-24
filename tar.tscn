@@ -1,0 +1,134 @@
+[gd_scene load_steps=17 format=3 uid="uid://4sdwatj6up8i"]
+
+[ext_resource type="Texture2D" uid="uid://d4cjh2d7wxdyp" path="res://tar_body.png" id="1_pwibo"]
+[ext_resource type="PackedScene" uid="uid://yu50iyftoyaj" path="res://riangle.tscn" id="2_c7e5b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gxc7"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bonr"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eyi7"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpolb"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onjcm"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouj4i"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhfnx"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx1ui"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m8ij"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7soy"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_271up"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doo2w"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lhsa"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(1536, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ufq3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gxc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bonr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eyi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpolb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onjcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouj4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhfnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx1ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m8ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7soy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_271up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doo2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lhsa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Tar" type="Node2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ufq3r")
+frame = 4
+frame_progress = 0.271976
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(2, -89, 98, -20, 61, 95, -57, 94, -93, -19)
+
+[node name="Riangle Zone" type="Node2D" parent="."]
+
+[node name="Riangle1" type="Marker2D" parent="Riangle Zone"]
+position = Vector2(0, 151)
+
+[node name="Riangle" parent="Riangle Zone/Riangle1" instance=ExtResource("2_c7e5b")]
+position = Vector2(0, -33)
+rotation = 1.5708
+
+[node name="Riangle2" type="Marker2D" parent="Riangle Zone"]
+
+[node name="Riangle3" type="Marker2D" parent="Riangle Zone"]
+
+[node name="Riangle4" type="Marker2D" parent="Riangle Zone"]
+
+[node name="Riangle5" type="Marker2D" parent="Riangle Zone"]

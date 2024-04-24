@@ -12,3 +12,14 @@
 1 | You can control where the ectangle moves with your quares!
 1 | Use your exagon if you are in danger!
 1 | The bullets of a riangle always shoot from the points!
+2 | Press space bar to pause the game when you need a break.
+2 | The game is rigged against you, all patterns are random and impossible to predict.
+3 | You can control time by pressing Ctrl + Z and redoing your moves.
+2 | The game's difficulty increases with each level, but it's just a number.
+1 | Be patient and observe the patterns of shapes moving around you.
+3 | Every shape has a hidden personality, talk to them to learn their secrets.
+1 | Use your Quares and Exagons wisely for maximum effect.
+2 | The game is not meant to be won, just enjoy the ride.
+3 | You can communicate with the shapes through your computer's microphone.
+2 | Press R to restart a level if you make a mistake.
+3 | The game has hidden easter eggs, find them all for ultimate bragging rights.
