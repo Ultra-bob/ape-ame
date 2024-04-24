@@ -1,7 +1,32 @@
-[gd_scene load_steps=17 format=3 uid="uid://4sdwatj6up8i"]
+[gd_scene load_steps=24 format=3 uid="uid://4sdwatj6up8i"]
 
+[ext_resource type="Script" path="res://tar.gd" id="1_7s3by"]
 [ext_resource type="Texture2D" uid="uid://d4cjh2d7wxdyp" path="res://tar_body.png" id="1_pwibo"]
-[ext_resource type="PackedScene" uid="uid://yu50iyftoyaj" path="res://riangle.tscn" id="2_c7e5b"]
+[ext_resource type="Script" path="res://riangle_spawner.gd" id="2_h2r2l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh8vt"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xl5i"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmge8"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygsgt"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poiv0"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc7mr"]
+atlas = ExtResource("1_pwibo")
+region = Rect2(1536, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gxc7"]
 atlas = ExtResource("1_pwibo")
@@ -59,6 +84,29 @@ region = Rect2(1536, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_sh8vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xl5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmge8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygsgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poiv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc7mr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3gxc7")
 }, {
 "duration": 1.0,
@@ -98,17 +146,21 @@ animations = [{
 "texture": SubResource("AtlasTexture_7lhsa")
 }],
 "loop": true,
-"name": &"default",
+"name": &"spawn",
 "speed": 10.0
 }]
 
 [node name="Tar" type="Node2D"]
+script = ExtResource("1_7s3by")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ufq3r")
-frame = 4
-frame_progress = 0.271976
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.467855
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -117,18 +169,30 @@ scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(2, -89, 98, -20, 61, 95, -57, 94, -93, -19)
 
 [node name="Riangle Zone" type="Node2D" parent="."]
+script = ExtResource("2_h2r2l")
 
 [node name="Riangle1" type="Marker2D" parent="Riangle Zone"]
-position = Vector2(0, 151)
-
-[node name="Riangle" parent="Riangle Zone/Riangle1" instance=ExtResource("2_c7e5b")]
-position = Vector2(0, -33)
+position = Vector2(0, 71)
 rotation = 1.5708
 
 [node name="Riangle2" type="Marker2D" parent="Riangle Zone"]
+position = Vector2(-60, 26)
+rotation = 2.82743
 
 [node name="Riangle3" type="Marker2D" parent="Riangle Zone"]
+position = Vector2(61, 26)
+rotation = 0.314159
 
 [node name="Riangle4" type="Marker2D" parent="Riangle Zone"]
+position = Vector2(39, -45)
+rotation = -0.942478
 
 [node name="Riangle5" type="Marker2D" parent="Riangle Zone"]
+position = Vector2(-37, -45)
+rotation = 4.08407
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="phase"]
