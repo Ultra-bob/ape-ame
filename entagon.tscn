@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djfjdlri5xdkn" path="res://dotted line.png" id="4_vixiu"]
 [ext_resource type="Script" path="res://TrajectoryDisplay.gd" id="5_w6b4q"]
 
-[node name="Entagon" type="RigidBody2D"]
+[node name="Entagon" type="RigidBody2D" groups=["enemy"]]
 physics_material_override = ExtResource("1_pvpk5")
 gravity_scale = 1.66533e-16
 max_contacts_reported = 2

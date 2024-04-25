@@ -161,6 +161,7 @@ popup/item_1/text = "Absolute"
 popup/item_1/id = 1
 
 [node name="Tutorial Text" type="Label" parent="."]
+visible = false
 z_index = 2
 layout_mode = 1
 anchors_preset = -1
@@ -247,8 +248,8 @@ text = "[center][wave]LOADING..."
 [connection signal="pressed" from="Layout/Play" to="." method="play"]
 [connection signal="pressed" from="Layout/Settings" to="Settings Panel" method="show"]
 [connection signal="pressed" from="Layout/Tutorial" to="Tutorial Text" method="show"]
-[connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="hide"]
 [connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="save"]
+[connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="hide"]
 [connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel" method="check_valid"]
 [connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel/Menu/Username" method="check"]
 [connection signal="pressed" from="Tutorial Text/Close" to="Tutorial Text" method="hide"]

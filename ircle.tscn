@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yns8h"]
 radius = 128.0
 
-[node name="Ircle" type="StaticBody2D" groups=["destructible"]]
+[node name="Ircle" type="StaticBody2D" groups=["destructible", "enemy"]]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("2_lyi2i")
 

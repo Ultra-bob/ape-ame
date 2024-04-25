@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Gun.gd" id="3_kffl0"]
 [ext_resource type="PackedScene" uid="uid://c6ybtahxwpukd" path="res://bullet.tscn" id="4_tfncc"]
 
-[node name="Riangle" type="StaticBody2D" groups=["destructible"]]
+[node name="Riangle" type="StaticBody2D" groups=["destructible", "enemy"]]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_0404b")
 

@@ -1,12 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://4sdwatj6up8i"]
+[gd_scene load_steps=21 format=3 uid="uid://4sdwatj6up8i"]
 
 [ext_resource type="Script" path="res://tar.gd" id="1_7s3by"]
 [ext_resource type="Texture2D" uid="uid://d4cjh2d7wxdyp" path="res://tar_body.png" id="1_pwibo"]
 [ext_resource type="Script" path="res://riangle_spawner.gd" id="2_h2r2l"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sh8vt"]
-atlas = ExtResource("1_pwibo")
-region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8xl5i"]
 atlas = ExtResource("1_pwibo")
@@ -15,14 +11,6 @@ region = Rect2(128, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmge8"]
 atlas = ExtResource("1_pwibo")
 region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ygsgt"]
-atlas = ExtResource("1_pwibo")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_poiv0"]
-atlas = ExtResource("1_pwibo")
-region = Rect2(1408, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc7mr"]
 atlas = ExtResource("1_pwibo")
@@ -84,19 +72,10 @@ region = Rect2(1536, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sh8vt")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_8xl5i")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xmge8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ygsgt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_poiv0")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vc7mr")
@@ -151,16 +130,17 @@ animations = [{
 }]
 
 [node name="Tar" type="Node2D"]
+position = Vector2(386, 292)
 script = ExtResource("1_7s3by")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 z_index = 1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ufq3r")
-animation = &"idle"
+animation = &"spawn"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.467855
+frame = 2
+frame_progress = 0.819547
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
