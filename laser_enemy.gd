@@ -49,7 +49,7 @@ func fire_laser():
 	tween.tween_callback(set_laser_texture.bind(idle_texture))
 	
 func play_with_delay():
-	await get_tree().create_timer(0.75).timeout
+	await get_tree().create_timer(0.9).timeout
 	$LaserFX.play()
 	
 func set_laser_texture(texture):
@@ -62,6 +62,8 @@ func can_shoot(yn):
 	can_damage = yn
 
 func destroy():
+	if is_queued_for_deletion():
+		return
 	var explosion = load("res://explosion.tscn").instantiate()
 	$"/root/Node2D".add_child(explosion)
 	explosion.global_position = global_position

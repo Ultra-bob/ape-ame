@@ -22,7 +22,9 @@ func spawn_loop():
 			spawn_enemies(wave.quantities[i], wave.spawning_duration, wave.enemies[i])
 		if wave.wait_for_killed:
 			await all_enemies_perished
-		await get_tree().create_timer(wave.spawning_duration + wave.wait).timeout
+		else:
+			await get_tree().create_timer(wave.spawning_duration).timeout
+		await get_tree().create_timer(wave.wait).timeout
 		
 func spawn_enemies(count: int, duration: float, enemy: WaveEnemy):
 	var delay = duration / count

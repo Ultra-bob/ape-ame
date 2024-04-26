@@ -17,6 +17,7 @@ func _physics_process(delta):
 			#print(collision.get_collider().name)
 			hit(collision.get_collider())
 			velocity = velocity.bounce(clamp_to_1bit(collision.get_normal()))
+			$CollisionFX.play()
 		
 	move_and_slide()
 

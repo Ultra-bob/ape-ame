@@ -1,13 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://c54oi61t8bvtu"]
 
 [ext_resource type="Script" path="res://Entagon.gd" id="1_726g8"]
-[ext_resource type="PhysicsMaterial" uid="uid://c5tm7od8mwjjb" path="res://elastic.tres" id="1_pvpk5"]
 [ext_resource type="SpriteFrames" uid="uid://cffqo7q1ofatc" path="res://entagon.gif" id="3_116st"]
 [ext_resource type="Texture2D" uid="uid://djfjdlri5xdkn" path="res://dotted line.png" id="4_vixiu"]
 [ext_resource type="Script" path="res://TrajectoryDisplay.gd" id="5_w6b4q"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_odemo"]
+bounce = 1.0
+
 [node name="Entagon" type="RigidBody2D" groups=["enemy"]]
-physics_material_override = ExtResource("1_pvpk5")
+physics_material_override = SubResource("PhysicsMaterial_odemo")
 gravity_scale = 1.66533e-16
 max_contacts_reported = 2
 contact_monitor = true

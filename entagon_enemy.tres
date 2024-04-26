@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WaveEnemy" load_steps=4 format=3 uid="uid://824inmsxuois"]
+
+[ext_resource type="PackedScene" uid="uid://c54oi61t8bvtu" path="res://entagon.tscn" id="1_mfudl"]
+[ext_resource type="SpriteFrames" uid="uid://cfma586cg6lul" path="res://entagon_ortal.tres" id="2_2xm8e"]
+[ext_resource type="Script" path="res://wave_enemy.gd" id="3_t4kaf"]
+
+[resource]
+script = ExtResource("3_t4kaf")
+enemy = ExtResource("1_mfudl")
+portal_texture = ExtResource("2_2xm8e")
+check_distance = 100
