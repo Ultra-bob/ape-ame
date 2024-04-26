@@ -1,0 +1,141 @@
+[gd_scene load_steps=18 format=3 uid="uid://mlb0a8hdbtqw"]
+
+[ext_resource type="Script" path="res://riangle.gd" id="1_eh3cx"]
+[ext_resource type="Texture2D" uid="uid://c562ut0sxn6we" path="res://riangle-tar.png" id="2_1actw"]
+[ext_resource type="Script" path="res://Gun.gd" id="3_5oxo6"]
+[ext_resource type="PackedScene" uid="uid://b75dkyryn0qnb" path="res://bullet-tar.tscn" id="4_t8bmd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr0hq"]
+atlas = ExtResource("2_1actw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndbtj"]
+atlas = ExtResource("2_1actw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46les"]
+atlas = ExtResource("2_1actw")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g8fq"]
+atlas = ExtResource("2_1actw")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4hko"]
+atlas = ExtResource("2_1actw")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m3wq"]
+atlas = ExtResource("2_1actw")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2fc5"]
+atlas = ExtResource("2_1actw")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeriy"]
+atlas = ExtResource("2_1actw")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phsui"]
+atlas = ExtResource("2_1actw")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n314x"]
+atlas = ExtResource("2_1actw")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm4pv"]
+atlas = ExtResource("2_1actw")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cojx6"]
+atlas = ExtResource("2_1actw")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xlxob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr0hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndbtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46les")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g8fq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4hko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m3wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2fc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeriy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phsui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n314x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm4pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cojx6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Riangle" type="CharacterBody2D" groups=["destructible", "enemy"]]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_eh3cx")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-29.5874, 1.58741)
+rotation = 1.5708
+scale = Vector2(3.61152, 3.61152)
+sprite_frames = SubResource("SpriteFrames_xlxob")
+autoplay = "default"
+speed_scale = 2.0
+
+[node name="Gun2" type="Marker2D" parent="."]
+position = Vector2(-224, 284)
+rotation = 2.0944
+script = ExtResource("3_5oxo6")
+bullet = ExtResource("4_t8bmd")
+
+[node name="Gun3" type="Marker2D" parent="."]
+position = Vector2(-224, -284)
+rotation = -2.0944
+scale = Vector2(1, 1)
+script = ExtResource("3_5oxo6")
+bullet = ExtResource("4_t8bmd")
+
+[node name="Gun" type="Marker2D" parent="."]
+position = Vector2(272, 0)
+script = ExtResource("3_5oxo6")
+bullet = ExtResource("4_t8bmd")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-8, 0)
+polygon = PackedVector2Array(-80, -104, 100, 0, -80, 104)
+
+[connection signal="timeout" from="Timer" to="Gun2" method="shoot"]
+[connection signal="timeout" from="Timer" to="Gun3" method="shoot"]
+[connection signal="timeout" from="Timer" to="Gun" method="shoot"]
+[connection signal="timeout" from="Timer" to="." method="destroy"]

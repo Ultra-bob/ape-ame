@@ -7,7 +7,7 @@ var exagon = preload("res://exagon.tscn")
 @onready var notifier = $"../Notification"
 var num_quares = 0
 var max_quares = 3
-var exagons = 1
+var exagons = 0
 var absolute_movement = false
 var config = ConfigFile.new()
 
@@ -95,7 +95,7 @@ func aquire_exagon():
 	update_display()
 
 func update_display():
-	$"../UI/Quare Count".text = "%d Quares\n%d Exagons" % [(max_quares - num_quares), exagons]
+	$"../UI/Quare Count".text = "%d Quares\n" % [(max_quares - num_quares)]
 
 func destroy():
 	$DeathFX.play()

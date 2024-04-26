@@ -1,8 +1,10 @@
 extends Node2D
 
 @export var waves: Array[Wave]
+@export var wave_label: Label
 var portal = preload("res://portal.tscn")
 var enemies_previous = false
+var wave_count = 0
 
 func _ready():
 	spawn_loop()
@@ -17,6 +19,8 @@ func check_enemies_loop():
 
 func spawn_loop():
 	for wave in waves:
+		wave_count += 1
+		wave_label.text = "Wave %d" % wave_count
 		print("Starting Next Wave")
 		for i in range(len(wave.enemies)):
 			spawn_enemies(wave.quantities[i], wave.spawning_duration, wave.enemies[i])
@@ -25,6 +29,9 @@ func spawn_loop():
 		else:
 			await get_tree().create_timer(wave.spawning_duration).timeout
 		await get_tree().create_timer(wave.wait).timeout
+		
+	$"../GameOver".text = "YOU WIN!"
+	$"../Player".destroy()
 		
 func spawn_enemies(count: int, duration: float, enemy: WaveEnemy):
 	var delay = duration / count

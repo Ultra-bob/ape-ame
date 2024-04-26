@@ -1,9 +1,20 @@
 extends RigidBody2D
 
 var bounces = 0
+@onready var player = $"../Player"
 
-func _process(delta):
-	$Sprite2D.global_rotation = linear_velocity.angle() + deg_to_rad(90)
+func _physics_process(delta):
+	apply_central_force((global_position - player.global_position).normalized() * -50)
+	if linear_velocity.length() < 10:
+		$Sprite2D.play("default")
+	
+	if player in $Explosion.get_overlapping_bodies():
+		$Sprite2D.play("default")
+	
+func explode():
+	for item in $Explosion.get_overlapping_bodies():
+		hit(item)
+	queue_free()
 
 func hit(body):	
 	if body.is_in_group("destructible"):

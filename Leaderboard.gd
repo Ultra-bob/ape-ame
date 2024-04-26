@@ -1,9 +1,11 @@
 extends RichTextLabel
 
 @export var stopwatch: Stopwatch
+@export var spawner: Node2D
 var config = ConfigFile.new()
 
-var API_BASE = "https://flask-hello-world-nine-psi.vercel.app"
+const API_BASE = "https://flask-hello-world-nine-psi.vercel.app"
+#const API_BASE = "http://localhost:5001"
 
 func make_urlsafe(data: String):
 	return data.replace("+", "-").replace("/", "_")
@@ -15,7 +17,7 @@ func submit_score():
 	var err = config.load("user://settings.cfg")
 	if not (err == OK and config.has_section_key("config", "username")):
 		text = "Error: No Username!\nSet a username in settings to submit scores"
-	var encrypted_score = "EGH" + make_urlsafe(Marshalls.utf8_to_base64(str(stopwatch.time_elapsed))) + "eHa" + make_urlsafe(Marshalls.utf8_to_base64(config.get_value("config", "username")))
+	var encrypted_score = "EGH" + make_urlsafe(Marshalls.utf8_to_base64(str(stopwatch.time_elapsed))) + "eHa" + make_urlsafe(Marshalls.utf8_to_base64(config.get_value("config", "username")) + "lAx" + make_urlsafe(Marshalls.utf8_to_base64(str(spawner.wave_count-1))))
 	$HTTPRequest.request_completed.connect(_on_request_completed)
 	$HTTPRequest.request(API_BASE + "/leaderboard?score=%s" % encrypted_score, [], HTTPClient.METHOD_POST)
 
@@ -28,10 +30,9 @@ func _on_request_completed(result, response_code, headers, body):
 		for score in scoredata:
 			scores.append(float(score[1]))
 		#print(scores)
-		var score = stopwatch.time_elapsed
-		#print(score)
+		#print(scoredata)
 		var placement = float(json["position"])
-		#print(placement)
+		print(placement)
 		
 		if placement >= 1:
 			text = "[center]You placed #%d\n[/center]" % [placement]
@@ -39,7 +40,10 @@ func _on_request_completed(result, response_code, headers, body):
 			text = "[center]You placed top %d%%\n[/center]" % [placement * 100]
 		var n = 1
 		while n <= 50 and n <= len(scores):
-			text += "[fill]%s #%d %s[/fill]" % [ scoredata[n-1][0], n, seconds2mmss(scores[n-1]) ]
+			#print(n)
+			#print(scoredata[n-1])
+			text += "[fill]%s #%d Wave %s %s[/fill]" % [ scoredata[n-1][0], n, scoredata[n-1][2], seconds2mmss(scores[n-1]) ]
+			#print([ scoredata[n-1][0], n, scoredata[n-1][2], seconds2mmss(scores[n-1]) ])
 			n += 1
 
 func closest(my_number:int, my_array:Array)->int:

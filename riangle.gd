@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends PhysicsBody2D
 
 func destroy():
 	var explosion = load("res://explosion.tscn").instantiate()
