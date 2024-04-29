@@ -10,11 +10,6 @@ func _physics_process(delta):
 	
 	if player in $Explosion.get_overlapping_bodies():
 		$Sprite2D.play("default")
-	
-func explode():
-	for item in $Explosion.get_overlapping_bodies():
-		hit(item)
-	queue_free()
 
 func hit(body):	
 	if body.is_in_group("destructible"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b75dkyryn0qnb"]
+[gd_scene load_steps=15 format=3 uid="uid://b75dkyryn0qnb"]
 
 [ext_resource type="PackedScene" uid="uid://c6ybtahxwpukd" path="res://bullet.tscn" id="1_kjw43"]
 [ext_resource type="Texture2D" uid="uid://foqvx0qb0gic" path="res://tar_bullet.png" id="2_cgmk6"]
@@ -97,10 +97,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q18vg"]
-radius = 45.0
-
 [node name="Bullet" instance=ExtResource("1_kjw43")]
+contact_monitor = false
 linear_damp = 1.0
 
 [node name="Sprite2D" parent="." index="1"]
@@ -110,11 +108,5 @@ sprite_frames = SubResource("SpriteFrames_78fjs")
 animation = &"default"
 autoplay = ""
 offset = Vector2(-0.854763, 1.21806)
-
-[node name="Explosion" type="Area2D" parent="." index="2"]
-rotation = -1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion" index="0"]
-shape = SubResource("CircleShape2D_q18vg")
 
 [connection signal="animation_looped" from="Sprite2D" to="." method="explode"]
