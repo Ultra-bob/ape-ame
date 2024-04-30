@@ -4,12 +4,7 @@ var bounces = 0
 @onready var player = $"../Player"
 
 func _physics_process(delta):
-	apply_central_force((global_position - player.global_position).normalized() * -50)
-	if linear_velocity.length() < 10:
-		$Sprite2D.play("default")
-	
-	if player in $Explosion.get_overlapping_bodies():
-		$Sprite2D.play("default")
+	rotation = linear_velocity.angle()
 
 func hit(body):	
 	if body.is_in_group("destructible"):

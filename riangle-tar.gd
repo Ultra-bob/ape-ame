@@ -1,9 +1,25 @@
-extends "res://riangle.gd"
+extends RigidBody2D
 
-@onready var player = $"../Player"
+@onready var player = $"/root/Node2D/Player"
+var dying = false
+
+func destroy():
+	if dying:
+		return
+	dying = true
+	var explosion = load("res://explosion.tscn").instantiate()
+	$"/root/Node2D".add_child(explosion)
+	explosion.global_position = global_position
+	await get_tree().create_timer(0.2).timeout
+	queue_free()
 
 func _physics_process(delta):
-	apply_central_force((global_position - player.global_position).normalized() * -50)
+	apply_central_force((global_position - player.global_position).normalized() * -200)
+	
+	$ExplosionRadius.visible = false
+	for body in $Explosion.get_overlapping_bodies():
+		if body.name == "Player":
+			$ExplosionRadius.visible = true
 
 func hit(body):	
 	if body.is_in_group("destructible"):
@@ -23,6 +39,7 @@ func explode():
 
 
 func _on_explosion_body_entered(body):
+	#print(body.name)
 	if body.name == "Player":
 		$Sprite2D.play("default")
 		$ExplosionRadius.visible = true

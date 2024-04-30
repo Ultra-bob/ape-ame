@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var phase2_active = false
 var health = 10
-var spawn_remaining = 5
+var spawn_remaining = 10
 @onready var player = $"../Player"
 
 func hit(body):
@@ -25,7 +25,7 @@ func _ready():
 	
 func _physics_process(delta):
 	if phase2_active:
-		apply_central_force((global_position - player.global_position).normalized() * -1700)
+		apply_central_force((global_position - player.global_position).normalized() * -1600)
 
 func phase():
 	if phase2_active:

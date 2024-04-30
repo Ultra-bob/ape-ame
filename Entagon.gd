@@ -14,4 +14,4 @@ func hit(body):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	apply_central_force((global_position - player.global_position).normalized() * -300)
+	apply_central_force((global_position - player.global_position).normalized() * -900)

@@ -43,19 +43,24 @@ func spawn(item: WaveEnemy):
 
 	var spawn_loc = Vector2.ZERO
 
-	for i in range(10):
-		var test_pos = Vector2(randf(), randf()) * Vector2(1920, 1080)
-		if not $"../CollisionCheck".is_clear(test_pos, item.check_distance):
-			continue
-		spawn_loc = test_pos
-		break
+	if item.boss:
+		spawn_loc = Vector2(1920/2, 1080/2)
+	else:
+		for i in range(10):
+			var test_pos = Vector2(randf(), randf()) * Vector2(1920, 1080)
+			if not $"../CollisionCheck".is_clear(test_pos, item.check_distance):
+				continue
+			spawn_loc = test_pos
+			break
 	
-	var portal_effect = portal.instantiate()
-	portal_effect.global_position = spawn_loc
-	portal_effect.sprite_frames = item.portal_texture
-	$/root/Node2D.add_child(portal_effect)
-	await get_tree().create_timer(0.6).timeout
+	if not item.boss:
+		var portal_effect = portal.instantiate()
+		portal_effect.global_position = spawn_loc
+		portal_effect.sprite_frames = item.portal_texture
+		$/root/Node2D.add_child(portal_effect)
+		await get_tree().create_timer(0.6).timeout
 	var node = item.enemy.instantiate()
 	node.global_position = spawn_loc
-	node.rotation_degrees = 360 * randf()
+	if not item.boss:
+		node.rotation_degrees = 360 * randf()
 	$/root/Node2D.add_child(node)

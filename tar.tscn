@@ -463,7 +463,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Tar" type="RigidBody2D"]
+[node name="Tar" type="RigidBody2D" groups=["enemy"]]
 position = Vector2(386, 292)
 gravity_scale = 1.66533e-16
 freeze = true

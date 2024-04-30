@@ -18,8 +18,12 @@ func eject():
 		var riangle = spawner.get_child(0)
 		if riangle == null:
 			return
-		riangle.apply_central_impulse(Vector2(1000, randi_range(-100, 100)).rotated(spawner.rotation))
+		riangle.freeze = false
+		riangle.apply_central_impulse(Vector2(500, randi_range(-100, 100)).rotated(spawner.rotation))
 		await get_tree().create_timer(0.05).timeout
+		if riangle == null:
+			return
+		
 		riangle.reparent($/root/Node2D)
 		
 	await get_tree().create_timer(0.1).timeout

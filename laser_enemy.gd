@@ -61,9 +61,12 @@ func start_aim():
 func can_shoot(yn):
 	can_damage = yn
 
+var dying = false
+
 func destroy():
-	if is_queued_for_deletion():
+	if dying:
 		return
+	dying = true
 	var explosion = load("res://explosion.tscn").instantiate()
 	$"/root/Node2D".add_child(explosion)
 	explosion.global_position = global_position
