@@ -10,6 +10,7 @@ func _ready():
 	spawn_loop()
 	
 signal all_enemies_perished
+signal wave_complete
 
 func check_enemies_loop():
 	var has_enemies = len(get_tree().get_nodes_in_group("enemy")) > 0
@@ -29,6 +30,7 @@ func spawn_loop():
 		else:
 			await get_tree().create_timer(wave.spawning_duration).timeout
 		await get_tree().create_timer(wave.wait).timeout
+		wave_complete.emit()
 		
 	$"../GameOver".text = "YOU WIN!"
 	$"../Player".destroy()

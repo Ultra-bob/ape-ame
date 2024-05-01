@@ -2,11 +2,15 @@ extends Label
 class_name Stopwatch
 
 var time_elapsed: float = 0.0
+var time_since_wave: float = 0.0
 
 func _process(delta: float) -> void:
 	if not get_tree().paused:
 		time_elapsed += delta
 		text = seconds2hhmmss(time_elapsed)
+
+func wave_finished():
+	time_since_wave = time_elapsed
 
 func seconds2hhmmss(total_seconds: float) -> String:
 	#total_seconds = 12345

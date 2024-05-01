@@ -17,7 +17,7 @@ func submit_score():
 	var err = config.load("user://settings.cfg")
 	if not (err == OK and config.has_section_key("config", "username")):
 		text = "Error: No Username!\nSet a username in settings to submit scores"
-	var encrypted_score = "EGH" + make_urlsafe(Marshalls.utf8_to_base64(str(stopwatch.time_elapsed))) + "eHa" + make_urlsafe(Marshalls.utf8_to_base64(config.get_value("config", "username")) + "lAx" + make_urlsafe(Marshalls.utf8_to_base64(str(spawner.wave_count-1))))
+	var encrypted_score = "EGH" + make_urlsafe(Marshalls.utf8_to_base64(str(stopwatch.time_since_wave if stopwatch.time_since_wave != 0 else stopwatch.time_elapsed))) + "eHa" + make_urlsafe(Marshalls.utf8_to_base64(config.get_value("config", "username")) + "lAx" + make_urlsafe(Marshalls.utf8_to_base64(str(spawner.wave_count-1))))
 	$HTTPRequest.request_completed.connect(_on_request_completed)
 	$HTTPRequest.request(API_BASE + "/leaderboard?score=%s" % encrypted_score, [], HTTPClient.METHOD_POST)
 
