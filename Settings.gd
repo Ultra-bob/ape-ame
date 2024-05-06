@@ -2,6 +2,8 @@ extends Node
 
 var config = ConfigFile.new()
 
+const CHARACTERS = ["res://player-row.tscn", "res://player-apezoid.tscn"]
+
 func _ready():
 	var has_config = config.load("user://settings.cfg") == OK
 	print(has_config)
@@ -19,6 +21,8 @@ func check_valid(none):
 func save():
 	config.set_value("config", "username", $Menu/Username.text)
 	config.set_value("config", "relative_controls", $Menu/Controls.selected == 0)
+	
+	config.set_value("gameplay", "class", CHARACTERS[$Menu/Character.selected])
 	
 	print("Saving!")
 	config.save("user://settings.cfg")

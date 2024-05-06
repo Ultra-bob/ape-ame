@@ -160,6 +160,24 @@ popup/item_0/id = 0
 popup/item_1/text = "Absolute"
 popup/item_1/id = 1
 
+[node name="Label3" type="Label" parent="Settings Panel/Menu"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_ybv7t")
+theme_override_font_sizes/font_size = 80
+text = "CLASS"
+
+[node name="Character" type="OptionButton" parent="Settings Panel/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ybv7t")
+theme_override_font_sizes/font_size = 54
+item_count = 2
+selected = 0
+popup/item_0/text = "Row"
+popup/item_0/id = 0
+popup/item_1/text = "Apezoid"
+popup/item_1/id = 1
+
 [node name="Tutorial Text" type="Label" parent="."]
 visible = false
 z_index = 2

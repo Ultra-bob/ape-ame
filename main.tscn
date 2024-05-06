@@ -1,5 +1,6 @@
 [gd_scene load_steps=110 format=3 uid="uid://bmd4m7lqj4v0x"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_3dydx"]
 [ext_resource type="Script" path="res://Spawner.gd" id="1_ifu8g"]
 [ext_resource type="Script" path="res://GameManager.gd" id="1_k8sg3"]
 [ext_resource type="Resource" uid="uid://du12lm5aq7g7f" path="res://ircle_enemy.tres" id="3_xmk5u"]
@@ -10,7 +11,6 @@
 [ext_resource type="Resource" uid="uid://3gxjbodh4fwe" path="res://riangle_enemy.tres" id="5_xdrk0"]
 [ext_resource type="Texture2D" uid="uid://yvrhlh04k8w1" path="res://background space.png" id="6_yg4g1"]
 [ext_resource type="Script" path="res://wave_enemy.gd" id="7_54h7d"]
-[ext_resource type="PackedScene" uid="uid://cgcjicue76wsr" path="res://player.tscn" id="7_ujibo"]
 [ext_resource type="Texture2D" uid="uid://cwquv3mq5kk1d" path="res://countdown-spritesheet.png" id="8_e1eub"]
 [ext_resource type="AudioStream" uid="uid://dn65uapn0wsok" path="res://impactMetal_002.ogg" id="11_acuni"]
 [ext_resource type="Script" path="res://CollisionCheck.gd" id="11_ryeyk"]
@@ -34,8 +34,8 @@ script = ExtResource("4_um0x7")
 enemies = Array[ExtResource("7_54h7d")]([ExtResource("3_xmk5u")])
 quantities = Array[int]([7])
 spawning_duration = 25.0
-wait = 5.0
-wait_for_killed = false
+wait = 3.0
+wait_for_killed = true
 
 [sub_resource type="Resource" id="Resource_o8cet"]
 script = ExtResource("4_um0x7")
@@ -636,6 +636,7 @@ gradient = SubResource("Gradient_or5lt")
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-2, -1)
+script = ExtResource("1_3dydx")
 
 [node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("wave_label")]
 script = ExtResource("1_ifu8g")
@@ -704,10 +705,6 @@ shape = SubResource("WorldBoundaryShape2D_rmvst")
 position = Vector2(1920, 540)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_rmvst")
-
-[node name="Player" parent="." instance=ExtResource("7_ujibo")]
-position = Vector2(63, 58)
-scale = Vector2(0.5, 0.5)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

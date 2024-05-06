@@ -8,24 +8,20 @@ var exagon = preload("res://exagon.tscn")
 var absolute_movement = false
 var config = ConfigFile.new()
 
-const idle_anim = preload("res://player_idle.gif")
-const moving_anim = preload("res://player_moving.gif")
 var moving = false
+var frozen = false
+
+func update_animation():
+	pass
 
 func _ready():
 	update_animation()
 	if config.load("user://settings.cfg") == OK:
 		absolute_movement = not config.get_value("config", "relative_controls")
 
-func update_animation():
-	if moving:
-		$AnimatedSprite2D.sprite_frames = moving_anim
-	else:
-		$AnimatedSprite2D.sprite_frames = idle_anim
-		
-	$AnimatedSprite2D.play("gif")
-
 func _physics_process(delta):
+	if frozen:
+		return
 	look_at(get_global_mouse_position())
 	var move_input = Input.get_axis("down", "up")
 	var side_input = Input.get_axis("right", "left")

@@ -1,5 +1,16 @@
 extends "res://player.gd"
 
+const idle_anim = preload("res://player_idle.gif")
+const moving_anim = preload("res://player_moving.gif")
+
+func update_animation():
+	if moving:
+		$AnimatedSprite2D.sprite_frames = moving_anim
+	else:
+		$AnimatedSprite2D.sprite_frames = idle_anim
+		
+	$AnimatedSprite2D.play("gif")
+
 func _ready():
 	update_display()
 	update_animation()

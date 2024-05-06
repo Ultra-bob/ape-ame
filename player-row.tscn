@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfd8oqdyt6m3g"]
+
+[ext_resource type="PackedScene" uid="uid://cgcjicue76wsr" path="res://player.tscn" id="1_r3mct"]
+[ext_resource type="SpriteFrames" uid="uid://cmkptgd3k37bl" path="res://player_idle.gif" id="2_sxnuc"]
+[ext_resource type="Script" path="res://player-row.gd" id="2_ty4ic"]
+[ext_resource type="AudioStream" uid="uid://cbghiy80qmaa0" path="res://powerUp6.ogg" id="3_sk1xt"]
+[ext_resource type="AudioStream" uid="uid://mond5sdmukan" path="res://powerUp7.ogg" id="4_lwgj5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_caugh"]
+radius = 19.0263
+
+[node name="Player" instance=ExtResource("1_r3mct")]
+script = ExtResource("2_ty4ic")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+texture_filter = 1
+position = Vector2(-33, 0)
+scale = Vector2(1.2, 1.2)
+sprite_frames = ExtResource("2_sxnuc")
+animation = &"gif"
+frame = 5
+frame_progress = 0.885413
+speed_scale = 0.75
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_caugh")
+
+[node name="QuareFX" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("3_sk1xt")
+
+[node name="ExagonFX" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource("4_lwgj5")
