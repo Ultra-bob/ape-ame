@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgcjicue76wsr"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_bu0dg"]
+[ext_resource type="Script" path="res://player-row.gd" id="1_4k5de"]
 [ext_resource type="SpriteFrames" uid="uid://cmkptgd3k37bl" path="res://player_idle.gif" id="2_c8tq3"]
 [ext_resource type="AudioStream" uid="uid://cuu1qqskoqabg" path="res://Taco_Bell_Bong.ogg" id="3_urvwh"]
 [ext_resource type="AudioStream" uid="uid://cbghiy80qmaa0" path="res://powerUp6.ogg" id="4_i2tip"]
@@ -13,7 +13,7 @@ radius = 19.0263
 position = Vector2(-42, 74)
 gravity_scale = 1.66533e-16
 linear_damp = 1.0
-script = ExtResource("1_bu0dg")
+script = ExtResource("1_4k5de")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -21,6 +21,8 @@ position = Vector2(-33, 0)
 scale = Vector2(1.2, 1.2)
 sprite_frames = ExtResource("2_c8tq3")
 animation = &"gif"
+frame = 5
+frame_progress = 0.885413
 speed_scale = 0.75
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

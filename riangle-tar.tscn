@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://riangle-tar.gd" id="1_81oja"]
 [ext_resource type="Texture2D" uid="uid://c562ut0sxn6we" path="res://riangle-tar.png" id="2_1actw"]
-[ext_resource type="Script" path="res://LockedRotation.gd" id="4_eemlr"]
+[ext_resource type="Script" path="res://Blink.gd" id="4_dm5t8"]
 [ext_resource type="Texture2D" uid="uid://yq2flqkxnw7u" path="res://dotted circle.png" id="5_e5pjh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_btknm"]
@@ -108,7 +108,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cq436"]
-radius = 254.0
+radius = 193.023
 
 [node name="Riangle" type="RigidBody2D" groups=["destructible", "enemy"]]
 physics_material_override = SubResource("PhysicsMaterial_btknm")
@@ -121,27 +121,30 @@ script = ExtResource("1_81oja")
 texture_filter = 1
 position = Vector2(-7, 8.84254e-14)
 rotation = 1.5708
-scale = Vector2(0.903, 0.903)
+scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_xlxob")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.25, 0.25)
-polygon = PackedVector2Array(-80, -104, 100, 0, -80, 104)
+scale = Vector2(1.2, 1.2)
+polygon = PackedVector2Array(-20.8333, -31.6667, 25.8333, 0, -20.8333, 32.5)
 
 [node name="ExplosionRadius" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(0.768627, 0.254902, 0.254902, 1)
 texture_filter = 1
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 texture = ExtResource("5_e5pjh")
-script = ExtResource("4_eemlr")
+script = ExtResource("4_dm5t8")
+off_color = Color(1, 1, 1, 0.596078)
+
+[node name="Timer" type="Timer" parent="ExplosionRadius"]
+wait_time = 0.5
+autostart = true
 
 [node name="Explosion" type="Area2D" parent="."]
 rotation = -1.5708
 collision_layer = 3
 collision_mask = 3
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion"]
 shape = SubResource("CircleShape2D_cq436")

@@ -34,6 +34,7 @@ func _on_request_completed(result, response_code, headers, body):
 		var placement = float(json["position"])
 		print(placement)
 		
+		$"../Summary".text = "You reached wave %d in %s" % [spawner.wave_count-1, seconds2mmss(stopwatch.time_since_wave if stopwatch.time_since_wave != 0 else stopwatch.time_elapsed)]
 		if placement >= 1:
 			text = "[center]You placed #%d\n[/center]" % [placement]
 		else:

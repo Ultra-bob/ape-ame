@@ -177,9 +177,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 60
-text = "! GAMING !"
+text = "enemies spawn in waves, kill them all to proceeed to the next wave.
+
+Place a quare with q, to block shots  or redirect the ectangle.
+
+Get leaderboard positions by beating waves as fast as possible
+"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="ColorRect" type="ColorRect" parent="Tutorial Text"]
 z_index = -1
@@ -248,8 +254,8 @@ text = "[center][wave]LOADING..."
 [connection signal="pressed" from="Layout/Play" to="." method="play"]
 [connection signal="pressed" from="Layout/Settings" to="Settings Panel" method="show"]
 [connection signal="pressed" from="Layout/Tutorial" to="Tutorial Text" method="show"]
-[connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="save"]
 [connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="hide"]
+[connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="save"]
 [connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel" method="check_valid"]
 [connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel/Menu/Username" method="check"]
 [connection signal="pressed" from="Tutorial Text/Close" to="Tutorial Text" method="hide"]

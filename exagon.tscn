@@ -1,10 +1,81 @@
-[gd_scene load_steps=7 format=3 uid="uid://c87easb8570vd"]
+[gd_scene load_steps=17 format=3 uid="uid://c87easb8570vd"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c5tm7od8mwjjb" path="res://elastic.tres" id="1_1oplx"]
 [ext_resource type="Script" path="res://Shield.gd" id="2_q7qjq"]
-[ext_resource type="Texture2D" uid="uid://xq1dd6w22i6f" path="res://Hexagon outline.png" id="2_x53yb"]
+[ext_resource type="Texture2D" uid="uid://comgu2t784y8f" path="res://shield.png" id="3_hrquq"]
 [ext_resource type="SpriteFrames" uid="uid://6oj6l7lnsjhi" path="res://exagon.gif" id="4_cfpay"]
 [ext_resource type="AudioStream" uid="uid://b73ik24u615jc" path="res://phaserDown1.ogg" id="5_8ceda"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi50y"]
+atlas = ExtResource("3_hrquq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evg51"]
+atlas = ExtResource("3_hrquq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq34g"]
+atlas = ExtResource("3_hrquq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1q8y"]
+atlas = ExtResource("3_hrquq")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6ecx"]
+atlas = ExtResource("3_hrquq")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlwqr"]
+atlas = ExtResource("3_hrquq")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_faf3x"]
+atlas = ExtResource("3_hrquq")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s48p"]
+atlas = ExtResource("3_hrquq")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7kdo"]
+atlas = ExtResource("3_hrquq")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kvmu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi50y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evg51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq34g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1q8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6ecx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlwqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_faf3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s48p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7kdo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_evq3y"]
 radius = 25.0
@@ -17,13 +88,19 @@ collision_mask = 2
 physics_material_override = ExtResource("1_1oplx")
 script = ExtResource("2_q7qjq")
 
-[node name="Sprite" type="Sprite2D" parent="Shield"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Shield"]
 self_modulate = Color(0.529412, 0.819608, 1, 0.27451)
-texture = ExtResource("2_x53yb")
+z_index = 2
+position = Vector2(17, 2)
+rotation = 1.5708
+scale = Vector2(4.39062, 4.39062)
+sprite_frames = SubResource("SpriteFrames_2kvmu")
+frame_progress = 0.973867
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shield"]
+visible = false
 position = Vector2(13, 194)
-polygon = PackedVector2Array(-13, -443, 204, -317, 206, -69, -12, 57, -231, -71, -231, -316)
+polygon = PackedVector2Array(-13, -443, 209, -330, 206, -69, -12, 57, -231, -38, -231, -343)
 
 [node name="PowerDownFX" type="AudioStreamPlayer2D" parent="Shield"]
 stream = ExtResource("5_8ceda")

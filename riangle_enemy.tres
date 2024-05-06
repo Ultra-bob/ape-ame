@@ -7,5 +7,6 @@
 [resource]
 script = ExtResource("3_nyiux")
 enemy = ExtResource("1_y74g3")
+boss = false
 portal_texture = ExtResource("2_1rl0g")
-check_distance = 200
+check_distance = 300

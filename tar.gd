@@ -2,10 +2,13 @@ extends RigidBody2D
 
 var phase2_active = false
 var health = 10
-var spawn_remaining = 10
+var spawn_remaining = 7
 @onready var player = $"../Player"
 
 func hit(body):
+	if not phase2_active:
+		return
+	
 	if body.is_in_group("destructible"):
 		if body.has_method("destroy"):
 			body.destroy()
