@@ -67,7 +67,7 @@ func spawn(item: WaveEnemy):
 		var portal_effect = portal.instantiate()
 		portal_effect.global_position = spawn_loc
 		portal_effect.sprite_frames = item.portal_texture
-		$/root/Node2D.add_child(portal_effect)
+		$/root/Node2D.add_child.call_deferred(portal_effect)
 		await get_tree().create_timer((item.portal_texture.get_frame_count("default") / 2) * (1 / item.portal_texture.get_animation_speed("default"))).timeout
 	var node = item.enemy.instantiate()
 	node.global_position = spawn_loc

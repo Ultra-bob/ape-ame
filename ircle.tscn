@@ -155,5 +155,5 @@ shape = SubResource("CircleShape2D_yns8h")
 [node name="LaserFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_tkxjf")
 
-[connection signal="timeout" from="Line2D/VisibleTimer" to="Line2D" method="hide_self"]
+[connection signal="timeout" from="Line2D/VisibleTimer" to="Line2D" method="set_transparent"]
 [connection signal="timeout" from="Timer" to="." method="fire_laser"]

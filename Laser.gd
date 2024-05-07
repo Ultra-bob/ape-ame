@@ -12,3 +12,7 @@ func fire():
 func _process(delta):
 	#print(points)
 	points[1] = to_local($RayCast2D.get_collision_point())
+
+
+func set_transparent():
+	modulate = Color.TRANSPARENT
