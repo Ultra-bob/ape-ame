@@ -1,7 +1,7 @@
 [remap]
 
-importer="import_gif_to_animated_texture"
-type="AnimatedTexture"
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
 uid="uid://byhtrcl2layo3"
 path="res://.godot/imported/ircle_laser.gif-0ef572a7c5fd1d9c8ca3ed9ae2a7f065.tres"
 
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/ircle_laser.gif-0ef572a7c5fd1d9c8ca3ed9ae2a7f
 
 [params]
 
+frames_per_second=5

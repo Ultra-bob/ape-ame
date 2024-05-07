@@ -1,5 +1,5 @@
 8a531afeb0b2817bc0d00c64bb8f1a30
-::res://::1715089209
+::res://::1715102977
 apezoid-engine-idle.png::CompressedTexture2D::1844734805031628838::1715006313::1715006314::1::::<><>::
 apezoid-gun.png::CompressedTexture2D::637761070746952016::1715005189::1715005197::1::::<><>::
 apezoid_engine.png::CompressedTexture2D::3642265800163003476::1715005858::1715005861::1::::<><>::
@@ -31,7 +31,7 @@ exagon.tscn::PackedScene::7155377112048102897::1715003328::0::1::::<><>::uid://c
 explosion.png::CompressedTexture2D::1054827020943448629::1713970468::1713970535::1::::<><>::
 explosion.tscn::PackedScene::5085807266017290917::1715003328::0::1::::<><>::uid://pa732bpnx3p6::::res://explosion.png<>uid://vfiu54q6ce2s::::res://explosionCrunch_004.ogg
 explosionCrunch_004.ogg::AudioStreamOggVorbis::1484810678257518328::1714135213::1714135350::1::::<><>::
-export_presets.cfg::TextFile::-1::1714761840::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1715093720::0::1::::<><>::
 FillScreen.gd::GDScript::-1::1711575587::0::1::::<>Label<>::
 Flow State.wav::AudioStreamWAV::9141209967805376418::1715020816::1715020817::1::::<><>::
 GameManager.gd::GDScript::-1::1714135213::0::1::::<>Node2D<>::
@@ -44,7 +44,7 @@ icon.svg::CompressedTexture2D::7257050209303865293::1711113563::1713789137::1:::
 impactMetal_002.ogg::AudioStreamOggVorbis::8137569978207690190::1714135213::1714135350::1::::<><>::
 InfiniteGradient.gd::GDScript::-1::1711370504::0::1::::<>TextureRect<>::
 ircle.gif::SpriteFrames::9181826153158668313::1713485005::1713789137::1::::<><>::
-ircle.tscn::PackedScene::2058361499628441605::1715024014::0::1::::<><>::uid://djfjdlri5xdkn::::res://dotted line.png<>res://laser_enemy.gd<>res://Laser.gd<>uid://d320lntdiw2kj::::res://ircle.gif<>uid://4ou7posn1vbd::::res://laserSmall_004.ogg
+ircle.tscn::PackedScene::2058361499628441605::1715093786::0::1::::<><>::uid://djfjdlri5xdkn::::res://dotted line.png<>res://laser_enemy.gd<>res://Laser.gd<>uid://d320lntdiw2kj::::res://ircle.gif<>uid://4ou7posn1vbd::::res://laserSmall_004.ogg
 ircle_enemy.tres::Resource/WaveEnemy::8618372424630134749::1715003315::0::1::::<><>::uid://4lc6bvf7b8a0::::res://ircle.tscn<>uid://dh2kuw87g8lsx::::res://ircle_portal.tres<>res://wave_enemy.gd
 ircle_laser.gif::AnimatedTexture::4086587679924276008::1713485005::1713789070::1::::<><>::
 ircle_portal.tres::SpriteFrames::7706966249666417231::1715003315::0::1::::<><>::uid://bsgypq0rnump0::::res://portal.png
@@ -58,18 +58,22 @@ Leaderboard.gd::GDScript::-1::1714745513::0::1::::<>RichTextLabel<>::
 Leaderborad.gd::GDScript::-1::1713210189::0::1::::<>Label<>::
 loading_bg.png::CompressedTexture2D::2611156968220547840::1713883940::1713884000::1::::<><>::
 LockedRotation.gd::GDScript::-1::1714673387::0::1::::<>Node2D<>::
-main.tscn::PackedScene::3236663861408967157::1715024014::0::1::::<><>::res://main.gd<>res://Spawner.gd<>res://GameManager.gd<>uid://du12lm5aq7g7f::::res://ircle_enemy.tres<>uid://c5tm7od8mwjjb::::res://elastic.tres<>res://wave.gd<>res://Clock.gd<>uid://824inmsxuois::::res://entagon_enemy.tres<>uid://3gxjbodh4fwe::::res://riangle_enemy.tres<>uid://yvrhlh04k8w1::::res://background space.png<>res://wave_enemy.gd<>uid://cwquv3mq5kk1d::::res://countdown-spritesheet.png<>uid://dn65uapn0wsok::::res://impactMetal_002.ogg<>res://CollisionCheck.gd<>uid://bnguin7bsyx6e::::res://Kenney Future.ttf<>uid://cso5ufbf7u7oj::::res://Circle.png<>res://Notification.gd<>res://Stopwatch.gd<>res://Leaderboard.gd<>uid://4sdwatj6up8i::::res://tar.tscn<>uid://d3icnl4vjbbt7::::res://Flow State.wav
+main.gd::GDScript::-1::1715018832::0::1::::<>Node2D<>::
+main.tscn::PackedScene::3236663861408967157::1715093786::0::1::::<><>::res://main.gd<>res://Spawner.gd<>res://GameManager.gd<>uid://du12lm5aq7g7f::::res://ircle_enemy.tres<>uid://c5tm7od8mwjjb::::res://elastic.tres<>res://wave.gd<>res://Clock.gd<>uid://824inmsxuois::::res://entagon_enemy.tres<>uid://3gxjbodh4fwe::::res://riangle_enemy.tres<>uid://yvrhlh04k8w1::::res://background space.png<>res://wave_enemy.gd<>uid://cwquv3mq5kk1d::::res://countdown-spritesheet.png<>uid://dn65uapn0wsok::::res://impactMetal_002.ogg<>res://CollisionCheck.gd<>uid://bnguin7bsyx6e::::res://Kenney Future.ttf<>uid://cso5ufbf7u7oj::::res://Circle.png<>res://Notification.gd<>res://Stopwatch.gd<>res://Leaderboard.gd<>uid://4sdwatj6up8i::::res://tar.tscn<>uid://d3icnl4vjbbt7::::res://Flow State.wav
 MainMenu.gd::GDScript::-1::1714052978::0::1::::<>Control<>::
 main_menu.png::CompressedTexture2D::2780089184658583639::1713788545::1713789137::1::::<><>::
-main_menu.tscn::PackedScene::5528589196531596798::1715024014::0::1::::<><>::res://MainMenu.gd<>uid://bfuxwsctqat2v::::res://main_menu.png<>uid://bnguin7bsyx6e::::res://Kenney Future.ttf<>res://Settings.gd<>uid://bdg4mycyxr8hw::::res://loading_bg.png<>res://EmojiValidator.gd
+main_menu.tscn::PackedScene::5528589196531596798::1715093786::0::1::::<><>::res://MainMenu.gd<>uid://bfuxwsctqat2v::::res://main_menu.png<>uid://bnguin7bsyx6e::::res://Kenney Future.ttf<>res://Settings.gd<>uid://bdg4mycyxr8hw::::res://loading_bg.png<>res://EmojiValidator.gd
 Notification.gd::GDScript::-1::1712255812::0::1::::<>Label<>::
 Pentagon.png::CompressedTexture2D::2016652846434182215::1713279500::1713789137::1::::<><>::
 phaserDown1.ogg::AudioStreamOggVorbis::4690771314985965484::1713788545::1713789137::1::::<><>::
 PinnedLine.gd::GDScript::-1::1711545334::0::1::::<>Line2D<>::
 PinnedNode.gd::GDScript::-1::1711548006::0::1::::<>Node2D<>::
+player-apezoid.gd::GDScript::-1::1715020932::0::1::::<>RigidBody2D<>::
+player-apezoid.tscn::PackedScene::6156797845938407896::1715093786::0::1::::<><>::uid://cgcjicue76wsr::::res://player.tscn<>res://player-apezoid.gd<>uid://jc63jnpm7inw::::res://apezoid-gun.png<>uid://br5lt5658ioy3::::res://apezoid_engine.png<>uid://1jurox63577w::::res://apezoid-engine-idle.png<>uid://djfjdlri5xdkn::::res://dotted line.png<>res://Laser.gd<>uid://4ou7posn1vbd::::res://laserSmall_004.ogg
 player-row.gd::GDScript::-1::1715005514::0::1::::<>RigidBody2D<>::
+player-row.tscn::PackedScene::2745587543146493526::1715093786::0::1::::<><>::uid://cgcjicue76wsr::::res://player.tscn<>uid://cmkptgd3k37bl::::res://player_idle.gif<>res://player-row.gd<>uid://cbghiy80qmaa0::::res://powerUp6.ogg<>uid://mond5sdmukan::::res://powerUp7.ogg
 player.gd::GDScript::-1::1715008951::0::1::::<>RigidBody2D<>::
-player.tscn::PackedScene::5198664060177190853::1715024014::0::1::::<><>::res://player.gd<>uid://cuu1qqskoqabg::::res://Taco_Bell_Bong.ogg
+player.tscn::PackedScene::5198664060177190853::1715093786::0::1::::<><>::res://player.gd<>uid://cuu1qqskoqabg::::res://Taco_Bell_Bong.ogg
 player_idle.gif::SpriteFrames::5636696274620085357::1713485005::1713789070::1::::<><>::
 player_moving.gif::SpriteFrames::7222775645094374534::1713485005::1713789070::1::::<><>::
 portal-mask.gif::SpriteFrames::2920232568348411467::1713485005::1713789070::1::::<><>::
@@ -81,10 +85,6 @@ powerUp7.ogg::AudioStreamOggVorbis::871963694161027957::1713788545::1713789137::
 quare.gd::GDScript::-1::1713970918::0::1::::<>StaticBody2D<>::
 quare.gif::SpriteFrames::3147531847542783553::1713485005::1713789070::1::::<><>::
 quare.tscn::PackedScene::127098807235726851::1713485005::0::1::::<><>::uid://c5tm7od8mwjjb::::res://elastic.tres<>res://quare.gd<>res://LockedRotation.gd<>uid://bk3xnipssntsj::::res://quare.gif
-player-row.tscn::PackedScene::2745587543146493526::1715024014::0::1::::<><>::uid://cgcjicue76wsr::::res://player.tscn<>uid://cmkptgd3k37bl::::res://player_idle.gif<>res://player-row.gd<>uid://cbghiy80qmaa0::::res://powerUp6.ogg<>uid://mond5sdmukan::::res://powerUp7.ogg
-player-apezoid.tscn::PackedScene::6156797845938407896::1715024015::0::1::::<><>::uid://cgcjicue76wsr::::res://player.tscn<>res://player-apezoid.gd<>uid://jc63jnpm7inw::::res://apezoid-gun.png<>uid://br5lt5658ioy3::::res://apezoid_engine.png<>uid://1jurox63577w::::res://apezoid-engine-idle.png<>uid://djfjdlri5xdkn::::res://dotted line.png<>res://Laser.gd<>uid://4ou7posn1vbd::::res://laserSmall_004.ogg
-player-apezoid.gd::GDScript::-1::1715020932::0::1::::<>RigidBody2D<>::
-main.gd::GDScript::-1::1715018832::0::1::::<>Node2D<>::
 riangle-portal.png::CompressedTexture2D::3857796396327445076::1713788545::1713789137::1::::<><>::
 riangle-tar.gd::GDScript::-1::1714675305::0::1::::<>RigidBody2D<>::
 riangle-tar.png::CompressedTexture2D::6944178498998703172::1714137229::1714047925::1::::<><>::
@@ -105,17 +105,18 @@ Taco_Bell_Bong.ogg::AudioStreamOggVorbis::6219513878396225352::1713788545::17137
 tar phase 2.png::CompressedTexture2D::8835619070722889434::1714401231::1714401232::1::::<><>::
 tar transform.png::CompressedTexture2D::6394947411145313539::1714401149::1714401153::1::::<><>::
 tar.gd::GDScript::-1::1714674324::0::1::::<>RigidBody2D<>::
-tar.tscn::PackedScene::2072856733322655894::1715024014::0::1::::<><>::res://tar.gd<>uid://d4cjh2d7wxdyp::::res://tar_body.png<>res://riangle_spawner.gd<>uid://dx5bmcutp8qu1::::res://tar phase 2.png<>uid://cxd035cvwa22b::::res://tar transform.png
+tar.tscn::PackedScene::2072856733322655894::1715093786::0::1::::<><>::res://tar.gd<>uid://d4cjh2d7wxdyp::::res://tar_body.png<>res://riangle_spawner.gd<>uid://dx5bmcutp8qu1::::res://tar phase 2.png<>uid://cxd035cvwa22b::::res://tar transform.png
 tar_body.png::CompressedTexture2D::9199427649831702691::1713983894::1713983896::1::::<><>::
 tar_bullet.png::CompressedTexture2D::380855727689721666::1714140992::1714140993::1::::<><>::
 TextCollision.gd::GDScript::-1::1713191644::0::1::::<>CollisionShape2D<>::
 tips.txt::TextFile::-1::1713979811::0::1::::<><>::
 TrajectoryDisplay.gd::GDScript::-1::1713788545::0::1::::<>Line2D<>::
 Triangle.png::CompressedTexture2D::4809119900950957145::1712860164::1713789137::1::::<><>::
+vercel.json::JSON::-1::1715095043::0::1::::<><>::
 wave.gd::GDScript::-1::1714671505::0::1::::Wave<>Resource<>::
 wave_enemy.gd::GDScript::-1::1714570534::0::1::::WaveEnemy<>Resource<>::
 WorldBorder.gd::GDScript::-1::1711391767::0::1::::<>CollisionShape2D<>::
-::res://Build/::1715087841
+::res://Build/::1715090990
 index.144x144.png::CompressedTexture2D::4080255169115049576::1715087841::1715090990::1::::<><>::
 index.180x180.png::CompressedTexture2D::2827620191238006880::1715087841::1715090990::1::::<><>::
 index.512x512.png::CompressedTexture2D::6631235967394332259::1715087841::1715090990::1::::<><>::
@@ -123,10 +124,10 @@ index.apple-touch-icon.png::CompressedTexture2D::8318282097538809781::1715087841
 index.icon.png::CompressedTexture2D::2272868494679374172::1715087841::1715090990::1::::<><>::
 index.manifest.json::JSON::-1::1715087841::0::1::::<><>::
 index.png::CompressedTexture2D::8121917289960212038::1715087841::1715090990::1::::<><>::
-::res://godotgif/::1713463662
-godotgif.gdextension::GDExtension::-1::1713463662::0::1::::<><>::
-LICENSE.txt::TextFile::-1::1713463662::0::1::::<><>::
-README.md::TextFile::-1::1713463662::0::1::::<><>::
-::res://godotgif/bin/::1713463662
-::res://godotgif/bin/godotgif.macos.template_debug.framework/::1713463662
-::res://godotgif/bin/godotgif.macos.template_release.framework/::1713463662
+::res://godotgif/::1715094228
+godotgif.gdextension::GDExtension::-1::1715094228::0::1::::<><>::
+LICENSE.txt::TextFile::-1::1715094228::0::1::::<><>::
+README.md::TextFile::-1::1715094228::0::1::::<><>::
+::res://godotgif/bin/::1715094228
+::res://godotgif/bin/godotgif.macos.template_debug.framework/::1715094228
+::res://godotgif/bin/godotgif.macos.template_release.framework/::1715094228
