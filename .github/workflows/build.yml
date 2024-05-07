@@ -37,11 +37,8 @@ jobs:
           godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.1/Godot_v4.1-stable_export_templates.tpz
           relative_project_path: ./
           
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Client - html5
-          path: ${{ steps.export.outputs.build_directory }}
+      - name: Move vercel.json
+        run: cp ${GITHUB_WORKSPACE}/vercel.json ${{ steps.export.outputs.build_directory }}/vercel.json
       
       - name: Publish to Vercel
         uses: amondnet/vercel-action@v20
