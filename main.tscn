@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://bmd4m7lqj4v0x"]
+[gd_scene load_steps=111 format=3 uid="uid://bmd4m7lqj4v0x"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3dydx"]
 [ext_resource type="Script" path="res://Spawner.gd" id="1_ifu8g"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Stopwatch.gd" id="13_xhnp2"]
 [ext_resource type="Script" path="res://Leaderboard.gd" id="14_v1elq"]
 [ext_resource type="PackedScene" uid="uid://4sdwatj6up8i" path="res://tar.tscn" id="19_8258f"]
+[ext_resource type="AudioStream" uid="uid://d3icnl4vjbbt7" path="res://Flow State.wav" id="21_7tjgd"]
 
 [sub_resource type="Resource" id="Resource_ur7l5"]
 script = ExtResource("4_um0x7")
@@ -885,6 +886,10 @@ script = ExtResource("13_lkv81")
 [node name="GameManager" type="Node2D" parent="."]
 process_mode = 3
 script = ExtResource("1_k8sg3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_7tjgd")
+autoplay = true
 
 [connection signal="wave_complete" from="Spawner" to="UI/Stopwatch" method="wave_finished"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="check_enemies_loop"]

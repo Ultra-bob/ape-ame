@@ -162,6 +162,7 @@ radius = 14.0
 height = 40.0
 
 [node name="Player" instance=ExtResource("1_4dgnt")]
+scale = Vector2(2, 2)
 lock_rotation = true
 script = ExtResource("2_axxxt")
 

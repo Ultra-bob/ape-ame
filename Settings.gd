@@ -11,6 +11,7 @@ func _ready():
 	if has_config:
 		$Menu/Username.text = config.get_value("config", "username")
 		$Menu/Controls.selected = 0 if config.get_value("config", "relative_controls") else 1
+		$Menu/Character.selected = CHARACTERS.find(config.get_value("gameplay", "class"))
 
 func _process(delta):
 	check_valid("")
