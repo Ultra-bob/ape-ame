@@ -3,7 +3,7 @@ extends StaticBody2D
 @onready var player = $"../Player"
 var idle_texture = preload("res://dotted line.png")
 var aiming_texture = preload("res://laser_idle.png")
-var active_texture = preload("res://ircle_laser.gif")
+var active_texture = preload("res://laser_idle.png")
 var aiming = true
 var can_damage = false
 
@@ -27,7 +27,7 @@ func _process(delta):
 
 func fire_laser():
 	var tween = get_tree().create_tween()
-	$Sprite2D.play("gif")
+	$Sprite2D.play("shoot")
 	aiming = false
 	tween.set_parallel(true)
 	tween.tween_callback(set_laser_texture.bind(aiming_texture))

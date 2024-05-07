@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6ybtahxwpukd"]
+[gd_scene load_steps=12 format=3 uid="uid://c6ybtahxwpukd"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_3q13i"]
-[ext_resource type="SpriteFrames" uid="uid://ixubgtxowne7" path="res://bullets.gif" id="2_iifjj"]
+[ext_resource type="Texture2D" uid="uid://fgfa8x6icumw" path="res://bullets.png" id="2_unua3"]
 [ext_resource type="Texture2D" uid="uid://djfjdlri5xdkn" path="res://dotted line.png" id="4_h1jno"]
 [ext_resource type="Script" path="res://TrajectoryDisplay.gd" id="5_0jcwc"]
 
@@ -11,6 +11,42 @@ bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5cca"]
 radius = 13.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8myh4"]
+atlas = ExtResource("2_unua3")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldqff"]
+atlas = ExtResource("2_unua3")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3ov1"]
+atlas = ExtResource("2_unua3")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia1sw"]
+atlas = ExtResource("2_unua3")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pacu6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8myh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldqff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3ov1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia1sw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [node name="Bullet" type="RigidBody2D" groups=["bullet"]]
 collision_layer = 2
@@ -30,9 +66,8 @@ texture_filter = 1
 position = Vector2(-0.0234375, -0.00781251)
 rotation = 1.5708
 scale = Vector2(4, 4)
-sprite_frames = ExtResource("2_iifjj")
-animation = &"gif"
-autoplay = "gif"
+sprite_frames = SubResource("SpriteFrames_pacu6")
+autoplay = "default"
 offset = Vector2(7.05637, 10.7826)
 
 [node name="TrajectoryDisplay" type="Line2D" parent="."]

@@ -1,9 +1,73 @@
-[gd_scene load_steps=5 format=3 uid="uid://yu50iyftoyaj"]
+[gd_scene load_steps=14 format=3 uid="uid://yu50iyftoyaj"]
 
-[ext_resource type="SpriteFrames" uid="uid://dt3chppm3qub7" path="res://riangle.gif" id="1_5ndal"]
 [ext_resource type="Script" path="res://riangle.gd" id="1_0404b"]
+[ext_resource type="Texture2D" uid="uid://dm8o6cwq2jtaq" path="res://riangle.png" id="2_rgnr7"]
 [ext_resource type="Script" path="res://Gun.gd" id="3_kffl0"]
 [ext_resource type="PackedScene" uid="uid://c6ybtahxwpukd" path="res://bullet.tscn" id="4_tfncc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb5mh"]
+atlas = ExtResource("2_rgnr7")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gcy0"]
+atlas = ExtResource("2_rgnr7")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhrqf"]
+atlas = ExtResource("2_rgnr7")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cbkq"]
+atlas = ExtResource("2_rgnr7")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yud03"]
+atlas = ExtResource("2_rgnr7")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn3w7"]
+atlas = ExtResource("2_rgnr7")
+region = Rect2(0, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn7s2"]
+atlas = ExtResource("2_rgnr7")
+region = Rect2(80, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pssaw"]
+atlas = ExtResource("2_rgnr7")
+region = Rect2(40, 40, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5dvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fb5mh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gcy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhrqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cbkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yud03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn3w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn7s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pssaw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Riangle" type="StaticBody2D" groups=["destructible", "enemy"]]
 scale = Vector2(0.25, 0.25)
@@ -14,11 +78,8 @@ texture_filter = 1
 position = Vector2(-21.5874, 1.58741)
 rotation = 1.5708
 scale = Vector2(5.50033, 5.50033)
-sprite_frames = ExtResource("1_5ndal")
-animation = &"gif"
-autoplay = "gif"
-frame_progress = 0.383366
-speed_scale = 2.0
+sprite_frames = SubResource("SpriteFrames_p5dvv")
+autoplay = "default"
 
 [node name="Gun2" type="Marker2D" parent="."]
 position = Vector2(-224, 284)

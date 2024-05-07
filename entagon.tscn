@@ -1,12 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://c54oi61t8bvtu"]
+[gd_scene load_steps=13 format=3 uid="uid://c54oi61t8bvtu"]
 
 [ext_resource type="Script" path="res://Entagon.gd" id="1_726g8"]
-[ext_resource type="SpriteFrames" uid="uid://cffqo7q1ofatc" path="res://entagon.gif" id="3_116st"]
+[ext_resource type="Texture2D" uid="uid://b6xcx23pog1hf" path="res://entagon.png" id="2_vqlca"]
 [ext_resource type="Texture2D" uid="uid://djfjdlri5xdkn" path="res://dotted line.png" id="4_vixiu"]
 [ext_resource type="Script" path="res://TrajectoryDisplay.gd" id="5_w6b4q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_odemo"]
 bounce = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na0t5"]
+atlas = ExtResource("2_vqlca")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvsdg"]
+atlas = ExtResource("2_vqlca")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iwp2"]
+atlas = ExtResource("2_vqlca")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euoju"]
+atlas = ExtResource("2_vqlca")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpqlb"]
+atlas = ExtResource("2_vqlca")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7qac"]
+atlas = ExtResource("2_vqlca")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0b8u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na0t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvsdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iwp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euoju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpqlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7qac")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Entagon" type="RigidBody2D" groups=["enemy"]]
 physics_material_override = SubResource("PhysicsMaterial_odemo")
@@ -21,9 +71,10 @@ script = ExtResource("1_726g8")
 texture_filter = 1
 position = Vector2(-0.999999, 0.999999)
 scale = Vector2(0.90625, 0.90625)
-sprite_frames = ExtResource("3_116st")
-animation = &"gif"
-autoplay = "gif"
+sprite_frames = SubResource("SpriteFrames_v0b8u")
+autoplay = "default"
+frame = 5
+frame_progress = 0.0888797
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.1, 0.1)

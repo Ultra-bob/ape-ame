@@ -1,8 +1,5 @@
 extends StaticBody2D
 
-func _ready():
-	$AnimatedSprite.play("gif")
-
 func destroy():
 	if not is_queued_for_deletion():
 		var explosion = load("res://explosion.tscn").instantiate()

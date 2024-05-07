@@ -1,80 +1,37 @@
-[gd_scene load_steps=17 format=3 uid="uid://c87easb8570vd"]
+[gd_scene load_steps=10 format=3 uid="uid://c87easb8570vd"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c5tm7od8mwjjb" path="res://elastic.tres" id="1_1oplx"]
 [ext_resource type="Script" path="res://Shield.gd" id="2_q7qjq"]
-[ext_resource type="Texture2D" uid="uid://comgu2t784y8f" path="res://shield.png" id="3_hrquq"]
-[ext_resource type="SpriteFrames" uid="uid://6oj6l7lnsjhi" path="res://exagon.gif" id="4_cfpay"]
+[ext_resource type="Texture2D" uid="uid://ciwpkhcp4pvqt" path="res://exagon.png" id="3_445cx"]
 [ext_resource type="AudioStream" uid="uid://b73ik24u615jc" path="res://phaserDown1.ogg" id="5_8ceda"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fi50y"]
-atlas = ExtResource("3_hrquq")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cymp8"]
+atlas = ExtResource("3_445cx")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_evg51"]
-atlas = ExtResource("3_hrquq")
-region = Rect2(128, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xha3n"]
+atlas = ExtResource("3_445cx")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gq34g"]
-atlas = ExtResource("3_hrquq")
-region = Rect2(256, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhmnk"]
+atlas = ExtResource("3_445cx")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b1q8y"]
-atlas = ExtResource("3_hrquq")
-region = Rect2(0, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q6ecx"]
-atlas = ExtResource("3_hrquq")
-region = Rect2(128, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mlwqr"]
-atlas = ExtResource("3_hrquq")
-region = Rect2(256, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_faf3x"]
-atlas = ExtResource("3_hrquq")
-region = Rect2(0, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1s48p"]
-atlas = ExtResource("3_hrquq")
-region = Rect2(128, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7kdo"]
-atlas = ExtResource("3_hrquq")
-region = Rect2(256, 256, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2kvmu"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_vytjk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fi50y")
+"texture": SubResource("AtlasTexture_cymp8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_evg51")
+"texture": SubResource("AtlasTexture_xha3n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gq34g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b1q8y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q6ecx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mlwqr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_faf3x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1s48p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e7kdo")
+"texture": SubResource("AtlasTexture_fhmnk")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_evq3y"]
@@ -89,13 +46,11 @@ physics_material_override = ExtResource("1_1oplx")
 script = ExtResource("2_q7qjq")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Shield"]
-self_modulate = Color(0.529412, 0.819608, 1, 0.27451)
 z_index = 2
-position = Vector2(17, 2)
 rotation = 1.5708
-scale = Vector2(4.39062, 4.39062)
-sprite_frames = SubResource("SpriteFrames_2kvmu")
-frame_progress = 0.973867
+scale = Vector2(1.65653, 1.66727)
+sprite_frames = SubResource("SpriteFrames_vytjk")
+frame_progress = 0.838782
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shield"]
 visible = false
@@ -112,8 +67,7 @@ pitch_scale = 0.95
 texture_filter = 1
 position = Vector2(-0.500002, 0.500002)
 scale = Vector2(1.59375, 1.59375)
-sprite_frames = ExtResource("4_cfpay")
-animation = &"gif"
+animation = &""
 autoplay = "gif"
 frame_progress = 0.425841
 

@@ -5,7 +5,7 @@ var shooting = false
 
 var idle_texture = preload("res://dotted line.png")
 var aiming_texture = preload("res://laser_idle.png")
-var active_texture = preload("res://ircle_laser.gif")
+var active_texture = preload("res://laser_idle.png")
 
 func _ready():
 	update_animation()
