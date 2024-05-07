@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Client - html5
-          path: ${{ steps.export.outputs.archive_directory }}
+          path: ${{ steps.export.outputs.build_directory }}
       
       - name: Publish to Vercel
         uses: amondnet/vercel-action@v20
@@ -49,5 +49,5 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           vercel-org-id: ${{ secrets.ORG_ID}}  #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
-          working-directory: ${{ steps.export.outputs.archive_directory }}
+          working-directory: ${{ steps.export.outputs.build_directory }}
           vercel-args: '--prod'
