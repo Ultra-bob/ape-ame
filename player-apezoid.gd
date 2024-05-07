@@ -21,7 +21,6 @@ func update_animation():
 
 func _input(event):
 	if event.is_action_pressed("shoot") and speed != 0:
-		$Laser.fire()
 		fire_laser()
 
 func _process(delta):
@@ -44,7 +43,6 @@ func fire_laser():
 	tween.tween_callback(play_with_delay)
 	tween.set_parallel(false)
 	tween.tween_callback(set_laser_texture.bind(active_texture))
-	tween.tween_callback($Laser.fire)
 	tween.tween_property(self, "can_damage", true, 0)
 	tween.tween_interval(0.2)
 	tween.tween_property(self, "can_damage", false, 0)

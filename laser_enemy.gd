@@ -37,7 +37,6 @@ func fire_laser():
 	tween.tween_callback(can_shoot.bind(true))
 	#tween.tween_callback(set_laser_texture.bind(active_texture))
 	tween.tween_callback($Sprite2D.pause)
-	tween.tween_callback($Line2D.fire)
 	tween.tween_interval(0.2)
 	tween.tween_callback(can_shoot.bind(false))
 	tween.tween_callback(set_laser_texture.bind(aiming_texture))
