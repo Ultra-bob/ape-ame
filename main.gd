@@ -7,6 +7,8 @@ func _ready():
 		var player = load(config.get_value("gameplay", "class", "res://player-row.tscn")).instantiate()
 		player.position = Vector2(1920/2, 1080/2)
 		add_child(player)
+		
+		$Music.volume_db = linear_to_db(config.get_value("config", "music_volume", 1))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

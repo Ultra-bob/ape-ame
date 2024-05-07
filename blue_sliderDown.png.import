@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xq1dd6w22i6f"
-path="res://.godot/imported/Hexagon outline.png-ad717813cdc35ccaddcd417e4a24f3ba.ctex"
+uid="uid://1mfe7gltx0lk"
+path="res://.godot/imported/blue_sliderDown.png-542a49bb68b27a35b8d39003ebe93225.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Hexagon outline.png"
-dest_files=["res://.godot/imported/Hexagon outline.png-ad717813cdc35ccaddcd417e4a24f3ba.ctex"]
+source_file="res://blue_sliderDown.png"
+dest_files=["res://.godot/imported/blue_sliderDown.png-542a49bb68b27a35b8d39003ebe93225.ctex"]
 
 [params]
 

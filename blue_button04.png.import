@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3y48ijiv4vlf"
-path="res://.godot/imported/Pentagon.png-7ed5bfa4e2087f30c59e5bfaa438c497.ctex"
+uid="uid://dl3pgdjygxox3"
+path="res://.godot/imported/blue_button04.png-b41db7426af2e33b5d2bde0c46856a2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pentagon.png"
-dest_files=["res://.godot/imported/Pentagon.png-7ed5bfa4e2087f30c59e5bfaa438c497.ctex"]
+source_file="res://blue_button04.png"
+dest_files=["res://.godot/imported/blue_button04.png-b41db7426af2e33b5d2bde0c46856a2f.ctex"]
 
 [params]
 

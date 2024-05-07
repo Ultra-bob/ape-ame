@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck1db6d8whbac"]
+[gd_scene load_steps=11 format=3 uid="uid://ck1db6d8whbac"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_omrmt"]
 [ext_resource type="Texture2D" uid="uid://bfuxwsctqat2v" path="res://main_menu.png" id="2_vrg41"]
@@ -6,6 +6,12 @@
 [ext_resource type="Script" path="res://Settings.gd" id="5_sarwv"]
 [ext_resource type="Texture2D" uid="uid://bdg4mycyxr8hw" path="res://loading_bg.png" id="6_fwqfu"]
 [ext_resource type="Script" path="res://EmojiValidator.gd" id="6_ojb71"]
+[ext_resource type="Texture2D" uid="uid://1mfe7gltx0lk" path="res://blue_sliderDown.png" id="6_tt6es"]
+[ext_resource type="Script" path="res://VolumeSlider.gd" id="7_qc1t8"]
+[ext_resource type="AudioStream" uid="uid://b8soxqg0jquqg" path="res://Flow State 2.ogg" id="8_uvg4p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ojsq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -124,6 +130,7 @@ grow_vertical = 2
 columns = 2
 
 [node name="Label" type="Label" parent="Settings Panel/Menu"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("4_ybv7t")
@@ -143,6 +150,7 @@ script = ExtResource("6_ojb71")
 pattern = "^[A-Za-z]+"
 
 [node name="Label2" type="Label" parent="Settings Panel/Menu"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("4_ybv7t")
@@ -161,6 +169,7 @@ popup/item_1/text = "Absolute"
 popup/item_1/id = 1
 
 [node name="Label3" type="Label" parent="Settings Panel/Menu"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("4_ybv7t")
@@ -177,6 +186,25 @@ popup/item_0/text = "Row"
 popup/item_0/id = 0
 popup/item_1/text = "Apezoid"
 popup/item_1/id = 1
+
+[node name="Label4" type="Label" parent="Settings Panel/Menu"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_ybv7t")
+theme_override_font_sizes/font_size = 80
+text = "music"
+
+[node name="MusicVolume" type="HSlider" parent="Settings Panel/Menu"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("6_tt6es")
+theme_override_icons/grabber_highlight = ExtResource("6_tt6es")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_4ojsq")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_4ojsq")
+max_value = 1.0
+step = 0.01
+script = ExtResource("7_qc1t8")
 
 [node name="Tutorial Text" type="Label" parent="."]
 visible = false
@@ -269,6 +297,11 @@ theme_override_font_sizes/normal_font_size = 200
 bbcode_enabled = true
 text = "[center][wave]LOADING..."
 
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_uvg4p")
+autoplay = true
+bus = &"Music"
+
 [connection signal="pressed" from="Layout/Play" to="." method="play"]
 [connection signal="pressed" from="Layout/Settings" to="Settings Panel" method="show"]
 [connection signal="pressed" from="Layout/Tutorial" to="Tutorial Text" method="show"]
@@ -276,4 +309,5 @@ text = "[center][wave]LOADING..."
 [connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="hide"]
 [connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel" method="check_valid"]
 [connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel/Menu/Username" method="check"]
+[connection signal="value_changed" from="Settings Panel/Menu/MusicVolume" to="Settings Panel/Menu/MusicVolume" method="_on_value_changed"]
 [connection signal="pressed" from="Tutorial Text/Close" to="Tutorial Text" method="hide"]

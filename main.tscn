@@ -15,12 +15,12 @@
 [ext_resource type="AudioStream" uid="uid://dn65uapn0wsok" path="res://impactMetal_002.ogg" id="11_acuni"]
 [ext_resource type="Script" path="res://CollisionCheck.gd" id="11_ryeyk"]
 [ext_resource type="FontFile" uid="uid://bnguin7bsyx6e" path="res://Kenney Future.ttf" id="11_s4q6p"]
-[ext_resource type="Texture2D" uid="uid://cso5ufbf7u7oj" path="res://Circle.png" id="13_318fy"]
+[ext_resource type="Texture2D" uid="uid://bvpoajwx0yw3y" path="res://Circle.png" id="13_318fy"]
 [ext_resource type="Script" path="res://Notification.gd" id="13_lkv81"]
 [ext_resource type="Script" path="res://Stopwatch.gd" id="13_xhnp2"]
 [ext_resource type="Script" path="res://Leaderboard.gd" id="14_v1elq"]
 [ext_resource type="PackedScene" uid="uid://4sdwatj6up8i" path="res://tar.tscn" id="19_8258f"]
-[ext_resource type="AudioStream" uid="uid://d3icnl4vjbbt7" path="res://Flow State.wav" id="21_7tjgd"]
+[ext_resource type="AudioStream" uid="uid://b8soxqg0jquqg" path="res://Flow State 2.ogg" id="21_7hdkm"]
 
 [sub_resource type="Resource" id="Resource_ur7l5"]
 script = ExtResource("4_um0x7")
@@ -887,8 +887,8 @@ script = ExtResource("13_lkv81")
 process_mode = 3
 script = ExtResource("1_k8sg3")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("21_7tjgd")
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_7hdkm")
 autoplay = true
 
 [connection signal="wave_complete" from="Spawner" to="UI/Stopwatch" method="wave_finished"]

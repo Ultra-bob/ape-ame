@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8soxqg0jquqg"
+path="res://.godot/imported/Flow State 2.ogg-f34c569013c5b89f260290636f7a1c71.oggvorbisstr"
+
+[deps]
+
+source_file="res://Flow State 2.ogg"
+dest_files=["res://.godot/imported/Flow State 2.ogg-f34c569013c5b89f260290636f7a1c71.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
