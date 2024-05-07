@@ -28,7 +28,7 @@ func _ready():
 	
 func _physics_process(delta):
 	if phase2_active:
-		apply_central_force((global_position - player.global_position).normalized() * -1600)
+		apply_central_force((global_position - player.global_position).normalized() * -1600 * (player.speed / 1000))
 
 func phase():
 	if phase2_active:
