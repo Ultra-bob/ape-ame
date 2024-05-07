@@ -203,4 +203,4 @@ collision_mask = 3
 [node name="LaserFX" type="AudioStreamPlayer2D" parent="." index="5"]
 stream = ExtResource("8_6whae")
 
-[connection signal="timeout" from="Laser/VisibleTimer" to="Laser" method="hide_self"]
+[connection signal="timeout" from="Laser/VisibleTimer" to="Laser" method="set_transparent"]
