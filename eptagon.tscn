@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://bda763f0fxh5k"]
+
+[ext_resource type="Script" path="res://eptagon.gd" id="1_d0pdl"]
+[ext_resource type="Texture2D" uid="uid://d4f0f3ggnd3rl" path="res://eptagon.png" id="1_kwkxh"]
+[ext_resource type="Script" path="res://Turret.gd" id="2_6tkha"]
+[ext_resource type="Script" path="res://Gun.gd" id="2_sea5o"]
+[ext_resource type="Texture2D" uid="uid://d1wxsdwad10p6" path="res://eptagon-turret.png" id="3_jhgw8"]
+[ext_resource type="PackedScene" uid="uid://c6ybtahxwpukd" path="res://bullet.tscn" id="4_cyd7j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fcnk"]
+atlas = ExtResource("3_jhgw8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhi7e"]
+atlas = ExtResource("3_jhgw8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo0cp"]
+atlas = ExtResource("3_jhgw8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fj5a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fcnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhi7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo0cp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03ifk"]
+radius = 36.0139
+
+[node name="Eptagon" type="StaticBody2D" groups=["destructible"]]
+script = ExtResource("1_d0pdl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_kwkxh")
+
+[node name="Turret" type="Node2D" parent="."]
+script = ExtResource("2_6tkha")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Turret"]
+position = Vector2(14, 0)
+rotation = -1.5708
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1fj5a")
+autoplay = "default"
+
+[node name="Gun" type="Marker2D" parent="Turret"]
+position = Vector2(56, 0)
+script = ExtResource("2_sea5o")
+bullet = ExtResource("4_cyd7j")
+bullet_speed = 750
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_03ifk")
+
+[connection signal="animation_looped" from="Turret/AnimatedSprite2D" to="Turret/Gun" method="shoot"]

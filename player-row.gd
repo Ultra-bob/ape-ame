@@ -63,7 +63,7 @@ func aquire_exagon():
 	update_display()
 
 func update_display():
-	$"../UI/Quare Count".text = "%d Quares\n" % [(max_quares - num_quares)]
+	$"/root/Node2D/UI/Quare Count".text = "%d Quares\n" % [(max_quares - num_quares)]
 
 var num_quares = 0
 var max_quares = 3

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dumcnppcm3cex"
+path="res://.godot/imported/title screen.ogg-3e6c78cd833d1ba2c4b93c6c7b62497f.oggvorbisstr"
+
+[deps]
+
+source_file="res://title screen.ogg"
+dest_files=["res://.godot/imported/title screen.ogg-3e6c78cd833d1ba2c4b93c6c7b62497f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

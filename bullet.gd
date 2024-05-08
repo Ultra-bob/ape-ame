@@ -5,6 +5,8 @@ var bounces = 0
 
 func _physics_process(delta):
 	rotation = linear_velocity.angle()
+	#if linear_velocity.length() < 1100:
+	#	apply_central_force((global_position - player.global_position).normalized() * -200)
 
 func hit(body):	
 	if body.is_in_group("destructible"):
