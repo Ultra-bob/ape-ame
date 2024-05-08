@@ -33,9 +33,9 @@ func _physics_process(delta):
 		update_animation()
 	
 	if absolute_movement:
-		apply_central_force(Vector2(side_input, move_input).normalized() * -speed)
+		apply_central_force(Vector2(side_input, move_input).normalized() * -speed * linear_damp) 
 	else:
-		apply_central_force(transform.y * side_input * speed / -2 + transform.x * move_input * speed)
+		apply_central_force(transform.y * side_input * speed / -2 + transform.x * move_input * speed * linear_damp)
 
 func destroy():
 	$DeathFX.play()

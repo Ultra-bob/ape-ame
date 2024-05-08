@@ -13,8 +13,6 @@ func _ready():
 		absolute_movement = not config.get_value("config", "relative_controls")
 
 func _input(event):
-	if event.is_action_pressed("jump"):
-		global_position = get_global_mouse_position()
 	if event.is_action_pressed("quare"):
 		if num_quares >= max_quares:
 			notifier.notify("All Quares in Use!")
