@@ -1,5 +1,11 @@
 extends "res://player.gd"
 
+var num_quares = 0
+var max_quares = 3
+var exagons = 0
+
+var quare_ability = preload("res://quare_ability.tscn")
+
 func update_animation():
 	if moving:
 		$AnimatedSprite2D.play("moving")
@@ -7,7 +13,8 @@ func update_animation():
 		$AnimatedSprite2D.play("idle")
 
 func _ready():
-	update_display()
+	for i in range(max_quares):
+		$"../".get_node("%Ability").add_child(quare_ability.instantiate())
 	update_animation()
 	if config.load("user://settings.cfg") == OK:
 		absolute_movement = not config.get_value("config", "relative_controls")
@@ -17,7 +24,10 @@ func _input(event):
 		if num_quares >= max_quares:
 			notifier.notify("All Quares in Use!")
 			return
-		
+		for child in $"../".get_node("%Ability").get_children():
+			if child.value == 0 and not child.animating:
+				child.value = 100
+				break
 		if not $"../CollisionCheck".is_clear(get_global_mouse_position(), 60):
 			$"../CollisionCheck".flash()
 			notifier.notify("Too Close!")
@@ -27,7 +37,6 @@ func _input(event):
 		new_quare.position = get_global_mouse_position()
 		$/root/Node2D.add_child(new_quare)
 		new_quare.name = "Quare"
-		update_display()
 	if event.is_action_pressed("exagon"):
 		if exagons > 1:
 			exagons = 1
@@ -44,25 +53,19 @@ func _input(event):
 		new_exagon.position = get_global_mouse_position()
 		$/root/Node2D.add_child(new_exagon)
 		new_exagon.name = "Exagon"
-		update_display()
 		#$Gun.shoot()
 		
 		
 func aquire_quare():
+	for child in $"../".get_node("%Ability").get_children():
+		if child.value == 100 and not child.animating:
+			child.start_countdown(3)
+			break
 	await get_tree().create_timer(3).timeout
 	num_quares -= 1
 	$QuareFX.play()
-	update_display()
 	
 func aquire_exagon():
 	await get_tree().create_timer(15).timeout
 	exagons += 1
 	$ExagonFX.play()
-	update_display()
-
-func update_display():
-	$"/root/Node2D/UI/Quare Count".text = "%d Quares\n" % [(max_quares - num_quares)]
-
-var num_quares = 0
-var max_quares = 3
-var exagons = 0

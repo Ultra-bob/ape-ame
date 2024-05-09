@@ -750,22 +750,6 @@ theme_override_fonts/font = ExtResource("11_s4q6p")
 theme_override_font_sizes/font_size = 50
 text = "wave 1"
 
-[node name="Quare Count" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 44.0
-offset_top = -175.0
-offset_right = 279.0
-offset_bottom = -38.0
-grow_vertical = 0
-theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("11_s4q6p")
-theme_override_font_sizes/font_size = 50
-text = "Gun"
-vertical_alignment = 2
-
 [node name="Stopwatch" type="Label" parent="UI"]
 layout_mode = 1
 anchors_preset = 1
@@ -781,6 +765,18 @@ text = "1:10.25"
 horizontal_alignment = 2
 justification_flags = 160
 script = ExtResource("13_xhnp2")
+
+[node name="Ability" type="HBoxContainer" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -51.0
+offset_right = 54.0
+offset_bottom = -11.0
+grow_vertical = 0
 
 [node name="GameOver" type="Label" parent="."]
 process_mode = 3
@@ -915,6 +911,7 @@ process_mode = 3
 script = ExtResource("1_k8sg3")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-13, 29)
 stream = ExtResource("21_7hdkm")
 autoplay = true
 

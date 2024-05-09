@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2xigwib6hka4"]
+
+[ext_resource type="Texture2D" uid="uid://ba2tcipuc8rdi" path="res://quare 2.png" id="1_thx02"]
+[ext_resource type="Texture2D" uid="uid://barlie6sierj" path="res://square.png" id="2_odtey"]
+[ext_resource type="Script" path="res://RechargeProgress.gd" id="3_gufwx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvo18"]
+atlas = ExtResource("1_thx02")
+region = Rect2(2.08165e-12, 2.08165e-12, 64, 64)
+
+[node name="Quare" type="TextureProgressBar"]
+custom_minimum_size = Vector2(64, 64)
+step = 0.1
+fill_mode = 5
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+texture_under = SubResource("AtlasTexture_lvo18")
+texture_progress = ExtResource("2_odtey")
+texture_progress_offset = Vector2(2.08165e-12, 2.08165e-12)
+tint_progress = Color(0, 0, 0, 0.443137)
+script = ExtResource("3_gufwx")

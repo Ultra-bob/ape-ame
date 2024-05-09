@@ -9,6 +9,7 @@ var active_texture = preload("res://laser_idle.png")
 
 func _ready():
 	update_animation()
+	$"../".get_node("%Ability").add_child(preload("res://laser-ability.tscn").instantiate())
 	if config.load("user://settings.cfg") == OK:
 		absolute_movement = not config.get_value("config", "relative_controls")
 	speed = 750
@@ -36,6 +37,7 @@ func _process(delta):
 func fire_laser():
 	var tween = get_tree().create_tween()
 	speed = 0
+	$"../".get_node("%Ability/Laser").start_countup(1)
 	$Body.play("shoot")
 	tween.set_parallel(true)
 	tween.tween_callback(set_laser_texture.bind(aiming_texture))
@@ -48,6 +50,7 @@ func fire_laser():
 	tween.tween_property(self, "can_damage", false, 0)
 	tween.tween_callback(set_laser_texture.bind(aiming_texture))
 	tween.set_parallel(true)
+	tween.tween_callback($"../".get_node("%Ability/Laser").start_countdown.bind(0.2))
 	tween.tween_property($Laser, "modulate", Color(Color.WHITE, 0.2), 0.2).set_ease(Tween.EASE_OUT)
 	tween.set_parallel(false)
 	tween.tween_callback(set_laser_texture.bind(idle_texture))

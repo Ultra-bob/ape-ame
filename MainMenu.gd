@@ -38,6 +38,6 @@ func play():
 	
 	var tip = pick(tip_options)
 	$LoadingScreen/Tip.text = "Tip: %s" % tip
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.8).timeout
 	var game = ResourceLoader.load_threaded_get(MAIN_SCENE_PATH)
 	get_tree().change_scene_to_packed(game)
