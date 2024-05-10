@@ -649,7 +649,7 @@ animations = [{
 }]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rmvst"]
-distance = 10.0
+distance = 2.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bmvvy"]
 radius = 100.0

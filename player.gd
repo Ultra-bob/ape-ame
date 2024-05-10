@@ -19,10 +19,12 @@ func _ready():
 	if config.load("user://settings.cfg") == OK:
 		absolute_movement = not config.get_value("config", "relative_controls")
 
+func _integrate_forces(state):
+	look_at(get_global_mouse_position())
+
 func _physics_process(delta):
 	if frozen:
 		return
-	look_at(get_global_mouse_position())
 	var move_input = Input.get_axis("down", "up")
 	var side_input = Input.get_axis("right", "left")
 	if move_input > 0 and not moving:
