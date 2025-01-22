@@ -4,7 +4,7 @@ extends RichTextLabel
 @export var spawner: Node2D
 var config = ConfigFile.new()
 
-const API_BASE = "https://flask-hello-world-nine-psi.vercel.app"
+const API_BASE = "https://ape-ame.ultrablob.me/api"
 #const API_BASE = "http://localhost:5001"
 
 func make_urlsafe(data: String):
