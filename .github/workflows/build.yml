@@ -33,7 +33,7 @@ jobs:
         with:
           # 7-Zip release tag from its GitHub Releases page e.g. 24.07.
           # default: latest
-          tag: ""
+          tag: "24.09"
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
