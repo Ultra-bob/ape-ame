@@ -33,7 +33,7 @@ jobs:
       - name: export game
         id: export
         # Use latest version (see releases for all versions)
-        uses: firebelley/godot-export@v6.0.0
+        uses: https://github.com/firebelley/godot-export@v6.0.0
         with:
             godot_executable_download_url: https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_BUILD }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_BUILD }}_linux.x86_64.zip
             godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_BUILD }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_BUILD }}_export_templates.tpz
@@ -43,7 +43,7 @@ jobs:
         run: cp ${GITHUB_WORKSPACE}/vercel.json ${{ steps.export.outputs.build_directory }}/vercel.json
       
       - name: Publish to Vercel
-        uses: amondnet/vercel-action@v20
+        uses: https://github.com/amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           vercel-org-id: ${{ secrets.ORG_ID}}  #Required
