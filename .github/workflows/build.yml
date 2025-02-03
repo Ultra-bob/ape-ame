@@ -28,12 +28,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
-      - uses: https://github.com/milliewalky/setup-7-zip@v2
+      - run: sudo apt install -y p7zip-full p7zip-rar
         name: Install 7zip
-        with:
-          # 7-Zip release tag from its GitHub Releases page e.g. 24.07.
-          # default: latest
-          tag: "24.09"
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
