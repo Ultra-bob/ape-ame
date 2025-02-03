@@ -30,6 +30,10 @@ jobs:
 
       - uses: https://github.com/milliewalky/setup-7-zip@v2
         name: Install 7zip
+        with:
+          # 7-Zip release tag from its GitHub Releases page e.g. 24.07.
+          # default: latest
+          tag: ""
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
