@@ -56,7 +56,7 @@ jobs:
         run: |
           mkdir -v -p build/web
           EXPORT_DIR="$(readlink -f build)"
-          cd $PROJECT_PATH
+          cd $GITHUB_WORKSPACE
           /usr/bin/godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
 
       - name: Upload Build
