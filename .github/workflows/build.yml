@@ -29,15 +29,15 @@ jobs:
     steps:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout
         name: Checkout Files
 
-      - uses: https://github.com/chickensoft-games/setup-godot@v1
+      - uses: https://github.com/chickensoft-games/setup-godot
         name: Setup Godot
         with:
-          version: 4.3-stable
+          version: 4.3.0-stable
         
-      - name: Build Gaame
+      - name: Build Game
         run: |
           mkdir -v -p build/web
           EXPORT_DIR="$(readlink -f build)"
@@ -45,7 +45,7 @@ jobs:
           godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
 
       - name: Upload Build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact
         with:
           name: Web Build
           path: build/web
