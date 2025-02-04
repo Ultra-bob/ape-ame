@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v2
         name: Checkout Files
 
-      - uses: chickensoft-games/setup-godot@v1
+      - uses: https://github.com/chickensoft-games/setup-godot@v1
         name: Setup Godot
         with:
           version: 4.3-stable
