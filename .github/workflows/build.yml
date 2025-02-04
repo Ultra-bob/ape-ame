@@ -44,7 +44,8 @@ jobs:
         run: |
           echo "https://code.ultrablob.me/ultrablob/godot-export-template-web-only/releases/download/4.3-stable/godot-4.3-web-only.tpz"
           curl -L -o export_templates.zip https://code.ultrablob.me/ultrablob/godot-export-template-web-only/releases/download/4.3-stable/godot-4.3-web-only.tpz
-          unzip export_templates.zip
+          mkdir templates
+          unzip export_templates.zip -d templates
 
       - name: Install Export Templates
         run: |
