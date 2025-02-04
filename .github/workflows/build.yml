@@ -32,10 +32,24 @@ jobs:
       - uses: actions/checkout@v2
         name: Checkout Files
 
-      - uses: https://github.com/chickensoft-games/setup-godot@v2
-        name: Setup Godot
-        with:
-          version: 4.3.0-stable
+      - name: Download Godot
+        run: |
+          echo "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.arm64.zip"
+          curl -L -o godot.zip https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.arm64.zip
+          unzip godot.zip
+          mv Godot_v$GODOT_VERSION-stable_linux.arm64 godot
+          chmod +x godot
+
+      - name: Download Godot Export Templates
+        run: |
+          echo "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_export_templates.tpz"
+          curl -L -o export_templates.zip https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_export_templates.tpz
+          unzip export_templates.zip
+
+      - name: Install Export Templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
+          mv ./templates/* ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
         
       - name: Build Game
         run: |
