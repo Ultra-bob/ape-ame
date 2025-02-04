@@ -37,8 +37,8 @@ jobs:
           echo "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.arm64.zip"
           curl -L -o godot.zip https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.arm64.zip
           unzip godot.zip
-          mv Godot_v$GODOT_VERSION-stable_linux.arm64 godot
-          chmod +x godot
+          mv Godot_v$GODOT_VERSION-stable_linux.arm64 /usr/bin/godot
+          chmod +x /usr/bin/godot
 
       - name: Download Godot Export Templates
         run: |
@@ -57,7 +57,7 @@ jobs:
           mkdir -v -p build/web
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
+          /usr/bin/godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
 
       - name: Upload Build
         uses: actions/upload-artifact@v4
