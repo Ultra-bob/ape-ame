@@ -13,6 +13,9 @@ func hit(body):
 		if body.has_method("destroy"):
 			body.destroy()
 		else:
+			var explosion = load("res://explosion.tscn").instantiate()
+			$"/root/Node2D".add_child(explosion)
+			explosion.global_position = global_position
 			body.queue_free()
 			
 		queue_free()

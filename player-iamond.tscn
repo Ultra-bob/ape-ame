@@ -183,6 +183,9 @@ height = 42.0
 linear_damp = 2.0
 script = ExtResource("2_5t06e")
 
+[node name="DeathFX" parent="." index="0"]
+bus = &"SFX"
+
 [node name="Sprite" type="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(-17, 0)
 scale = Vector2(2, 2)

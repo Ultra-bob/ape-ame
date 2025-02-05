@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl3178jc8lq1x"]
+[gd_scene load_steps=6 format=3 uid="uid://bl3178jc8lq1x"]
 
 [ext_resource type="PackedScene" uid="uid://d2xigwib6hka4" path="res://quare_ability.tscn" id="1_ttx3n"]
 [ext_resource type="Texture2D" uid="uid://dgd2mofq75e01" path="res://portal-icon.png" id="2_2epev"]
+[ext_resource type="Shader" uid="uid://c2p7rwspwqmr8" path="res://greyscale.tres" id="2_s8u32"]
+[ext_resource type="Texture2D" uid="uid://dux6o222ain2r" path="res://1-Bit Input Prompts Pixel 16/Tiles (White)/prompt_mouse.png" id="4_kefbp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ia5nv"]
+resource_local_to_scene = true
+shader = ExtResource("2_s8u32")
+shader_parameter/strength = null
 
 [node name="Portal" instance=ExtResource("1_ttx3n")]
+material = SubResource("ShaderMaterial_ia5nv")
 texture_under = ExtResource("2_2epev")
+
+[node name="prompt" parent="." index="0"]
+offset_left = -20.0
+offset_top = 3.0
+offset_right = 20.0
+offset_bottom = 43.0
+texture = ExtResource("4_kefbp")

@@ -53,13 +53,13 @@ sprite_frames = SubResource("SpriteFrames_vytjk")
 frame_progress = 0.838782
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shield"]
-visible = false
 position = Vector2(13, 194)
 polygon = PackedVector2Array(-13, -443, 209, -330, 206, -69, -12, 57, -231, -38, -231, -343)
 
 [node name="PowerDownFX" type="AudioStreamPlayer2D" parent="Shield"]
 stream = ExtResource("5_8ceda")
 pitch_scale = 0.95
+bus = &"SFX"
 
 [node name="Generator" type="StaticBody2D" parent="."]
 

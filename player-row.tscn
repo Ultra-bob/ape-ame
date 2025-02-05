@@ -180,6 +180,9 @@ radius = 19.0263
 [node name="Player" instance=ExtResource("1_r3mct")]
 script = ExtResource("2_ty4ic")
 
+[node name="DeathFX" parent="." index="0"]
+bus = &"SFX"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
 texture_filter = 1
 position = Vector2(-33, 0)
@@ -197,6 +200,8 @@ shape = SubResource("CircleShape2D_caugh")
 
 [node name="QuareFX" type="AudioStreamPlayer2D" parent="." index="3"]
 stream = ExtResource("3_sk1xt")
+bus = &"SFX"
 
 [node name="ExagonFX" type="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource("4_lwgj5")
+bus = &"SFX"

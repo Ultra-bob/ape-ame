@@ -99,6 +99,7 @@ script = ExtResource("3_kffl0")
 bullet = ExtResource("4_tfncc")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

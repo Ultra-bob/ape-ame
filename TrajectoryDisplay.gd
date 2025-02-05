@@ -3,14 +3,14 @@ extends Line2D
 @export var target_shield = false
 
 func _ready():
-	$RayCast2D.target_position = $"..".linear_velocity * 5000
-	$RayCast2D.force_raycast_update()
+	$ShapeCast2D.target_position = $"..".linear_velocity * 1000
+	$ShapeCast2D.force_shapecast_update()
 
 func _physics_process(delta):
 	#global_rotation = $"..".linear_velocity.angle()
-	$RayCast2D.target_position = to_local($"..".linear_velocity * 5000)
-	points[1] = to_local($RayCast2D.get_collision_point())
-	if $RayCast2D.get_collider() != null and ["Player", "Shield" if target_shield else "None"].has($RayCast2D.get_collider().name):
+	$ShapeCast2D.target_position = to_local($"..".linear_velocity * 1000)
+	points[1] = to_local($ShapeCast2D.get_collision_point(0))
+	if $ShapeCast2D.get_collider(0) != null and ["Player", "Shield" if target_shield else "None"].has($ShapeCast2D.get_collider(0).name):
 		visible = true
 	else:
 		visible = false

@@ -14,6 +14,9 @@ func get_scores():
 	$HTTPRequest.request(API_BASE + "/leaderboard")
 	
 func submit_score():
+	if OS.is_debug_build():
+		text = "Debug Build\nLeaderboard Disabled"
+		return
 	var err = config.load("user://settings.cfg")
 	if not (err == OK and config.has_section_key("config", "username")):
 		text = "Error: No Username!\nSet a username in settings to submit scores"

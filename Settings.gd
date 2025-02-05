@@ -11,6 +11,7 @@ func _ready():
 	if has_config:
 		$Menu/Username.text = config.get_value("config", "username")
 		$Menu/MusicVolume.value = config.get_value("config", "music_volume", 1)
+		$"Menu/SFX Volume".value = config.get_value("config", "sfx_volume", 1)
 		$Menu/Controls.selected = 0 if config.get_value("config", "relative_controls") else 1
 		$Menu/Character.selected = CHARACTERS.find(config.get_value("gameplay", "class", "res://player-row.tscn"))
 
@@ -24,6 +25,7 @@ func save():
 	config.set_value("config", "username", $Menu/Username.text)
 	config.set_value("config", "relative_controls", $Menu/Controls.selected == 0)
 	config.set_value("config", "music_volume", $Menu/MusicVolume.value)
+	config.set_value("config", "sfx_volume", $"Menu/SFX Volume".value)
 	
 	config.set_value("gameplay", "class", CHARACTERS[$Menu/Character.selected])
 	
