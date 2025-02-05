@@ -28,7 +28,7 @@ func _process(delta):
 
 	if can_damage:
 		var body = $Laser/RayCast2D.get_collider()
-		if body != null and (body.is_in_group("destructible") or body.name == "Entagon"):
+		if body != null and body.is_in_group("destructible"):
 			if body.has_method("destroy"):
 				body.destroy()
 			else:
@@ -36,7 +36,7 @@ func _process(delta):
 
 func fire_laser():
 	var tween = get_tree().create_tween()
-	speed = 0
+	speed = 250
 	$"../".get_node("%Ability/Laser").start_countup(1)
 	$Body.play("shoot")
 	tween.set_parallel(true)
@@ -46,11 +46,11 @@ func fire_laser():
 	tween.set_parallel(false)
 	tween.tween_callback(set_laser_texture.bind(active_texture))
 	tween.tween_property(self, "can_damage", true, 0)
-	tween.tween_interval(0.2)
+	tween.tween_interval(0.5)
 	tween.tween_property(self, "can_damage", false, 0)
 	tween.tween_callback(set_laser_texture.bind(aiming_texture))
 	tween.set_parallel(true)
-	tween.tween_callback($"../".get_node("%Ability/Laser").start_countdown.bind(0.2))
+	tween.tween_callback($"../".get_node("%Ability/Laser").start_countdown.bind(2))
 	tween.tween_property($Laser, "modulate", Color(Color.WHITE, 0.2), 0.2).set_ease(Tween.EASE_OUT)
 	tween.set_parallel(false)
 	tween.tween_callback(set_laser_texture.bind(idle_texture))

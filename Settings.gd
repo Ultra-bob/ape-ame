@@ -2,7 +2,7 @@ extends Node
 
 var config = ConfigFile.new()
 
-const CHARACTERS = ["res://player-row.tscn", "res://player-apezoid.tscn", "res://player-iamond.tscn"]
+const CHARACTERS = ["res://player-row.tscn", "res://player-ite.tscn", "res://player-iamond.tscn"]
 
 func _ready():
 	var has_config = config.load("user://settings.cfg") == OK

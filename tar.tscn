@@ -467,8 +467,8 @@ animations = [{
 position = Vector2(386, 292)
 gravity_scale = 1.66533e-16
 freeze = true
-max_contacts_reported = 5
 contact_monitor = true
+max_contacts_reported = 5
 linear_damp = 2.0
 script = ExtResource("1_7s3by")
 
