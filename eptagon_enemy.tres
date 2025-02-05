@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="WaveEnemy" load_steps=4 format=3 uid="uid://dd8me0deake37"]
+[gd_resource type="Resource" script_class="WaveEnemy" load_steps=4 format=3 uid="uid://ba01r62bwm6av"]
 
-[ext_resource type="PackedScene" uid="uid://bda763f0fxh5k" path="res://eptagon.tscn" id="1_a0tpa"]
+[ext_resource type="PackedScene" path="res://eptagon.tscn" id="1_a0tpa"]
 [ext_resource type="Script" path="res://wave_enemy.gd" id="1_ueugq"]
 [ext_resource type="SpriteFrames" uid="uid://cfma586cg6lul" path="res://entagon_ortal.tres" id="2_7hbx6"]
 

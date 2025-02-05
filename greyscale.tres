@@ -25,7 +25,6 @@ uniform float strength : hint_range(0, 1);
 void fragment() {
 // Input:3
 	vec4 n_out3p0 = COLOR;
-	float n_out3p1 = n_out3p0.r;
 
 
 	vec3 n_out6p0;
@@ -52,7 +51,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(47.5769, 11.3144)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1780, 340)

@@ -8,6 +8,9 @@ var enemies_previous = false
 var wave_count = start_wave
 
 func _ready():
+	if start_wave != 0:
+		await get_tree().create_timer(5).timeout
+	waves = waves.slice(start_wave)
 	spawn_loop()
 	
 signal all_enemies_perished
@@ -20,7 +23,7 @@ func check_enemies_loop():
 	enemies_previous = has_enemies
 
 func spawn_loop():
-	for wave in waves.slice(start_wave):
+	for wave in waves:
 		wave_count += 1
 		wave_label.text = "Wave %d" % wave_count
 		print("Starting Next Wave")
@@ -61,6 +64,7 @@ func spawn(item: WaveEnemy):
 			break
 			
 	if spawn_loc == Vector2.ZERO:
+		print("Error! Failed to spawn enemy")
 		return
 	
 	if not item.boss:
