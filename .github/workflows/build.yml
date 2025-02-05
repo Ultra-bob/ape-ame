@@ -23,31 +23,47 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    environment: ci
+    runs-on: docker
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-      - name: export game
-        id: export
-        # Use latest version (see releases for all versions)
-        uses: firebelley/godot-export@v6.0.0
+        name: Checkout Files
+
+      - name: Download Godot
+        run: |
+          echo "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.arm64.zip"
+          curl -L -o godot.zip https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.arm64.zip
+          unzip godot.zip
+          mv Godot_v$GODOT_VERSION-stable_linux.arm64 /usr/bin/godot
+          chmod +x /usr/bin/godot
+
+      - name: Download Godot Export Templates
+        run: |
+          echo "https://code.ultrablob.me/ultrablob/godot-export-template-web-only/releases/download/4.3-stable/godot-4.3-web-only.tpz"
+          curl -L -o export_templates.zip https://code.ultrablob.me/ultrablob/godot-export-template-web-only/releases/download/4.3-stable/godot-4.3-web-only.tpz
+          mkdir templates
+          unzip export_templates.zip -d templates
+
+      - name: Install Export Templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
+          mv ./templates/* ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
+        
+      - name: Build Game
+        run: |
+          mkdir -v -p build/web
+          EXPORT_DIR="$(readlink -f build)"
+          cd $GITHUB_WORKSPACE
+          /usr/bin/godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
+
+      - name: Upload Build
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
-            godot_executable_download_url: https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_BUILD }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_BUILD }}_linux.x86_64.zip
-            godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_BUILD }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_BUILD }}_export_templates.tpz
-            relative_project_path: ./
-          
-      - name: Move vercel.json
-        run: cp ${GITHUB_WORKSPACE}/vercel.json ${{ steps.export.outputs.build_directory }}/vercel.json
-      
-      - name: Publish to Vercel
-        uses: amondnet/vercel-action@v20
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          vercel-org-id: ${{ secrets.ORG_ID}}  #Required
-          vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
-          working-directory: ${{ steps.export.outputs.build_directory }}
-          vercel-args: '--prod'
+          name: Web Build
+          path: build/web
+          retention-days: 3
+          overwrite: true
+          compression-level: 0
