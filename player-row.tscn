@@ -207,5 +207,4 @@ stream = ExtResource("4_lwgj5")
 bus = &"SFX"
 
 [node name="ShieldMarker" type="Marker2D" parent="." index="5"]
-position = Vector2(4, 0)
 scale = Vector2(1.5, 1.5)

@@ -1,4 +1,4 @@
-extends PhysicsBody2D
+extends Node2D
 
 #! egregious code
 
@@ -13,7 +13,7 @@ func _ready() -> void:
 	if find_collisionshape():
 		print(find_collisionshape().get_parent().name)
 		find_collisionshape().set_deferred("disabled", true)
-	#$Collider.set_deferred("disabled", false)
+	$Collider.set_deferred("disabled", false)
 
 func destroy():
 	if find_collisionshape():

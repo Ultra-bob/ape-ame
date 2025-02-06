@@ -16,7 +16,7 @@ func shoot():
 	
 	$Turret.target = find_target()
 	
-	$ShootTimer.start(1)
+	#$ShootTimer.start(1)
 	
 
 func find_target():

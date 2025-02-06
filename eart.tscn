@@ -140,7 +140,6 @@ radius = 44.1475
 script = ExtResource("1_xkxbf")
 
 [node name="ShootTimer" type="Timer" parent="."]
-one_shot = true
 autostart = true
 
 [node name="Turret" type="Node2D" parent="."]
