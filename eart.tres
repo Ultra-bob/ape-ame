@@ -9,4 +9,4 @@ script = ExtResource("1_0iu7m")
 enemy = ExtResource("1_hy2xe")
 boss = false
 portal_texture = ExtResource("2_nxpif")
-check_distance = 100
+check_distance = 150

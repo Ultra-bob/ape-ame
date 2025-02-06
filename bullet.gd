@@ -21,6 +21,7 @@ func hit(body):
 		queue_free()
 	else:
 		bounces += 1
+		$Sprite2D.play("depleted")
 		#print(bounces)
 
 	if bounces >= 2:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://bmd4m7lqj4v0x"]
+[gd_scene load_steps=120 format=3 uid="uid://bmd4m7lqj4v0x"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3dydx"]
 [ext_resource type="Script" path="res://Spawner.gd" id="1_ifu8g"]
@@ -129,10 +129,34 @@ wait_for_killed = true
 
 [sub_resource type="Resource" id="Resource_2j32b"]
 script = ExtResource("4_um0x7")
-enemies = Array[ExtResource("7_54h7d")]([ExtResource("5_xdrk0"), ExtResource("9_q67ak")])
-quantities = Array[int]([2, 2])
+enemies = Array[ExtResource("7_54h7d")]([ExtResource("5_xdrk0"), ExtResource("9_q67ak"), ExtResource("10_jib8h")])
+quantities = Array[int]([2, 2, 1])
 spawning_duration = 10.0
 wait = 3.0
+wait_for_killed = true
+
+[sub_resource type="Resource" id="Resource_viqo8"]
+script = ExtResource("4_um0x7")
+enemies = Array[ExtResource("7_54h7d")]([ExtResource("5_xdrk0"), ExtResource("9_q67ak"), ExtResource("10_jib8h")])
+quantities = Array[int]([15, 3, 4])
+spawning_duration = 30.0
+wait = 10.0
+wait_for_killed = true
+
+[sub_resource type="Resource" id="Resource_o3j5s"]
+script = ExtResource("4_um0x7")
+enemies = Array[ExtResource("7_54h7d")]([ExtResource("5_e24vf"), ExtResource("3_xmk5u"), ExtResource("10_jib8h")])
+quantities = Array[int]([5, 5, 3])
+spawning_duration = 20.0
+wait = 5.0
+wait_for_killed = true
+
+[sub_resource type="Resource" id="Resource_cygv1"]
+script = ExtResource("4_um0x7")
+enemies = Array[ExtResource("7_54h7d")]([ExtResource("5_e24vf"), ExtResource("10_jib8h"), ExtResource("3_xmk5u"), ExtResource("5_xdrk0"), ExtResource("9_q67ak")])
+quantities = Array[int]([5, 5, 10, 15, 5])
+spawning_duration = 30.0
+wait = 1.0
 wait_for_killed = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7w8g6"]
@@ -668,8 +692,9 @@ script = ExtResource("1_3dydx")
 
 [node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("wave_label")]
 script = ExtResource("1_ifu8g")
-waves = Array[ExtResource("4_um0x7")]([SubResource("Resource_ur7l5"), SubResource("Resource_kupyp"), SubResource("Resource_o8cet"), SubResource("Resource_0cevq"), SubResource("Resource_eppj0"), SubResource("Resource_rpu1y"), SubResource("Resource_4b1vo"), SubResource("Resource_gg7kj"), SubResource("Resource_fjkob"), SubResource("Resource_5sdy5"), SubResource("Resource_61v84"), SubResource("Resource_82qld"), SubResource("Resource_2j32b")])
+waves = Array[ExtResource("4_um0x7")]([SubResource("Resource_ur7l5"), SubResource("Resource_kupyp"), SubResource("Resource_o8cet"), SubResource("Resource_0cevq"), SubResource("Resource_eppj0"), SubResource("Resource_rpu1y"), SubResource("Resource_4b1vo"), SubResource("Resource_gg7kj"), SubResource("Resource_fjkob"), SubResource("Resource_5sdy5"), SubResource("Resource_61v84"), SubResource("Resource_82qld"), SubResource("Resource_2j32b"), SubResource("Resource_viqo8"), SubResource("Resource_o3j5s"), SubResource("Resource_cygv1")])
 wave_label = NodePath("../UI/Wave Count")
+start_wave = 15
 
 [node name="Timer" type="Timer" parent="Spawner"]
 wait_time = 0.1

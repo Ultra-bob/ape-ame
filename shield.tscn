@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c3s8as813frjc"]
 
-[ext_resource type="Script" path="res://shield.gd" id="1_ni0ln"]
+[ext_resource type="Script" path="res://shield.gd" id="1_v4v4e"]
 [ext_resource type="Texture2D" uid="uid://cc3nl13t7c4mj" path="res://eart-shield.png" id="2_2bt8h"]
 [ext_resource type="Texture2D" uid="uid://dysewmpj8nvgx" path="res://eart-shield-break.png" id="3_1tta6"]
 
@@ -113,7 +113,7 @@ radius = 25.1794
 
 [node name="Shield" type="StaticBody2D" groups=["destructible"]]
 scale = Vector2(3.5, 3.5)
-script = ExtResource("1_ni0ln")
+script = ExtResource("1_v4v4e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gcmwu")

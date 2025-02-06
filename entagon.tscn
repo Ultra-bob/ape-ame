@@ -100,4 +100,7 @@ target_shield = true
 shape = SubResource("CircleShape2D_eo18f")
 target_position = Vector2(2.08165e-12, 500)
 
+[node name="ShieldMarker" type="Marker2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
 [connection signal="body_entered" from="." to="." method="hit"]

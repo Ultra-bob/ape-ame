@@ -20,11 +20,11 @@ region = Rect2(0, 0, 40, 40)
 atlas = ExtResource("2_unua3")
 region = Rect2(40, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u3ov1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7c0a"]
 atlas = ExtResource("2_unua3")
 region = Rect2(80, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ia1sw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq6kd"]
 atlas = ExtResource("2_unua3")
 region = Rect2(120, 0, 40, 40)
 
@@ -36,16 +36,21 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ldqff")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u3ov1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ia1sw")
 }],
 "loop": true,
 "name": &"default",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7c0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq6kd")
+}],
+"loop": true,
+"name": &"depleted",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_13gk7"]
@@ -70,7 +75,10 @@ position = Vector2(-0.0234375, -0.00781251)
 rotation = 1.5708
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pacu6")
+animation = &"depleted"
 autoplay = "default"
+frame = 1
+frame_progress = 0.323082
 offset = Vector2(7.05637, 10.7826)
 
 [node name="TrajectoryDisplay" type="Line2D" parent="."]

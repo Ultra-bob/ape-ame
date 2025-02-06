@@ -8,7 +8,7 @@ func hit(body):
 			body.destroy()
 		else:
 			body.queue_free()
-			spawn_explosion()
+		spawn_explosion()
 		queue_free()
 	if body.name == "Border":
 		queue_free()

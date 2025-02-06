@@ -56,7 +56,7 @@ func spawn(item: WaveEnemy):
 		print("Spawning Boss!")
 		spawn_loc = Vector2(1920/2, 1080/2)
 	else:
-		for i in range(100):
+		for i in range(1000):
 			var test_pos = Vector2(randf(), randf()) * Vector2(1920, 1080)
 			if not $"../CollisionCheck".is_clear(test_pos, item.check_distance):
 				continue

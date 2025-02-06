@@ -64,4 +64,7 @@ bullet = ExtResource("4_cyd7j")
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_03ifk")
 
+[node name="ShieldMarker" type="Marker2D" parent="."]
+scale = Vector2(2, 2)
+
 [connection signal="animation_looped" from="Turret/AnimatedSprite2D" to="Turret/Gun" method="shoot"]
