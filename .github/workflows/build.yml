@@ -16,7 +16,8 @@ on:
 env:
   GODOT_VERSION: "4.3"
   GODOT_BUILD: "stable"
-  BUILD_TYPE: "{{ env.GITHUB_EVENT_NAME == "push" && "release" || "debug" }}"
+  BUILD_TYPE: >
+    {{ env.GITHUB_EVENT_NAME == "push" && "release" || "debug" }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
