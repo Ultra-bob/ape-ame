@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
 # Controls when the action will run. 
@@ -16,8 +14,6 @@ on:
 env:
   GODOT_VERSION: "4.3"
   GODOT_BUILD: "stable"
-  BUILD_TYPE: >
-    {{ env.GITHUB_EVENT_NAME == "push" && "release" || "debug" }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,6 +25,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
+      - name: Build Release
+        if: env.GITHUB_EVENT_NAME == "push"
+        run: echo "BUILD_TYPE=release" >> $GITHUB_ENV
+
+      - name: Build Debug/Beta
+        if: env.GITHUB_EVENT_NAME == "pull_request"
+        run: echo "BUILD_TYPE=debug" >> $GITHUB_ENV
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -63,9 +67,14 @@ jobs:
 
       - name: Upload Build
         uses: https://code.forgejo.org/forgejo/upload-artifact@v4
+        id: upload-build
         with:
           name: Web Build
           path: build/web
           retention-days: 3
           overwrite: true
           compression-level: 0
+
+      - name: "Trigger Deployment"
+        run: curl "http://webhookd:8080/deploy_game?ID=${{ steps.upload-build.outputs.artifact-id }}"
+        if: env.GITHUB_EVENT_NAME == "push"
