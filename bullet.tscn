@@ -55,8 +55,8 @@ radius = 30.0
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_xnhwp")
 gravity_scale = 1.66533e-16
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 linear_velocity = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_3q13i")
 

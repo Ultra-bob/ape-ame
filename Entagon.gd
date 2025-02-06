@@ -21,4 +21,4 @@ func spawn_explosion():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	apply_central_force((global_position - (player.global_position + player.linear_velocity * 3)).normalized() * -1200)
+	apply_central_force((global_position - player.global_position).normalized() * -1400)

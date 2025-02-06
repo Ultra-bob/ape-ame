@@ -46,7 +46,7 @@ func fire_laser():
 	tween.set_parallel(false)
 	tween.tween_callback(set_laser_texture.bind(active_texture))
 	tween.tween_property(self, "can_damage", true, 0)
-	tween.tween_interval(0.5)
+	tween.tween_interval(0.25)
 	tween.tween_property(self, "can_damage", false, 0)
 	tween.tween_callback(set_laser_texture.bind(aiming_texture))
 	tween.set_parallel(true)
