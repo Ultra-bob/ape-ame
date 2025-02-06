@@ -3,6 +3,10 @@ var config = ConfigFile.new()
 
 # Called when the node enters the scene tree for the first time.
 func _init():
+	
+	if OS.is_debug_build():
+		Engine.set_time_scale(0.25)
+	
 	if config.load("user://settings.cfg") == OK:
 		var player = load(config.get_value("gameplay", "class", "res://player-row.tscn")).instantiate()
 		player.position = Vector2(1920/2, 1080/2)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WaveEnemy" load_steps=4 format=3 uid="uid://c805aej5v7cvr"]
+
+[ext_resource type="Script" path="res://wave_enemy.gd" id="1_0iu7m"]
+[ext_resource type="PackedScene" uid="uid://cjvg8kxt7u5yk" path="res://eart.tscn" id="1_hy2xe"]
+[ext_resource type="SpriteFrames" uid="uid://dh2kuw87g8lsx" path="res://ircle_portal.tres" id="2_nxpif"]
+
+[resource]
+script = ExtResource("1_0iu7m")
+enemy = ExtResource("1_hy2xe")
+boss = false
+portal_texture = ExtResource("2_nxpif")
+check_distance = 100
