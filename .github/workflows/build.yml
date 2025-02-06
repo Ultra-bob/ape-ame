@@ -16,6 +16,7 @@ on:
 env:
   GODOT_VERSION: "4.3"
   GODOT_BUILD: "stable"
+  BUILD_TYPE: "{{ env.GITHUB_EVENT_NAME == "push" && "release" || "debug" }}"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -57,7 +58,7 @@ jobs:
           mkdir -v -p build/web
           EXPORT_DIR="$(readlink -f build)"
           cd $GITHUB_WORKSPACE
-          /usr/bin/godot --headless --verbose --export-${{ env.GITHUB_EVENT_NAME == "push" && "release" || "debug" }} "Web" "$EXPORT_DIR/web/index.html"
+          /usr/bin/godot --headless --verbose --export-$BUILD_TYPE "Web" "$EXPORT_DIR/web/index.html"
 
       - name: Upload Build
         uses: https://code.forgejo.org/forgejo/upload-artifact@v4
