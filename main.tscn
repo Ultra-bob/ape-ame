@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://wave_enemy.gd" id="7_54h7d"]
 [ext_resource type="Texture2D" uid="uid://cwquv3mq5kk1d" path="res://countdown-spritesheet.png" id="8_e1eub"]
 [ext_resource type="Resource" uid="uid://ba01r62bwm6av" path="res://eptagon_enemy.tres" id="9_q67ak"]
-[ext_resource type="Resource" path="res://eart.tres" id="10_jib8h"]
+[ext_resource type="Resource" uid="uid://c805aej5v7cvr" path="res://eart.tres" id="10_jib8h"]
 [ext_resource type="AudioStream" uid="uid://dn65uapn0wsok" path="res://impactMetal_002.ogg" id="11_acuni"]
 [ext_resource type="Script" path="res://CollisionCheck.gd" id="11_ryeyk"]
 [ext_resource type="FontFile" uid="uid://bnguin7bsyx6e" path="res://Kenney Future.ttf" id="11_s4q6p"]
@@ -670,7 +670,6 @@ script = ExtResource("1_3dydx")
 script = ExtResource("1_ifu8g")
 waves = Array[ExtResource("4_um0x7")]([SubResource("Resource_ur7l5"), SubResource("Resource_kupyp"), SubResource("Resource_o8cet"), SubResource("Resource_0cevq"), SubResource("Resource_eppj0"), SubResource("Resource_rpu1y"), SubResource("Resource_4b1vo"), SubResource("Resource_gg7kj"), SubResource("Resource_fjkob"), SubResource("Resource_5sdy5"), SubResource("Resource_61v84"), SubResource("Resource_82qld"), SubResource("Resource_2j32b")])
 wave_label = NodePath("../UI/Wave Count")
-start_wave = 3
 
 [node name="Timer" type="Timer" parent="Spawner"]
 wait_time = 0.1
