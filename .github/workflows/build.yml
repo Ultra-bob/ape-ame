@@ -27,11 +27,11 @@ jobs:
     steps:
 
       - name: Build Release
-        if: env.GITHUB_EVENT_NAME == "push"
+        if: env.GITHUB_EVENT_NAME == 'push'
         run: echo "BUILD_TYPE=release" >> $GITHUB_ENV
 
       - name: Build Debug/Beta
-        if: env.GITHUB_EVENT_NAME == "pull_request"
+        if: env.GITHUB_EVENT_NAME == 'pull_request'
         run: echo "BUILD_TYPE=debug" >> $GITHUB_ENV
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -63,7 +63,7 @@ jobs:
           mkdir -v -p build/web
           EXPORT_DIR="$(readlink -f build)"
           cd $GITHUB_WORKSPACE
-          /usr/bin/godot --headless --verbose --export-$BUILD_TYPE "Web" "$EXPORT_DIR/web/index.html"
+          /usr/bin/godot --headless --verbose --export-${{ env.BUILD_TYPE }} "Web" "$EXPORT_DIR/web/index.html"
 
       - name: Upload Build
         uses: https://code.forgejo.org/forgejo/upload-artifact@v4
@@ -74,7 +74,3 @@ jobs:
           retention-days: 3
           overwrite: true
           compression-level: 0
-
-      - name: "Trigger Deployment"
-        run: curl "http://webhookd:8080/deploy_game?ID=${{ steps.upload-build.outputs.artifact-id }}"
-        if: env.GITHUB_EVENT_NAME == "push"
