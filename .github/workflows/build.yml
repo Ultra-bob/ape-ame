@@ -57,7 +57,7 @@ jobs:
           mkdir -v -p build/web
           EXPORT_DIR="$(readlink -f build)"
           cd $GITHUB_WORKSPACE
-          /usr/bin/godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
+          /usr/bin/godot --headless --verbose --export-${{ env.GITHUB_EVENT_NAME == "pull" && "release" || "debug" }} "Web" "$EXPORT_DIR/web/index.html"
 
       - name: Upload Build
         uses: https://code.forgejo.org/forgejo/upload-artifact@v4
