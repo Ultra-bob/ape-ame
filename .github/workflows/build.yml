@@ -74,7 +74,3 @@ jobs:
           retention-days: 3
           overwrite: true
           compression-level: 0
-
-      - name: "Trigger Deployment"
-        run: curl "http://webhookd:8080/deploy_game?ID=${{ steps.upload-build.outputs.artifact-id }}"
-        if: env.GITHUB_EVENT_NAME == "push"
