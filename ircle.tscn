@@ -155,5 +155,8 @@ shape = SubResource("CircleShape2D_yns8h")
 [node name="LaserFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_tkxjf")
 
+[node name="ShieldMarker" type="Marker2D" parent="."]
+scale = Vector2(6, 6)
+
 [connection signal="timeout" from="Line2D/VisibleTimer" to="Line2D" method="set_transparent"]
 [connection signal="timeout" from="Timer" to="." method="fire_laser"]

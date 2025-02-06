@@ -24,14 +24,14 @@ func _input(event):
 		if num_quares >= max_quares:
 			notifier.notify("All Quares in Use!")
 			return
-		for child in $"../".get_node("%Ability").get_children():
-			if child.value == 0 and not child.animating:
-				child.value = 100
-				break
 		if not $"../CollisionCheck".is_clear(get_global_mouse_position(), 60):
 			$"../CollisionCheck".flash()
 			notifier.notify("Too Close!")
 			return
+		for child in $"../".get_node("%Ability").get_children():
+			if child.value == 0 and not child.animating:
+				child.value = 100
+				
 		num_quares += 1
 		var new_quare = quare.instantiate()
 		new_quare.position = get_global_mouse_position()

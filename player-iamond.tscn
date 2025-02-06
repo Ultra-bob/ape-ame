@@ -205,3 +205,5 @@ color_ramp = SubResource("Gradient_urfxb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_bf2qx")
+
+[node name="ShieldMarker" type="Marker2D" parent="." index="4"]

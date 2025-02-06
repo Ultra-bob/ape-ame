@@ -9,7 +9,7 @@ var wave_count = start_wave
 
 func _ready():
 	if start_wave != 0:
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(2).timeout
 	waves = waves.slice(start_wave)
 	spawn_loop()
 	

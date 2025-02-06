@@ -27,10 +27,10 @@ func _physics_process(delta):
 		return
 	var move_input = Input.get_axis("down", "up")
 	var side_input = Input.get_axis("right", "left")
-	if move_input > 0 and not moving:
+	if move_input != 0 or side_input != 0:
 		moving = true
 		update_animation()
-	elif move_input <= 0 and moving:
+	else:
 		moving = false
 		update_animation()
 	
@@ -40,6 +40,9 @@ func _physics_process(delta):
 		apply_central_force(transform.y * side_input * speed / -2 + transform.x * move_input * speed * linear_damp)
 
 func destroy():
+	if has_node("Shield"):
+		$Shield.destroy()
+		return
 	$DeathFX.play()
 	get_tree().paused = true
 	$"../GameOver".visible = true
