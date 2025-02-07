@@ -10,7 +10,7 @@ func _ready():
 		absolute_movement = not config.get_value("config", "relative_controls")
 
 func _input(event):
-	if event.is_action_pressed("jump") and can_jump:
+	if event.is_action_pressed("primary_fire") and can_jump:
 		can_jump = false
 		$"../".get_node("%Ability/Portal").start_countup(0.5)
 		$Sprite.speed_scale = 1

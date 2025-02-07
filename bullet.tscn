@@ -56,7 +56,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_13gk7"]
 radius = 30.0
 
-[node name="Bullet" type="RigidBody2D" groups=["bullet"]]
+[node name="Bullet" type="RigidBody2D" groups=["bullet", "destructible"]]
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_xnhwp")
 gravity_scale = 1.66533e-16

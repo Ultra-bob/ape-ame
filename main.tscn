@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://bmd4m7lqj4v0x"]
+[gd_scene load_steps=121 format=3 uid="uid://bmd4m7lqj4v0x"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3dydx"]
 [ext_resource type="Script" path="res://Spawner.gd" id="1_ifu8g"]
@@ -12,15 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://yvrhlh04k8w1" path="res://background space.png" id="6_yg4g1"]
 [ext_resource type="Script" path="res://wave_enemy.gd" id="7_54h7d"]
 [ext_resource type="Texture2D" uid="uid://cwquv3mq5kk1d" path="res://countdown-spritesheet.png" id="8_e1eub"]
-[ext_resource type="Resource" uid="uid://dd8me0deake37" path="res://eptagon_enemy.tres" id="9_q67ak"]
+[ext_resource type="Resource" uid="uid://ba01r62bwm6av" path="res://eptagon_enemy.tres" id="9_q67ak"]
 [ext_resource type="Resource" uid="uid://c805aej5v7cvr" path="res://eart.tres" id="10_jib8h"]
 [ext_resource type="AudioStream" uid="uid://dn65uapn0wsok" path="res://impactMetal_002.ogg" id="11_acuni"]
 [ext_resource type="Script" path="res://CollisionCheck.gd" id="11_ryeyk"]
 [ext_resource type="FontFile" uid="uid://bnguin7bsyx6e" path="res://Kenney Future.ttf" id="11_s4q6p"]
-[ext_resource type="Texture2D" uid="uid://bvpoajwx0yw3y" path="res://Circle.png" id="13_318fy"]
+[ext_resource type="Texture2D" uid="uid://cso5ufbf7u7oj" path="res://Circle.png" id="13_318fy"]
 [ext_resource type="Script" path="res://Notification.gd" id="13_lkv81"]
 [ext_resource type="Script" path="res://Stopwatch.gd" id="13_xhnp2"]
 [ext_resource type="Script" path="res://Leaderboard.gd" id="14_v1elq"]
+[ext_resource type="Script" path="res://pause_game.gd" id="16_bto6x"]
 [ext_resource type="FontFile" uid="uid://bpcp43g74vhgo" path="res://monogram-extended.ttf" id="16_s4rjt"]
 [ext_resource type="PackedScene" uid="uid://4sdwatj6up8i" path="res://tar.tscn" id="19_8258f"]
 [ext_resource type="AudioStream" uid="uid://b8soxqg0jquqg" path="res://Flow State 2.ogg" id="21_7hdkm"]
@@ -758,6 +759,35 @@ shape = SubResource("WorldBoundaryShape2D_rmvst")
 position = Vector2(1920, 540)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_rmvst")
+
+[node name="PauseButton" type="ColorRect" parent="."]
+process_mode = 3
+visible = false
+z_index = 1000
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.466667)
+script = ExtResource("16_bto6x")
+
+[node name="Label" type="Label" parent="PauseButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_s4q6p")
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="UI" type="Control" parent="."]
 z_index = 10

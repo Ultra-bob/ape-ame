@@ -21,7 +21,7 @@ func update_animation():
 		$Engine.play("idle")
 
 func _input(event):
-	if event.is_action_pressed("shoot") and speed != 0:
+	if event.is_action_pressed("primary_fire") and speed != 0:
 		fire_laser()
 
 func _process(delta):

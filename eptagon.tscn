@@ -1,39 +1,60 @@
-[gd_scene load_steps=12 format=3 uid="uid://bda763f0fxh5k"]
+[gd_scene load_steps=15 format=3 uid="uid://bda763f0fxh5k"]
 
 [ext_resource type="Script" path="res://eptagon.gd" id="1_d0pdl"]
-[ext_resource type="Texture2D" uid="uid://d4f0f3ggnd3rl" path="res://eptagon.png" id="1_kwkxh"]
 [ext_resource type="Script" path="res://Turret.gd" id="2_6tkha"]
+[ext_resource type="Texture2D" uid="uid://ccbd4o2iasbun" path="res://eptagon base.png" id="2_ook2g"]
 [ext_resource type="Script" path="res://Gun.gd" id="2_sea5o"]
-[ext_resource type="Texture2D" uid="uid://d1wxsdwad10p6" path="res://eptagon-turret.png" id="3_jhgw8"]
 [ext_resource type="PackedScene" uid="uid://c6ybtahxwpukd" path="res://bullet.tscn" id="4_cyd7j"]
+[ext_resource type="Texture2D" uid="uid://da478jrss0ira" path="res://eptagon shoot.png" id="4_unb6p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1fcnk"]
-atlas = ExtResource("3_jhgw8")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynjjr"]
+atlas = ExtResource("4_unb6p")
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhi7e"]
-atlas = ExtResource("3_jhgw8")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lu72"]
+atlas = ExtResource("4_unb6p")
+region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lo0cp"]
-atlas = ExtResource("3_jhgw8")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6mfs"]
+atlas = ExtResource("4_unb6p")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3rpy"]
+atlas = ExtResource("4_unb6p")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lb8x"]
+atlas = ExtResource("4_unb6p")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkh2l"]
+atlas = ExtResource("4_unb6p")
+region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1fj5a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1fcnk")
+"texture": SubResource("AtlasTexture_ynjjr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hhi7e")
+"texture": SubResource("AtlasTexture_7lu72")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lo0cp")
+"texture": SubResource("AtlasTexture_i6mfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3rpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lb8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkh2l")
 }],
 "loop": true,
 "name": &"default",
-"speed": 3.0
+"speed": 7.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03ifk"]
@@ -43,18 +64,18 @@ radius = 36.0139
 script = ExtResource("1_d0pdl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
-texture = ExtResource("1_kwkxh")
+position = Vector2(1, 5)
+texture = ExtResource("2_ook2g")
 
 [node name="Turret" type="Node2D" parent="."]
 script = ExtResource("2_6tkha")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Turret"]
-position = Vector2(14, 0)
+position = Vector2(5, 0)
 rotation = -1.5708
-scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1fj5a")
 autoplay = "default"
+frame_progress = 0.726849
 
 [node name="Gun" type="Marker2D" parent="Turret"]
 position = Vector2(56, 0)

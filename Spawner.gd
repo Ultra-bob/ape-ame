@@ -45,6 +45,8 @@ func spawn_loop():
 func spawn_enemies(count: int, duration: float, enemy: WaveEnemy):
 	var delay = duration / count
 	for i in range(count):
+		if get_tree().paused:
+			await get_parent().unpaused
 		spawn(enemy)
 		await get_tree().create_timer(delay).timeout
 

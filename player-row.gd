@@ -20,7 +20,7 @@ func _ready():
 		absolute_movement = not config.get_value("config", "relative_controls")
 
 func _input(event):
-	if event.is_action_pressed("quare"):
+	if event.is_action_pressed("primary_fire"):
 		if num_quares >= max_quares:
 			notifier.notify("All Quares in Use!")
 			return
@@ -37,7 +37,7 @@ func _input(event):
 		new_quare.position = get_global_mouse_position()
 		$/root/Node2D.add_child(new_quare)
 		new_quare.name = "Quare"
-	if event.is_action_pressed("exagon"):
+	if event.is_action_pressed("secondary_fire"):
 		if exagons > 1:
 			exagons = 1
 		if exagons <= 0:
