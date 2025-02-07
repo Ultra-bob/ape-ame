@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://d2qpcmkfsm7u4"]
+
+[ext_resource type="PackedScene" uid="uid://bmd4m7lqj4v0x" path="res://main.tscn" id="1_vbure"]
+[ext_resource type="Script" path="res://wave.gd" id="2_ptga6"]
+[ext_resource type="Script" path="res://wave_enemy.gd" id="3_0n5nc"]
+[ext_resource type="Resource" uid="uid://du12lm5aq7g7f" path="res://ircle_enemy.tres" id="4_le7cn"]
+[ext_resource type="Resource" uid="uid://3gxjbodh4fwe" path="res://riangle_enemy.tres" id="5_6ndf3"]
+[ext_resource type="Resource" uid="uid://824inmsxuois" path="res://entagon_enemy.tres" id="6_yvkbu"]
+
+[sub_resource type="Resource" id="Resource_ur7l5"]
+script = ExtResource("2_ptga6")
+enemies = Array[ExtResource("3_0n5nc")]([ExtResource("4_le7cn")])
+quantities = Array[int]([1])
+spawning_duration = 1.0
+wait = 1.0
+wait_for_killed = true
+
+[sub_resource type="Resource" id="Resource_kupyp"]
+script = ExtResource("2_ptga6")
+enemies = Array[ExtResource("3_0n5nc")]([ExtResource("4_le7cn")])
+quantities = Array[int]([7])
+spawning_duration = 25.0
+wait = 3.0
+wait_for_killed = true
+
+[sub_resource type="Resource" id="Resource_o8cet"]
+script = ExtResource("2_ptga6")
+enemies = Array[ExtResource("3_0n5nc")]([ExtResource("5_6ndf3"), ExtResource("4_le7cn")])
+quantities = Array[int]([1, 2])
+spawning_duration = 2.0
+wait = 5.0
+wait_for_killed = true
+
+[sub_resource type="Resource" id="Resource_0cevq"]
+script = ExtResource("2_ptga6")
+enemies = Array[ExtResource("3_0n5nc")]([ExtResource("5_6ndf3")])
+quantities = Array[int]([3])
+spawning_duration = 10.0
+wait = 1.0
+wait_for_killed = true
+
+[sub_resource type="Resource" id="Resource_eppj0"]
+script = ExtResource("2_ptga6")
+enemies = Array[ExtResource("3_0n5nc")]([ExtResource("4_le7cn"), ExtResource("5_6ndf3")])
+quantities = Array[int]([7, 5])
+spawning_duration = 20.0
+wait = 10.0
+wait_for_killed = true
+
+[sub_resource type="Resource" id="Resource_rpu1y"]
+script = ExtResource("2_ptga6")
+enemies = Array[ExtResource("3_0n5nc")]([ExtResource("6_yvkbu")])
+quantities = Array[int]([3])
+spawning_duration = 10.0
+wait = 2.0
+wait_for_killed = true
+
+[node name="Node2D" instance=ExtResource("1_vbure")]
+
+[node name="Spawner" parent="." index="0"]
+waves = Array[ExtResource("2_ptga6")]([SubResource("Resource_ur7l5"), SubResource("Resource_kupyp"), SubResource("Resource_o8cet"), SubResource("Resource_0cevq"), SubResource("Resource_eppj0"), SubResource("Resource_rpu1y")])
+
+[node name="GameOver" parent="." index="6"]
+visible = true
