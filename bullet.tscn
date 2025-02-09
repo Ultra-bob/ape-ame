@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6ybtahxwpukd"]
+[gd_scene load_steps=12 format=3 uid="uid://c6ybtahxwpukd"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_3q13i"]
 [ext_resource type="Texture2D" uid="uid://fgfa8x6icumw" path="res://bullets.png" id="2_unua3"]
@@ -53,9 +53,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_13gk7"]
-radius = 30.0
-
 [node name="Bullet" type="RigidBody2D" groups=["bullet", "destructible"]]
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_xnhwp")
@@ -91,9 +88,5 @@ default_color = Color(0.909804, 0.717647, 0.337255, 0.529412)
 texture = ExtResource("4_h1jno")
 texture_mode = 1
 script = ExtResource("5_0jcwc")
-
-[node name="ShapeCast2D" type="ShapeCast2D" parent="TrajectoryDisplay"]
-shape = SubResource("CircleShape2D_13gk7")
-target_position = Vector2(500, 2.08165e-12)
 
 [connection signal="body_entered" from="." to="." method="hit"]

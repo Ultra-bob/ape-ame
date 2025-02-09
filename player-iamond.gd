@@ -12,14 +12,16 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("primary_fire") and can_jump:
 		can_jump = false
-		$"../".get_node("%Ability/Portal").start_countup(0.5)
+		$"../".get_node("%Ability/Portal").start_countup(1)
 		$Sprite.speed_scale = 1
 		$Sprite.play("jump")
 		await $Sprite.animation_finished
-		$"../".get_node("%Ability/Portal").start_countdown(0.5)
 		global_position = get_global_mouse_position()
 		$Sprite.speed_scale = -1
 		$Sprite.play("jump")
 		await $Sprite.animation_finished
 		$Sprite.play("idle")
+		$"../".get_node("%Ability/Portal").start_countdown(5)
+		await $"../".get_node("%Ability/Portal").done_countdown
 		can_jump = true
+		$AbilityRechargeFX.play()

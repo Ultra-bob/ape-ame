@@ -72,7 +72,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_ybv7t")
 theme_override_font_sizes/font_size = 100
-text = "CONFIG"
+text = "SETTINGS"
 flat = true
 alignment = 0
 
@@ -315,16 +315,16 @@ theme_override_font_sizes/normal_font_size = 200
 bbcode_enabled = true
 text = "[center][wave]LOADING..."
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_rc4r7")
 autoplay = true
 bus = &"Music"
 
 [connection signal="pressed" from="Layout/Play" to="." method="play"]
 [connection signal="pressed" from="Layout/Settings" to="Settings Panel" method="show"]
-[connection signal="pressed" from="Layout/Tutorial" to="Tutorial Text" method="show"]
-[connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="hide"]
+[connection signal="pressed" from="Layout/Tutorial" to="." method="play_tutorial"]
 [connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="save"]
+[connection signal="pressed" from="Settings Panel/Close" to="Settings Panel" method="hide"]
 [connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel" method="check_valid"]
 [connection signal="text_changed" from="Settings Panel/Menu/Username" to="Settings Panel/Menu/Username" method="check"]
 [connection signal="value_changed" from="Settings Panel/Menu/MusicVolume" to="Settings Panel/Menu/MusicVolume" method="_on_value_changed"]

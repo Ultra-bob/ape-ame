@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2qpcmkfsm7u4"]
+[gd_scene load_steps=19 format=3 uid="uid://c8rjblwa4g4h4"]
 
 [ext_resource type="PackedScene" uid="uid://bmd4m7lqj4v0x" path="res://main.tscn" id="1_vbure"]
 [ext_resource type="Script" path="res://wave.gd" id="2_ptga6"]
@@ -6,6 +6,12 @@
 [ext_resource type="Resource" uid="uid://du12lm5aq7g7f" path="res://ircle_enemy.tres" id="4_le7cn"]
 [ext_resource type="Resource" uid="uid://3gxjbodh4fwe" path="res://riangle_enemy.tres" id="5_6ndf3"]
 [ext_resource type="Resource" uid="uid://824inmsxuois" path="res://entagon_enemy.tres" id="6_yvkbu"]
+[ext_resource type="FontFile" uid="uid://bpcp43g74vhgo" path="res://monogram-extended.ttf" id="7_cv2we"]
+[ext_resource type="Texture2D" uid="uid://cqxvhnxgi4k7" path="res://1-Bit Input Prompts Pixel 16/Tiles (White)/prompt_q.png" id="8_ix613"]
+[ext_resource type="Texture2D" uid="uid://bdcjy1fcuq23s" path="res://1-Bit Input Prompts Pixel 16/Tiles (White)/prompt_space.png" id="9_b2ggs"]
+[ext_resource type="Texture2D" uid="uid://dux6o222ain2r" path="res://1-Bit Input Prompts Pixel 16/Tiles (White)/prompt_mouse.png" id="10_tpxnc"]
+[ext_resource type="Texture2D" uid="uid://cb0jbsmewh5ir" path="res://1-Bit Input Prompts Pixel 16/Tiles (White)/prompt_esc.png" id="11_r8uaj"]
+[ext_resource type="Texture2D" uid="uid://b664lyfilq1kw" path="res://1-Bit Input Prompts Pixel 16/Tiles (White)/prompt_r.png" id="12_unp2s"]
 
 [sub_resource type="Resource" id="Resource_ur7l5"]
 script = ExtResource("2_ptga6")
@@ -60,5 +66,77 @@ wait_for_killed = true
 [node name="Spawner" parent="." index="0"]
 waves = Array[ExtResource("2_ptga6")]([SubResource("Resource_ur7l5"), SubResource("Resource_kupyp"), SubResource("Resource_o8cet"), SubResource("Resource_0cevq"), SubResource("Resource_eppj0"), SubResource("Resource_rpu1y")])
 
+[node name="Stopwatch" parent="UI" index="1"]
+text = "Tutorial"
+script = null
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" index="2"]
+modulate = Color(0.716296, 0.716296, 0.716296, 1)
+layout_mode = 2
+offset_left = 624.0
+offset_top = 80.0
+offset_right = 1296.0
+offset_bottom = 144.0
+
+[node name="Label" type="Label" parent="UI/HBoxContainer" index="0"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_cv2we")
+theme_override_font_sizes/font_size = 48
+text = "To use your ability press "
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_ix613")
+
+[node name="TextureRect3" type="TextureRect" parent="UI/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_b2ggs")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/HBoxContainer" index="3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("10_tpxnc")
+
 [node name="GameOver" parent="." index="6"]
-visible = true
+text = "GAME OVER"
+
+[node name="Restart" parent="GameOver" index="0"]
+offset_left = -175.5
+offset_top = -151.0
+offset_right = 619.5
+text = "To leave
+to restart"
+horizontal_alignment = 0
+
+[node name="Leaderboard" parent="GameOver" index="3"]
+theme_override_fonts/normal_font = ExtResource("7_cv2we")
+theme_override_font_sizes/normal_font_size = 100
+text = "
+
+
+[center]Go to config and set a username to start playing!
+"
+script = null
+
+[node name="Leave Prompt" type="TextureRect" parent="GameOver" index="4"]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 926.0
+offset_right = 735.0
+offset_bottom = 966.0
+scale = Vector2(2, 2)
+texture = ExtResource("11_r8uaj")
+
+[node name="Restart Prompt" type="TextureRect" parent="GameOver" index="5"]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 998.0
+offset_right = 736.0
+offset_bottom = 1038.0
+scale = Vector2(2, 2)
+texture = ExtResource("12_unp2s")

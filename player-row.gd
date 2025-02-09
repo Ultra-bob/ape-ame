@@ -37,23 +37,23 @@ func _input(event):
 		new_quare.position = get_global_mouse_position()
 		$/root/Node2D.add_child(new_quare)
 		new_quare.name = "Quare"
-	if event.is_action_pressed("secondary_fire"):
-		if exagons > 1:
-			exagons = 1
-		if exagons <= 0:
-			notifier.notify("No Exagons!")
-			return
-		
-		if not $"../CollisionCheck".is_clear(get_global_mouse_position()):
-			$"../CollisionCheck".flash()
-			notifier.notify("Too Close!")
-			return
-		exagons -= 1
-		var new_exagon = exagon.instantiate()
-		new_exagon.position = get_global_mouse_position()
-		$/root/Node2D.add_child(new_exagon)
-		new_exagon.name = "Exagon"
-		#$Gun.shoot()
+	#if event.is_action_pressed("secondary_fire"):
+		#if exagons > 1:
+			#exagons = 1
+		#if exagons <= 0:
+			#notifier.notify("No Exagons!")
+			#return
+		#
+		#if not $"../CollisionCheck".is_clear(get_global_mouse_position()):
+			#$"../CollisionCheck".flash()
+			#notifier.notify("Too Close!")
+			#return
+		#exagons -= 1
+		#var new_exagon = exagon.instantiate()
+		#new_exagon.position = get_global_mouse_position()
+		#$/root/Node2D.add_child(new_exagon)
+		#new_exagon.name = "Exagon"
+		##$Gun.shoot()
 		
 		
 func aquire_quare():
@@ -63,9 +63,4 @@ func aquire_quare():
 			break
 	await get_tree().create_timer(3).timeout
 	num_quares -= 1
-	$QuareFX.play()
-	
-func aquire_exagon():
-	await get_tree().create_timer(15).timeout
-	exagons += 1
-	$ExagonFX.play()
+	$AbilityRechargeFX.play()

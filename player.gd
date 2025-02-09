@@ -39,6 +39,8 @@ func _physics_process(delta):
 	else:
 		apply_central_force(transform.y * side_input * speed / -2 + transform.x * move_input * speed * linear_damp)
 
+	#queue_redraw()
+
 func destroy():
 	if has_node("Shield"):
 		$Shield.destroy()
@@ -46,3 +48,8 @@ func destroy():
 	$DeathFX.play()
 	get_tree().paused = true
 	$"../GameOver".visible = true
+
+func _draw():
+	if OS.is_debug_build():
+		draw_line(Vector2.ZERO, to_local(global_position + linear_velocity), Color.GREEN, 2, true)
+	

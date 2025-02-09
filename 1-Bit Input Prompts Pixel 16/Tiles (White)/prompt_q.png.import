@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb0jbsmewh5ir"
-path="res://.godot/imported/tile_0289.png-8c9db24bb657563e4fdbf06f15b9a590.ctex"
+uid="uid://cqxvhnxgi4k7"
+path="res://.godot/imported/prompt_q.png-3c3c5b7a9e7231a25d20d6531fb937f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://1-Bit Input Prompts Pixel 16/Tiles (White)/tile_0289.png"
-dest_files=["res://.godot/imported/tile_0289.png-8c9db24bb657563e4fdbf06f15b9a590.ctex"]
+source_file="res://1-Bit Input Prompts Pixel 16/Tiles (White)/prompt_q.png"
+dest_files=["res://.godot/imported/prompt_q.png-3c3c5b7a9e7231a25d20d6531fb937f8.ctex"]
 
 [params]
 

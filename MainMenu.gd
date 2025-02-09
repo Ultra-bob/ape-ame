@@ -1,6 +1,7 @@
 extends Control
 
 const MAIN_SCENE_PATH = "res://main.tscn"
+const TUTORIAL_SCENE_PATH = "res://tutorial.tscn"
 var tip_level = 1
 var config = ConfigFile.new()
 
@@ -40,4 +41,13 @@ func play():
 	$LoadingScreen/Tip.text = "Tip: %s" % tip
 	await get_tree().create_timer(0.8).timeout
 	var game = ResourceLoader.load_threaded_get(MAIN_SCENE_PATH)
+	get_tree().change_scene_to_packed(game)
+	
+func play_tutorial():
+	ResourceLoader.load_threaded_request(TUTORIAL_SCENE_PATH)
+	$"LoadingScreen".show()
+	var tip_options = []
+	$LoadingScreen/Tip.text = "Try different characters and movement settings"
+	await get_tree().create_timer(3).timeout
+	var game = ResourceLoader.load_threaded_get(TUTORIAL_SCENE_PATH)
 	get_tree().change_scene_to_packed(game)

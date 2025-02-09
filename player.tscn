@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgcjicue76wsr"]
+[gd_scene load_steps=4 format=3 uid="uid://cgcjicue76wsr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_p12hv"]
+[ext_resource type="AudioStream" uid="uid://mond5sdmukan" path="res://powerUp7.ogg" id="3_71sa0"]
 [ext_resource type="AudioStream" uid="uid://cuu1qqskoqabg" path="res://Taco_Bell_Bong.ogg" id="3_urvwh"]
 
 [node name="Player" type="RigidBody2D" groups=["destructible"]]
@@ -9,6 +10,10 @@ gravity_scale = 1.66533e-16
 linear_damp = 1.0
 script = ExtResource("1_p12hv")
 
-[node name="DeathFX" type="AudioStreamPlayer2D" parent="."]
+[node name="DeathFX" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("3_urvwh")
+
+[node name="AbilityRechargeFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_71sa0")
+bus = &"SFX"
