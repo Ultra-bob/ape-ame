@@ -62,6 +62,8 @@ func spawn(item: WaveEnemy):
 			var test_pos = Vector2(randf(), randf()) * Vector2(1920, 1080)
 			if not $"../CollisionCheck".is_clear(test_pos, item.check_distance):
 				continue
+			if Geometry2D.segment_intersects_circle($"../Player".global_position, $"../Player".global_position + $"../Player".linear_velocity, test_pos, 250) != -1:
+				continue
 			spawn_loc = test_pos
 			break
 			

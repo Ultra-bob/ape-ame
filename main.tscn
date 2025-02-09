@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://bmd4m7lqj4v0x"]
+[gd_scene load_steps=116 format=3 uid="uid://bmd4m7lqj4v0x"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3dydx"]
 [ext_resource type="Script" path="res://Spawner.gd" id="1_ifu8g"]
@@ -32,14 +32,6 @@ enemies = Array[ExtResource("7_54h7d")]([ExtResource("3_xmk5u"), ExtResource("5_
 quantities = Array[int]([7, 5])
 spawning_duration = 20.0
 wait = 10.0
-wait_for_killed = true
-
-[sub_resource type="Resource" id="Resource_rpu1y"]
-script = ExtResource("4_um0x7")
-enemies = Array[ExtResource("7_54h7d")]([ExtResource("5_e24vf")])
-quantities = Array[int]([3])
-spawning_duration = 10.0
-wait = 2.0
 wait_for_killed = true
 
 [sub_resource type="Resource" id="Resource_4b1vo"]
@@ -656,12 +648,11 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
 gradient = SubResource("Gradient_or5lt")
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(-2, -1)
 script = ExtResource("1_3dydx")
 
 [node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("wave_label")]
 script = ExtResource("1_ifu8g")
-waves = Array[ExtResource("4_um0x7")]([SubResource("Resource_eppj0"), SubResource("Resource_rpu1y"), SubResource("Resource_4b1vo"), SubResource("Resource_gg7kj"), SubResource("Resource_fjkob"), SubResource("Resource_5sdy5"), SubResource("Resource_61v84"), SubResource("Resource_82qld"), SubResource("Resource_2j32b"), SubResource("Resource_viqo8"), SubResource("Resource_o3j5s"), SubResource("Resource_cygv1")])
+waves = Array[ExtResource("4_um0x7")]([SubResource("Resource_eppj0"), SubResource("Resource_4b1vo"), SubResource("Resource_gg7kj"), SubResource("Resource_fjkob"), SubResource("Resource_5sdy5"), SubResource("Resource_61v84"), SubResource("Resource_82qld"), SubResource("Resource_2j32b"), SubResource("Resource_viqo8"), SubResource("Resource_o3j5s"), SubResource("Resource_cygv1")])
 wave_label = NodePath("../UI/Wave Count")
 
 [node name="Timer" type="Timer" parent="Spawner"]
