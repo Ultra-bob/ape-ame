@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://1ex46dwbqgdn"]
+[gd_scene load_steps=5 format=3 uid="uid://1ex46dwbqgdn"]
 
 [ext_resource type="PackedScene" uid="uid://d2xigwib6hka4" path="res://quare_ability.tscn" id="1_k107v"]
 [ext_resource type="Shader" uid="uid://c2p7rwspwqmr8" path="res://greyscale.tres" id="2_6nuob"]
 [ext_resource type="Texture2D" uid="uid://dtipytdgtqr88" path="res://laser-icon.png" id="2_wo0et"]
-[ext_resource type="Texture2D" uid="uid://dux6o222ain2r" path="res://1-Bit Input Prompts Pixel 16/Tiles (White)/prompt_mouse.png" id="4_krrm2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hrqqm"]
 resource_local_to_scene = true
@@ -17,10 +16,3 @@ stretch_margin_top = 0
 stretch_margin_right = 0
 stretch_margin_bottom = 0
 texture_under = ExtResource("2_wo0et")
-
-[node name="prompt" parent="." index="0"]
-offset_left = -14.0
-offset_top = 7.0
-offset_right = 26.0
-offset_bottom = 47.0
-texture = ExtResource("4_krrm2")

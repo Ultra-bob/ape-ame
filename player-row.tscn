@@ -1,10 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://bfd8oqdyt6m3g"]
+[gd_scene load_steps=29 format=3 uid="uid://bfd8oqdyt6m3g"]
 
 [ext_resource type="PackedScene" uid="uid://cgcjicue76wsr" path="res://player.tscn" id="1_r3mct"]
 [ext_resource type="Script" path="res://player-row.gd" id="2_ty4ic"]
-[ext_resource type="AudioStream" uid="uid://cbghiy80qmaa0" path="res://powerUp6.ogg" id="3_sk1xt"]
 [ext_resource type="Texture2D" uid="uid://bd0inrlfuocmv" path="res://player_idle.png" id="3_yynte"]
-[ext_resource type="AudioStream" uid="uid://mond5sdmukan" path="res://powerUp7.ogg" id="4_lwgj5"]
 [ext_resource type="Texture2D" uid="uid://uy21l35yd3p5" path="res://player_moving.png" id="4_x5jjw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dffy"]
@@ -198,13 +196,5 @@ speed_scale = 0.75
 position = Vector2(3, 0)
 shape = SubResource("CircleShape2D_caugh")
 
-[node name="QuareFX" type="AudioStreamPlayer2D" parent="." index="3"]
-stream = ExtResource("3_sk1xt")
-bus = &"SFX"
-
-[node name="ExagonFX" type="AudioStreamPlayer2D" parent="." index="4"]
-stream = ExtResource("4_lwgj5")
-bus = &"SFX"
-
-[node name="ShieldMarker" type="Marker2D" parent="." index="5"]
+[node name="ShieldMarker" type="Marker2D" parent="." index="3"]
 scale = Vector2(1.5, 1.5)

@@ -56,6 +56,8 @@ func fire_laser():
 	tween.tween_callback(set_laser_texture.bind(idle_texture))
 	tween.tween_callback($Body.play.bind("idle"))
 	tween.tween_property(self, "speed", 750, 0)
+	await tween.finished
+	$AbilityRechargeFX.play()
 	
 
 	
