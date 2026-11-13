@@ -1,0 +1,7 @@
+.git
+.godot
+.github
+Build
+build
+.DS_Store
+addons/godot-git-plugin
