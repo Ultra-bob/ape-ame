@@ -7,4 +7,6 @@ nginx serves the cross-origin isolation headers needed by the web export and pro
 
 The backend repository is https://code.ultrablob.me/ultrablob/ape-ame-backend. Its application has no public domain. `/api/healthz` checks backend and Redis connectivity; `/api/leaderboard` reads the leaderboard.
 
-After pushing changes, deploy the corresponding application in Coolify. Both applications must use the same Docker network.
+After pushing changes, deploy the corresponding application in Coolify. Both applications must use the same Docker network. Set the backend custom network alias to `qzroc6cve9dtrr2chjihrk3b` so the upstream stays stable across deployments.
+
+The existing Cloudflare tunnel forwards requests to Coolify over HTTP. Keep both HTTP and HTTPS domains configured on the frontend and disable origin-level Force HTTPS to avoid redirect loops; the public site is served over HTTPS by Cloudflare.
